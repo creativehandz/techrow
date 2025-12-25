@@ -29,6 +29,9 @@ const HomePage = () => {
                   <span className="block xl:inline">Welcome to</span>{' '}
                   <span className="block text-indigo-600 xl:inline">TechRow</span>
                 </h1>
+                <p className="mt-2 text-lg text-gray-600 font-medium">
+                  🚀 Deployment Test - Live Server Connected!
+                </p>
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                   Innovative technology solutions that drive your business forward. 
                   We create cutting-edge digital experiences that transform ideas into reality.
