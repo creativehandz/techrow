@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-league {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-quicksand {
+    font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+  }
+}

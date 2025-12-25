@@ -1,8 +1,21 @@
+import './Button.css';
+import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.log('Auto-play was prevented:', error);
+      });
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Navigation */}
-      <nav className="shadow-lg w-full" style={{backgroundColor: '#141414'}}>
+      <nav className="shadow-lg w-full relative z-[100]" style={{backgroundColor: '#141414'}}>
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center" style={{height: '100px'}}>
             <div className="flex items-center">
@@ -11,58 +24,116 @@ const HomePage = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">
-                Menu
+              <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? 'Close' : 'Menu'}
               </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-gradient-to-br from-blue-50 to-indigo-100 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div className="sm:text-center lg:text-left">
-                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                  <span className="block xl:inline">Welcome to</span>{' '}
-                  <span className="block text-indigo-600 xl:inline">TechRow</span>
-                </h1>
-                <p className="mt-2 text-lg text-gray-600 font-medium">
-                  🚀 Deployment Test - Live Server Connected!
-                </p>
-                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  Innovative technology solutions that drive your business forward. 
-                  We create cutting-edge digital experiences that transform ideas into reality.
-                </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-md shadow">
-                    <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10 transition duration-300">
-                      Get Started
-                    </button>
-                  </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10 transition duration-300">
-                      Learn More
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </main>
+      {/* Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed bg-black bg-opacity-95 z-50 flex" style={{top: '100px', left: '0', right: '0', bottom: '0'}}>
+          {/* Left side - Video background (same as hero) */}
+          <div className="w-1/2 relative">
+            <video 
+              className="w-full h-full object-cover"
+              autoPlay 
+              muted 
+              loop
+              playsInline
+            >
+              <source src="/media/videos/hero/celebrating-diverse-talents-together-veed.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+            
+            {/* Hero content on left */}
+            <div className="absolute inset-0 flex items-center justify-center">
+             
+            </div>
+          </div>
+          
+          {/* Right side - Menu items */}
+          <div className="w-full flex items-center justify-center">
+            <div className="text-white text-right space-y-8">
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
+                ENTERPRISE
+              </a>
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
+                MEDIA PARTNERSHIPS
+              </a>
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
+                SPONSORSHIPS
+              </a>
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
+                ABOUT
+              </a>
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
+                CONTACT
+              </a>
+            </div>
           </div>
         </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <div className="h-56 w-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 sm:h-72 md:h-96 lg:w-full lg:h-full flex items-center justify-center">
-            <div className="text-white text-center">
-              <div className="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold">Innovation</h3>
-              <p className="text-lg opacity-90">Driving the future</p>
+      )}
+
+      {/* Hero Section */}
+      <div className="relative overflow-hidden bg-gray-900" style={{height: 'calc(100vh - 100px)'}}>
+        {/* Background Video */}
+        <video 
+          ref={videoRef}
+          className="absolute top-0 left-0 w-full h-full object-cover z-30"
+          autoPlay 
+          muted 
+          loop
+          playsInline
+          preload="auto"
+          controls={false}
+          onLoadedData={() => console.log('Video loaded')}
+          onError={() => console.log('Video error')}
+        >
+          <source src="/media/videos/hero/celebrating-diverse-talents-together-veed.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-10"></div>
+        
+        {/* Hero Content */}
+        <div className="relative z-50 h-full flex flex-col justify-between">
+          {/* Titles - Centered */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="text-center text-white px-4 sm:px-6 lg:px-8">
+              <h2 className="hero-subtitle">
+                Reimagining The
+              </h2>
+              <h1 className="hero-title mb-0">
+                Content & Spaces
+              </h1>
+              <h2 className="hero-subtitle-bottom">
+                That Moves Us
+              </h2>
             </div>
+          </div>
+          
+          {/* Button - Bottom */}
+          <div className="pb-8 flex flex-col items-center space-y-4">
+            <button className="learn-more-button">
+              Learn More
+            </button>
+            <svg 
+              className="w-8 h-8 text-white animate-bounce" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+              />
+            </svg>
           </div>
         </div>
       </div>
