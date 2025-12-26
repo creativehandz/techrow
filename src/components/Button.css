@@ -132,6 +132,53 @@
   border-radius: 4px;
 }
 
+/* Neighborhood Section Text */
+.neighborhood-text {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  
+  font-size: 72px;
+  line-height: 100%;
+  
+  text-transform: uppercase;
+  color: white;
+}
+
+/* Neighborhood Paragraph Text */
+.neighborhood-paragraph {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  
+  font-size: 32px;
+  line-height: 110%;
+  
+  color: white;
+}
+
+/* Video Title Text */
+.video-title {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  
+  font-size: 52px;
+  line-height: 100%;
+  
+  text-transform: uppercase;
+  color: #FFD058;
+
+}
+
+/* Video Description Text */
+.video-description {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 1%;
+  color: white;
+}
+
 /* Menu slide animation */
 @keyframes slideDown {
   0% {
@@ -162,3 +209,182 @@
 .animate-slideUp {
   animation: slideUp 0.5s ease-in-out forwards;
 }
+
+/* Video Slide Animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.video-slide-in-left {
+  animation: slideInLeft 0.5s ease-in-out;
+}
+
+.video-slide-in-right {
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+.video-slide-out-left {
+  animation: slideOutLeft 0.5s ease-in-out;
+}
+
+.video-slide-out-right {
+  animation: slideOutRight 0.5s ease-in-out;
+}
+
+/* Customers and Partners Section Background */
+.customers-partners-bg {
+  position: relative;
+  background: url(/media/images/backgrounds/dots-bg.png) #000000;
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.customers-partners-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* Customers and Partners Title */
+.customers-partners-title {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+ 
+  font-size: 60px;
+  line-height: 100%;
+  
+  text-align: center;
+  text-transform: uppercase;
+  color: #8A40CA;
+  position: relative;
+  z-index: 1;
+}
+
+/* Client Logos Swiper Styling */
+.client-logos-swiper {
+  width: 100%;
+  padding: 20px 0 50px 0;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.client-logos-swiper .swiper-slide {
+  height: auto;
+}
+
+.client-logos-swiper .swiper-button-next,
+.client-logos-swiper .swiper-button-prev {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+}
+
+.client-logos-swiper .swiper-button-next:hover,
+.client-logos-swiper .swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.client-logos-swiper .swiper-button-next::after,
+.client-logos-swiper .swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Footer Title Styling */
+.footer-title {
+  font-family: 'League Spartan';
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 60px;
+  
+  line-height: 100%;
+
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+/* Footer Description Styling */
+.footer-description {
+  font-family: 'League Spartan';
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  color: #FDFDFD;
+  
+
+}
+
+/* Footer Button Styling */
+.footer-button {
+  font-family: 'League Spartan';
+  font-weight: 400;
+  font-size: 32px;
+  background-color: #0F0F0F33;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.footer-button:hover {
+  opacity: 0.8;
+}
+
+/* Footer Background */
+.footer-bg {
+  background: url(/media/images/backgrounds/footer-bg.png) #202372;
+  background-repeat: repeat;
+  background-size: auto;
+}
+

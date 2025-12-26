@@ -1,34 +1,49 @@
 import './Button.css';
 import { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const HomePage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuClosing, setIsMenuClosing] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isSliding, setIsSliding] = useState(false);
+
+  // Client logos data
+  const clientLogos = [
+    { id: 1, src: "/media/images/clients/afi.png", alt: "AFI" },
+    { id: 2, src: "/media/images/clients/baltimore.png", alt: "Baltimore" },
+    { id: 3, src: "/media/images/clients/cartoon-network.png", alt: "Cartoon Network" },
+    { id: 4, src: "/media/images/clients/cnn.png", alt: "CNN" },
+    { id: 5, src: "/media/images/clients/felix.png", alt: "Felix" },
+    { id: 6, src: "/media/images/clients/nassau.png", alt: "Nassau" },
+    { id: 7, src: "/media/images/clients/nyc.png", alt: "NYC" },
+    { id: 8, src: "/media/images/clients/nyt-1.png", alt: "New York Times" },
+    { id: 9, src: "/media/images/clients/peconic.png", alt: "Peconic" },
+    { id: 10, src: "/media/images/clients/suffolk.png", alt: "Suffolk" },
+    { id: 11, src: "/media/images/clients/tribeca.png", alt: "Tribeca" }
+  ];
 
   // Sample video data - you can replace with actual video files
   const sliderVideos = [
     {
       id: 1,
-      src: "/media/videos/demos/demo-video-1.mp4",
+      src: "/media/videos/hero/celebrating-diverse-talents-together-veed.mp4",
       title: "DISTRIBUTION CHANNEL FOR PREMIUM PROGRAMMING",
+      titleColor: "#FFD058",
       description: "Distribute films and series through curated, organization-run streaming destinations beyond traditional consumer platforms.",
-      buttonText: "Become a Media Partner"
+      
     },
     {
       id: 2,
-      src: "/media/videos/demos/demo-video-2.mp4", 
-      title: "CONTENT CREATION & PRODUCTION SERVICES",
-      description: "Professional video production and content creation services for educational institutions and organizations worldwide.",
-      buttonText: "Start Creating"
-    },
-    {
-      id: 3,
-      src: "/media/videos/demos/demo-video-3.mp4",
-      title: "STREAMING TECHNOLOGY SOLUTIONS", 
-      description: "Advanced streaming infrastructure and technology solutions designed for educational and institutional content delivery.",
-      buttonText: "Explore Technology"
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "Why It Works",
+      titleColor: "#7ED321",
+      description: "This isn't just entertainment — it's infrastructure for belonging, pride, and future-ready possibility.",
+      
     }
   ];
 
@@ -42,6 +57,21 @@ const HomePage = () => {
     } else {
       setIsMenuOpen(true);
     }
+  };
+
+  const handleSlideChange = (direction: 'left' | 'right') => {
+    if (isSliding) return; // Prevent multiple clicks during animation
+    
+    setIsSliding(true);
+    
+    setTimeout(() => {
+      if (direction === 'left') {
+        setCurrentSlide(currentSlide === 0 ? sliderVideos.length - 1 : currentSlide - 1);
+      } else {
+        setCurrentSlide(currentSlide === sliderVideos.length - 1 ? 0 : currentSlide + 1);
+      }
+      setIsSliding(false);
+    }, 250); // Half of animation duration
   };
 
   useEffect(() => {
@@ -183,171 +213,183 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Video Slider Section */}
-      <div className="py-16 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Video Slider Container */}
-          <div className="relative">
-            {/* Main Video Display */}
-            <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
-              <video 
-                key={sliderVideos[currentSlide].id}
-                className="w-full h-full object-cover"
-                controls
-                autoPlay
-                muted
-              >
-                <source src={sliderVideos[currentSlide].src} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              
-              {/* Video Overlay Info */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
-                  {/* Left side - Title */}
-                  <div>
-                    <h3 className="text-4xl lg:text-5xl font-bold text-white leading-tight" style={{fontFamily: 'League Spartan'}}>
-                      {sliderVideos[currentSlide].title}
-                    </h3>
-                  </div>
-                  
-                  {/* Right side - Description and Button */}
-                  <div className="space-y-4">
-                    <p className="text-lg text-gray-200 leading-relaxed" style={{fontFamily: 'Quicksand'}}>
-                      {sliderVideos[currentSlide].description}
-                    </p>
-                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition-colors duration-300" style={{fontFamily: 'Quicksand'}}>
-                      {sliderVideos[currentSlide].buttonText}
-                    </button>
-                  </div>
-                </div>
-              </div>
+      {/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+
+      {/* Spiderman Kid Section */}
+      <div className="bg-gray-100 relative">
+        <img 
+          src="/media/images/sections/spiderman-kid.jpg" 
+          alt="Spiderman Kid" 
+          className="w-full h-auto object-cover"
+        />
+        <div className="absolute inset-0" style={{background: 'var(--Background-Black-20, #0F0F0F33)'}}></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container mx-auto relative">
+            <div className="max-w-3/4">
+            <h2 className="neighborhood-text text-left">
+              Neighborhoods come <span style={{color: '#FFD058'}}>alive when entertainment is close</span> to home.
+            </h2>
+            <p className="neighborhood-paragraph text-left mt-6 max-w-[720px]">
+              We transform school and campus spaces into vibrant hubs of joy, creativity, and community.
+            </p>
             </div>
             
-            {/* Navigation Arrows */}
-            <button 
-              onClick={() => setCurrentSlide(currentSlide === 0 ? sliderVideos.length - 1 : currentSlide - 1)}
-              className="absolute left-4 top-4 bg-white/20 hover:bg-white/40 rounded-full p-3 transition-all duration-300"
-            >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <button 
-              onClick={() => setCurrentSlide(currentSlide === sliderVideos.length - 1 ? 0 : currentSlide + 1)}
-              className="absolute right-4 top-4 bg-white/20 hover:bg-white/40 rounded-full p-3 transition-all duration-300"
-            >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-          
-          {/* Slider Dots/Indicators */}
-          <div className="flex justify-center mt-8 space-x-3">
-            {sliderVideos.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? 'bg-purple-500' : 'bg-gray-500 hover:bg-gray-400'
-                }`}
-              />
-            ))}
           </div>
         </div>
       </div>
+      {/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
 
-      {/* Features Section */}
-      <div className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              Why Choose TechRow?
-            </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              We provide comprehensive solutions that help your business thrive in the digital age.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-              <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+      {/* Video Slider Section */}
+      <div className="bg-black">
+        {/* Video Slider Container */}
+        <div className="container mx-auto relative">
+          {/* Main Video Display */}
+          <div className="relative overflow-hidden" style={{height: '80vh'}}>
+            <video 
+              key={sliderVideos[currentSlide].id}
+              className={`w-full h-full object-cover ${isSliding ? 'video-slide-in-right' : ''}`}
+              autoPlay
+              muted
+            >
+              <source src={sliderVideos[currentSlide].src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Video Overlay Info */}
+            <div className="absolute bottom-0 left-0 right-0 p-8" style={{background: 'var(--Background-Black-40, #0F0F0F66)'}}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                {/* Left side - Title */}
+                <div>
+                  <h3 className="video-title" style={{color: sliderVideos[currentSlide].titleColor}}>
+                    {sliderVideos[currentSlide].title}
+                  </h3>
                 </div>
-                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Fast Performance</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
-                  Lightning-fast solutions optimized for speed and efficiency.
-                </p>
-              </div>
-
-              <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
+                
+                {/* Right side - Description and Button */}
+                <div className="space-y-4">
+                  <p className="video-description">
+                    {sliderVideos[currentSlide].description}
+                  </p>
+                  
                 </div>
-                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Secure & Reliable</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
-                  Enterprise-grade security with 99.9% uptime guarantee.
-                </p>
-              </div>
-
-              <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">User-Friendly</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
-                  Intuitive interfaces designed with user experience in mind.
-                </p>
-              </div>
-
-              <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 24l4-8m0 0l4 8m-4-8v-4m0 0L7 8m4 4l4-4" />
-                  </svg>
-                </div>
-                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">24/7 Support</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
-                  Round-the-clock support to help you whenever you need it.
-                </p>
               </div>
             </div>
           </div>
+          
+          {/* Navigation Arrows */}
+          <button 
+            onClick={() => handleSlideChange('left')}
+            className="absolute left-4 top-4 bg-gray-800 border-2 border-white hover:bg-gray-700 rounded-lg p-3 transition-all duration-300 z-50"
+            disabled={isSliding}
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            onClick={() => handleSlideChange('right')}
+            className="absolute right-4 top-4 bg-gray-800 border-2 border-white hover:bg-gray-700 rounded-lg p-3 transition-all duration-300 z-50"
+            disabled={isSliding}
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+{/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+      {/* Customers and Partners Section */}
+      <div className="customers-partners-bg" style={{height: '556px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div className="w-full">
+          <div className="text-center mb-12">
+            <h2 className="customers-partners-title">
+              Customers and Partners
+            </h2>
+          </div>
+          
+          {/* Logo Slider */}
+          <Swiper
+              modules={[Autoplay, Navigation]}
+              spaceBetween={0}
+              slidesPerView={7}
+              loop={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              navigation={false}
+              breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 5,
+                },
+                640: {
+                  slidesPerView: 3,
+                  spaceBetween: 8,
+                },
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+                },
+                1024: {
+                  slidesPerView: 5,
+                  spaceBetween: 10,
+                },
+                1280: {
+                  slidesPerView: 6,
+                  spaceBetween: 12,
+                },
+                1536: {
+                  slidesPerView: 8,
+                  spaceBetween: 15,
+                },
+              }}
+              className="client-logos-swiper"
+            >
+              {clientLogos.map((logo) => (
+                <SwiperSlide key={logo.id}>
+                  <div className="flex items-center justify-center p-4">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-w-full h-16 object-contain filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-50">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
-          <div className="flex justify-center space-x-6 md:order-2">
-            <a href="#" className="text-gray-400 hover:text-gray-500">
-              <span className="sr-only">Twitter</span>
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-              </svg>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-gray-500">
-              <span className="sr-only">GitHub</span>
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-              </svg>
-            </a>
-          </div>
-          <div className="mt-8 md:mt-0 md:order-1">
-            <p className="text-center text-base text-gray-400">
-              &copy; 2025 TechRow. All rights reserved.
-            </p>
+      <footer className="footer-bg" style={{height: '490px', display: 'flex', alignItems: 'center'}}>
+        <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-1/2 mx-auto">
+            <h2 className="footer-title">Join Us</h2>
+            
+            {/* Footer Buttons */}
+            <div className="flex justify-center space-x-8 mb-8">
+              <button className="footer-button">
+                Support
+              </button>
+              <button className="footer-button">
+                Partner
+              </button>
+              <button className="footer-button">
+                Empower
+              </button>
+            </div>
+            
+            {/* Footer Description */}
+            <div className="text-center mb-12">
+              <p className="footer-description">
+                Help us bring entertainment, creativity, and opportunity back to neighborhoods nationwide.
+              </p>
+            </div>
           </div>
         </div>
       </footer>
