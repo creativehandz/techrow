@@ -103,47 +103,31 @@ const HomePage = () => {
       {/* Menu Overlay */}
       {(isMenuOpen || isMenuClosing) && (
         <div 
-          className={`fixed bg-black bg-opacity-95 z-100 flex transform transition-all duration-500 ease-in-out ${
+          className={`fixed z-100 flex transform transition-all duration-500 ease-in-out ${
             isMenuClosing ? 'animate-slideUp' : 'animate-slideDown'
           }`}
-          style={{top: '100px', left: '0', right: '0', bottom: '0'}}
+          style={{top: '100px', left: '0', right: '0', bottom: '0', backgroundColor: 'rgba(0, 0, 0, 0.8)'}}
         >
-          {/* Left side - Video background (same as hero) */}
-          <div className="w-1/2 relative">
-            <video 
-              className="w-full h-full object-cover"
-              autoPlay 
-              muted 
-              loop
-              playsInline
-            >
-              <source src="/media/videos/hero/techrow_montage_new.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-            
-            {/* Hero content on left */}
-            <div className="absolute inset-0 flex items-center justify-center">
-             
-            </div>
-          </div>
+          
+          
           
           {/* Right side - Menu items */}
-          <div className="w-full flex items-center justify-center">
-            <div className="text-white text-right space-y-8">
-              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
-                ENTERPRISE
+          <div className="w-full flex items-center justify-end h-full">
+            <div className="text-white text-center space-y-8 h-full flex flex-col justify-center menu-container">
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                ABOUT US
               </a>
-              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
-                MEDIA PARTNERSHIPS
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                OUR PROGRAMS
               </a>
-              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
-                SPONSORSHIPS
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                GALA
               </a>
-              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
-                ABOUT
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                PARTNERSHIP
               </a>
-              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors">
-                CONTACT
+              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                DONATE
               </a>
             </div>
           </div>
