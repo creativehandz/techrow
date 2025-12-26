@@ -2,8 +2,7 @@ import './Button.css';
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/swiper-bundle.css';
 
 const HomePage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
