@@ -4,6 +4,45 @@ import { useEffect, useRef, useState } from 'react';
 const HomePage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuClosing, setIsMenuClosing] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Sample video data - you can replace with actual video files
+  const sliderVideos = [
+    {
+      id: 1,
+      src: "/media/videos/demos/demo-video-1.mp4",
+      title: "DISTRIBUTION CHANNEL FOR PREMIUM PROGRAMMING",
+      description: "Distribute films and series through curated, organization-run streaming destinations beyond traditional consumer platforms.",
+      buttonText: "Become a Media Partner"
+    },
+    {
+      id: 2,
+      src: "/media/videos/demos/demo-video-2.mp4", 
+      title: "CONTENT CREATION & PRODUCTION SERVICES",
+      description: "Professional video production and content creation services for educational institutions and organizations worldwide.",
+      buttonText: "Start Creating"
+    },
+    {
+      id: 3,
+      src: "/media/videos/demos/demo-video-3.mp4",
+      title: "STREAMING TECHNOLOGY SOLUTIONS", 
+      description: "Advanced streaming infrastructure and technology solutions designed for educational and institutional content delivery.",
+      buttonText: "Explore Technology"
+    }
+  ];
+
+  const handleMenuToggle = () => {
+    if (isMenuOpen) {
+      setIsMenuClosing(true);
+      setTimeout(() => {
+        setIsMenuOpen(false);
+        setIsMenuClosing(false);
+      }, 500); // Match animation duration
+    } else {
+      setIsMenuOpen(true);
+    }
+  };
 
   useEffect(() => {
     if (videoRef.current) {
@@ -15,7 +54,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Navigation */}
-      <nav className="shadow-lg w-full relative z-[100]" style={{backgroundColor: '#141414'}}>
+      <nav className="sticky top-0 shadow-lg w-full z-[100]" style={{backgroundColor: '#141414'}}>
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center" style={{height: '100px'}}>
             <div className="flex items-center">
@@ -24,7 +63,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <button className="menu-button" onClick={handleMenuToggle}>
                 {isMenuOpen ? 'Close' : 'Menu'}
               </button>
             </div>
@@ -33,8 +72,13 @@ const HomePage = () => {
       </nav>
 
       {/* Menu Overlay */}
-      {isMenuOpen && (
-        <div className="fixed bg-black bg-opacity-95 z-50 flex" style={{top: '100px', left: '0', right: '0', bottom: '0'}}>
+      {(isMenuOpen || isMenuClosing) && (
+        <div 
+          className={`fixed bg-black bg-opacity-95 z-100 flex transform transition-all duration-500 ease-in-out ${
+            isMenuClosing ? 'animate-slideUp' : 'animate-slideDown'
+          }`}
+          style={{top: '100px', left: '0', right: '0', bottom: '0'}}
+        >
           {/* Left side - Video background (same as hero) */}
           <div className="w-1/2 relative">
             <video 
@@ -134,6 +178,83 @@ const HomePage = () => {
                 d="M19 14l-7 7m0 0l-7-7m7 7V3" 
               />
             </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* Video Slider Section */}
+      <div className="py-16 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Video Slider Container */}
+          <div className="relative">
+            {/* Main Video Display */}
+            <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
+              <video 
+                key={sliderVideos[currentSlide].id}
+                className="w-full h-full object-cover"
+                controls
+                autoPlay
+                muted
+              >
+                <source src={sliderVideos[currentSlide].src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Video Overlay Info */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
+                  {/* Left side - Title */}
+                  <div>
+                    <h3 className="text-4xl lg:text-5xl font-bold text-white leading-tight" style={{fontFamily: 'League Spartan'}}>
+                      {sliderVideos[currentSlide].title}
+                    </h3>
+                  </div>
+                  
+                  {/* Right side - Description and Button */}
+                  <div className="space-y-4">
+                    <p className="text-lg text-gray-200 leading-relaxed" style={{fontFamily: 'Quicksand'}}>
+                      {sliderVideos[currentSlide].description}
+                    </p>
+                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition-colors duration-300" style={{fontFamily: 'Quicksand'}}>
+                      {sliderVideos[currentSlide].buttonText}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Navigation Arrows */}
+            <button 
+              onClick={() => setCurrentSlide(currentSlide === 0 ? sliderVideos.length - 1 : currentSlide - 1)}
+              className="absolute left-4 top-4 bg-white/20 hover:bg-white/40 rounded-full p-3 transition-all duration-300"
+            >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button 
+              onClick={() => setCurrentSlide(currentSlide === sliderVideos.length - 1 ? 0 : currentSlide + 1)}
+              className="absolute right-4 top-4 bg-white/20 hover:bg-white/40 rounded-full p-3 transition-all duration-300"
+            >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Slider Dots/Indicators */}
+          <div className="flex justify-center mt-8 space-x-3">
+            {sliderVideos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide ? 'bg-purple-500' : 'bg-gray-500 hover:bg-gray-400'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
