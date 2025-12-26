@@ -388,3 +388,20 @@
   background-size: auto;
 }
 
+/* Menu Container Styling */
+.menu-container {
+  width: 600px;
+  background-color: #4D54D6;
+  padding: 2rem;
+}
+
+/* Menu Item Styling */
+.menu-item {
+  background-color: #3C42C8;
+      padding: 13px 10px 5px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
