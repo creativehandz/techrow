@@ -54,12 +54,12 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Navigation */}
-      <nav className="sticky top-0 shadow-lg w-full z-[100]" style={{backgroundColor: '#141414'}}>
+      <nav className="sticky top-0 shadow-lg w-full z-[100]" style={{backgroundColor: '#F2B522'}}>
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center" style={{height: '100px'}}>
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img src="/media/images/logo/logo.svg" alt="TechRow" style={{width: '162.57px'}} />
+                <img src="/media/images/logo/techrow-fund.svg" alt="TechRow" style={{width: '162.57px'}} />
               </div>
             </div>
             <div className="flex items-center">
@@ -88,7 +88,7 @@ const HomePage = () => {
               loop
               playsInline
             >
-              <source src="/media/videos/hero/celebrating-diverse-talents-together-veed.mp4" type="video/mp4" />
+              <source src="/media/videos/hero/techrow_montage_new.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
             
@@ -136,7 +136,7 @@ const HomePage = () => {
           onLoadedData={() => console.log('Video loaded')}
           onError={() => console.log('Video error')}
         >
-          <source src="/media/videos/hero/celebrating-diverse-talents-together-veed.mp4" type="video/mp4" />
+          <source src="/media/videos/hero/techrow_montage_new.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
@@ -146,38 +146,39 @@ const HomePage = () => {
         {/* Hero Content */}
         <div className="relative z-50 h-full flex flex-col justify-between">
           {/* Titles - Centered */}
-          <div className="flex-1 flex items-center justify-center">
-            <div className="text-center text-white px-4 sm:px-6 lg:px-8">
-              <h2 className="hero-subtitle">
-                Reimagining The
-              </h2>
-              <h1 className="hero-title mb-0">
-                Content & Spaces
-              </h1>
-              <h2 className="hero-subtitle-bottom">
-                That Moves Us
-              </h2>
+          <div className="container mx-auto flex-1 flex items-center">
+            <div className="text-left text-white px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3/4">
+                
+                <h1 className="hero-title mb-0">
+                  Let's Eradicate <span style={{color: '#FFD058'}}>Entertainment Deserts —</span> One Neighborhood at a Time.
+                </h1>
+                
+                {/* Three Action Buttons */}
+                <div className="flex flex-wrap gap-8 mt-8">
+                  <button className="hero-action-button hero-donate-button">
+                    Donate
+                  </button>
+                  <button className="hero-action-button hero-partner-button">
+                    Partner
+                  </button>
+                  <button className="hero-action-button hero-community-button">
+                    Bring Us to Your Community
+                  </button>
+                </div>
+               
+              </div>
             </div>
           </div>
           
-          {/* Button - Bottom */}
+          {/* Bottom Items */}
           <div className="pb-8 flex flex-col items-center space-y-4">
-            <button className="learn-more-button">
-              Learn More
-            </button>
-            <svg 
-              className="w-8 h-8 text-white animate-bounce" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M19 14l-7 7m0 0l-7-7m7 7V3" 
-              />
-            </svg>
+            <div className="flex items-center space-x-8 text-white">
+              <span className="hero-bottom-item">• Activate</span>
+              <span className="hero-bottom-item">• Engage</span>
+              <span className="hero-bottom-item">• Empower</span>
+            </div>
+            
           </div>
         </div>
       </div>
