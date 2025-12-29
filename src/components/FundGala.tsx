@@ -1,8 +1,5 @@
-import React from 'react';
 import './Button.css';
 import Header from './Header';
-import HeroSectionv1 from './HeroSectionv1';
-import VideoSlider from './VideoSlider';
 import Copyright from './Copyright';
 import ContactForm from './ContactForm';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,24 +10,6 @@ import 'swiper/css/pagination';
 
 
 const FundGala = () => {
-  // Gala video data
-  const galaVideos = [
-    {
-      id: 1,
-      src: "/media/videos/pages/booking-talent-desktop-veed.mp4",
-      title: "Annual Gala Event",
-      titleColor: "#FFD058",
-      description: "Join us for our annual gala celebrating the power of community, creativity, and collaboration. Experience an unforgettable evening supporting local talent and creative spaces."
-    },
-    {
-      id: 2,
-      src: "/media/videos/pages/media-partnerships-veed.mp4",
-      title: "Celebrating Impact",
-      titleColor: "#7ED321",
-      description: "Witness the incredible impact of our work throughout the year. From transformed spaces to empowered communities, see how your support makes a difference."
-    },
- 
-  ];
 
   // Gala image data
   const galaImages = [

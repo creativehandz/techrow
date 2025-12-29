@@ -1,4 +1,3 @@
-import React from 'react';
 import './Button.css';
 import Header from './Header';
 import HeroSectionv1 from './HeroSectionv1';

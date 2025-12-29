@@ -53,7 +53,7 @@ const HomePage = () => {
       setTimeout(() => {
         setIsMenuOpen(false);
         setIsMenuClosing(false);
-      }, 500); // Match animation duration
+      }, 250); // Match Swiper animation duration
     } else {
       setIsMenuOpen(true);
     }

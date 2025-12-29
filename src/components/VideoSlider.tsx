@@ -1,5 +1,5 @@
 import './Button.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface VideoSlide {
   id: number;
@@ -22,6 +22,17 @@ const VideoSlider = ({
 }: VideoSliderProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.load(); // Reload the video when slide changes
+      video.play().catch(error => {
+        console.error("Error playing video:", error);
+      });
+    }
+  }, [currentSlide]);
 
   const handleSlideChange = (direction: 'left' | 'right') => {
     if (isSliding) return; // Prevent multiple clicks during animation
@@ -45,15 +56,17 @@ const VideoSlider = ({
   return (
     <div className="bg-black">
       {/* Video Slider Container */}
-      <div className="container mx-auto relative">
+      <div className="w-full mx-auto relative">
         {/* Main Video Display */}
         <div className="relative overflow-hidden" style={{height}}>
           <video 
-            key={videos[currentSlide].id}
+            ref={videoRef}
+            key={currentSlide}
             className={`w-full h-full object-cover ${isSliding ? 'video-slide-in-right' : ''}`}
             autoPlay
             muted
             loop
+            playsInline
           >
             <source src={videos[currentSlide].src} type="video/mp4" />
             Your browser does not support the video tag.

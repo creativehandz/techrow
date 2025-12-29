@@ -14,7 +14,21 @@ const AboutUs = () => {
       src: "/media/videos/pages/harlem-legendary-cultural-history.mp4",
       title: "Who We Are",
       titleColor: "#FFD058",
-      description: "TechRow Fund transforms underused public spaces into vibrant entertainment hubsand builds the creative capacity inside communities to power them. We work where talent already lives — in the neighborhoods that shaped culture."
+      description: "TechRow Fund transforms underused public spaces into vibrant entertainment hubs and builds the creative capacity inside communities to power them. We work where talent already lives — in the neighborhoods that shaped culture."
+    },
+    {
+      id: 2,
+      src: "/media/videos/pages/booking-talent-desktop-veed.mp4",
+      title: "Our Mission",
+      titleColor: "#7ED321",
+      description: "We activate spaces, amplify talent, and build local creative power. Our work empowers communities to create sustainable entertainment economies."
+    },
+    {
+      id: 3,
+      src: "/media/videos/pages/media-partnerships-veed.mp4",
+      title: "Our Impact",
+      titleColor: "#FF6B6B",
+      description: "From transformed spaces to empowered communities, see how we're making a real difference in neighborhoods across the country."
     }
   ];
 
@@ -73,7 +87,7 @@ const AboutUs = () => {
         <VideoSlider 
           videos={aboutUsVideos}
           height="70vh"
-          showNavigation={false}
+          showNavigation={true}
         />
       </section>
       {/* Gap between sections */}
