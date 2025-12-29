@@ -1,5 +1,5 @@
 import './Button.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 interface HeaderProps {
@@ -22,7 +22,7 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
         setTimeout(() => {
           setLocalMenuOpen(false);
           setLocalMenuClosing(false);
-        }, 500);
+        }, 250);
       } else {
         setLocalMenuOpen(true);
       }
@@ -53,46 +53,43 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
         </div>
       </nav>
 
-      {/* Menu Overlay */}
+      {/* Menu Overlay with CSS Animation */}
       {(menuState.isMenuOpen || menuState.isMenuClosing) && (
         <div 
-          className={`fixed z-100 flex transform transition-all duration-500 ease-in-out ${
-            menuState.isMenuClosing ? 'animate-slideUp' : 'animate-slideDown'
-          }`}
-          style={{top: '100px', left: '0', right: '0', bottom: '0', backgroundColor: 'rgba(0, 0, 0, 0.8)'}}
+          className="fixed z-100"
+          style={{top: '100px', left: '0', right: '0', bottom: '0'}}
+          onClick={handleMenuToggle}
         >
-          {/* Left side - Video background */}
-          <div className="w-1/2 relative">
-            <video 
-              className="w-full h-full object-cover"
-              autoPlay 
-              muted 
-              loop
-              playsInline
+          <div className="w-full h-full flex" style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
+            {/* Left side - Video background */}
+            <div className="w-4/2 relative">
+             
+            </div>
+            
+            {/* Right side - Menu items */}
+            <div 
+              className={`w-full flex items-center justify-end h-full transform transition-all ease-out ${
+                menuState.isMenuClosing ? 'animate-slideRightOut' : 'animate-slideRightIn'
+              }`}
+              onClick={(e) => e.stopPropagation()}
             >
-              <source src="/media/videos/hero/techrow_montage_new.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-          </div>
-          
-          {/* Right side - Menu items */}
-          <div className="w-full flex items-center justify-end h-full">
-            <div className="text-white text-center space-y-8 h-full flex flex-col justify-center menu-container">
-              <Link to="/about" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
-                ABOUT US
-              </Link>
-              <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
-                OUR PROGRAMS
-              </a>
-              <Link to="/fund-gala" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
-                GALA
-              </Link>
-              <Link to="/fund-partner-with-us" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
-                PARTNERSHIP
-              </Link>
-              <Link to="/donate" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
-                DONATE
-              </Link>
+              <div className="text-white text-center space-y-8 h-full flex flex-col justify-center menu-container">
+                <Link to="/about" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                  ABOUT US
+                </Link>
+                <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                  OUR PROGRAMS
+                </a>
+                <Link to="/fund-gala" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                  GALA
+                </Link>
+                <Link to="/fund-partner-with-us" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                  PARTNERSHIP
+                </Link>
+                <Link to="/donate" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                  DONATE
+                </Link>
+              </div>
             </div>
           </div>
         </div>
