@@ -519,14 +519,16 @@
 .footer-button {
   font-family: 'League Spartan';
   font-weight: 400;
-  font-size: 32px;
-  background-color: #0F0F0F33;
+  font-size: 24px;
+      background-color: #0f0f0f47;
   color: #ffffff;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
+  padding: 12px 40px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-align: center;
 }
 
 .footer-button:hover {
@@ -538,6 +540,13 @@
   background: url(/media/images/backgrounds/footer-bg.png) #202372;
   background-repeat: repeat;
   background-size: auto;
+}
+
+/* Footer Container */
+.footer-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /* Menu Container Styling */
@@ -555,6 +564,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+font-weight: bold;
+
+}
+.menu-item:hover{
+  color: #FFD058
 }
 
 /* Team Heading Styling */
@@ -565,6 +579,149 @@
   text-align: center;
   text-transform: uppercase;
   color: #8A40CA;
+}
+
+/* Responsive adjustments for hero title */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 48px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-item {
+    font-size: 48px !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .menu-item {
+    font-size: 48px !important;
+  }
+}
+
+/* Large Tablet Responsive Styles */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  body {
+    border: 1px solid red;
+  }
+  
+  .hero-title {
+    font-size: 56px;
+  }
+  
+  .neighborhood-text {
+    font-size: 56px;
+  }
+  
+  .neighborhood-paragraph {
+    font-size: 24px;
+  }
+  
+  .video-title {
+    font-size: 40px;
+  }
+  
+  .video-description {
+    font-size: 24px;
+  }
+  
+  .customers-partners-title {
+    font-size: 48px;
+  }
+  
+  .footer-title {
+    font-size: 48px;
+  }
+  
+  .footer-description {
+    font-size: 24px;
+  }
+  
+  .footer-button {
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 40px;
+   
+font-weight: 900;
+
+
+line-height: 120%;
+letter-spacing: 1%;
+text-transform: uppercase;
+
+  }
+  
+  .hero-bottom-item {
+    display: none;
+  }
+  
+  .neighborhood-text {
+    font-size: 40px;
+    line-height: 120%;
+  }
+  
+  .neighborhood-paragraph {
+    font-size: 18px;
+    line-height: 140%;
+  }
+  
+  .menu-item {
+    font-size: 22px !important;
+  }
+  
+  .hero-action-button {
+    width: 100%;
+  }
+  
+  /* Video Swiper Mobile Navigation */
+  .video-swiper .swiper-button-next,
+  .video-swiper .swiper-button-prev {
+    top: 40px !important;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .video-swiper .swiper-button-next {
+    right: 20px !important;
+  }
+  
+  .video-swiper .swiper-button-prev {
+    left: 20px !important;
+  }
+  
+  .video-title {
+    font-size: 32px;
+  }
+  
+  .video-description {
+    font-size: 22px;
+  }
+  
+  .customers-partners-title {
+    font-size: 36px;
+  }
+  
+  .footer-title {
+    font-size: 36px;
+  }
+  
+  .footer-container {
+    height: 100%;
+  }
+  
+  .footer-description {
+    font-size: 20px;
+  }
+  
+  .footer-button {
+    width: 100%;
+    min-width: unset;
+  }
 }
 
 /* Responsive adjustments for team heading */

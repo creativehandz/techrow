@@ -24,7 +24,7 @@ const HeroSection = ({
   backgroundImage,
   overlay = true,
   overlayColor = 'bg-black bg-opacity-40',
-  height = 'calc(100vh - 100px)'
+  height = 'calc(100vh - 0px)'
 }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -71,9 +71,9 @@ const HeroSection = ({
       {/* Hero Content */}
       <div className="relative z-50 h-full flex flex-col justify-between">
         {/* Main Content - Centered */}
-        <div className="container mx-auto flex-1 flex items-center">
+        <div className="container mx-auto flex-1 flex items-end sm:items-center lg:w-full lg:max-w-none xl:container 2xl:container">
           <div className="text-left text-white px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3/4">
+            <div className="w-full sm:max-w-3/4 lg:max-w-5/6 xl:max-w-3/4">
               {/* Title */}
               <h1 
                 className="hero-title mb-0"
@@ -113,7 +113,7 @@ const HeroSection = ({
               
               {/* Action Buttons */}
               {showActionButtons && (
-                <div className="flex flex-wrap gap-8 mt-8">
+                <div className="flex flex-wrap gap-4 sm:gap-8 mt-8">
                   <button className="hero-action-button hero-donate-button">
                     Donate
                   </button>

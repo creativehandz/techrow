@@ -111,19 +111,19 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
               onClick={(e) => e.stopPropagation()}
             >
               <div className="text-white text-center space-y-8 h-full flex flex-col justify-center menu-container">
-                <Link to="/about" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                <Link to="/about" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   ABOUT US
                 </Link>
-                <a href="#" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                <a href="#" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   OUR PROGRAMS
                 </a>
-                <Link to="/fund-gala" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                <Link to="/fund-gala" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   GALA
                 </Link>
-                <Link to="/fund-partner-with-us" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                <Link to="/fund-partner-with-us" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   PARTNERSHIP
                 </Link>
-                <Link to="/donate" className="block text-6xl font-black font-league hover:text-purple-400 transition-colors menu-item">
+                <Link to="/donate" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   DONATE
                 </Link>
               </div>
