@@ -1,0 +1,212 @@
+import React from 'react';
+import './Button.css';
+import Header from './Header';
+import HeroSectionv1 from './HeroSectionv1';
+import VideoSlider from './VideoSlider';
+import Copyright from './Copyright';
+import ContactForm from './ContactForm';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+
+const FundGala = () => {
+  // Gala video data
+  const galaVideos = [
+    {
+      id: 1,
+      src: "/media/videos/pages/booking-talent-desktop-veed.mp4",
+      title: "Annual Gala Event",
+      titleColor: "#FFD058",
+      description: "Join us for our annual gala celebrating the power of community, creativity, and collaboration. Experience an unforgettable evening supporting local talent and creative spaces."
+    },
+    {
+      id: 2,
+      src: "/media/videos/pages/media-partnerships-veed.mp4",
+      title: "Celebrating Impact",
+      titleColor: "#7ED321",
+      description: "Witness the incredible impact of our work throughout the year. From transformed spaces to empowered communities, see how your support makes a difference."
+    },
+ 
+  ];
+
+  // Gala image data
+  const galaImages = [
+    {
+      id: 1,
+      src: "/media/images/hero/gala.jpg",
+      title: "FORUM AND GALA",
+      description: "Celebrating the power of community, creativity, and collaboration"
+    },
+    {
+      id: 2,
+      src: "/media/images/hero/gala.jpg", 
+      title: "Creative Partnerships",
+      description: "Building bridges between talent and opportunity"
+    },
+    {
+      id: 3,
+      src: "/media/images/hero/gala.jpg",
+      title: "Community Impact",
+      description: "Transforming spaces and empowering communities"
+    },
+    {
+      id: 4,
+      src: "/media/images/hero/gala.jpg",
+      title: "Celebrating Success",
+      description: "See the real difference we're making together"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <Header />
+      
+      
+      
+      {/* Image Slider Section */}
+      <section className="bg-black">
+        <div className="w-full px-0">
+         
+          
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={50}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView:1,
+                spaceBetween: 20,
+              },
+            }}
+            className="gala-image-slider"
+          >
+            {galaImages.map((image) => (
+              <SwiperSlide key={image.id}>
+                <div className="relative group overflow-hidden h-screen">
+                  <img
+                    src={image.src}
+                    alt={image.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                    <h3 className="text-white font-bold mb-4" style={{fontFamily: 'League Spartan', fontWeight: '900', fontSize: '96px', textTransform: 'uppercase', color: '#FFD058', textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+                      {image.title}
+                    </h3>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+      {/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+      {/* Forum Description Section */}
+      <section className="bg-black">
+        <div className="container mx-auto">
+          <div className="w-4/5">
+            <h2 className="forum-main-title mb-8">
+              TECHROW FUND'S ANNUAL FORUM AND GALA PLATFORM LEVERAGES THE POWER OF <span className="forum-highlight">DIPLOMACY</span> AND <span className="forum-highlight">TECHNOLOGY</span> TO ADDRESS THE MOST CRITICAL ISSUES <span className="forum-highlight">IMPACTING OUR YOUTH</span>.
+            </h2>
+            
+            
+          </div>
+          <div className="w-2/5 ml-auto">
+            
+            
+            <p className="forum-description">
+              TechRow Fund's Forum for Technology and Education hosts strategic partners and innovators trailblazing social impact initiatives.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      {/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+      
+      {/* Gala Gallery Section */}
+      <section className="bg-black">
+        <div className="w-full mx-auto">
+          <div className="grid grid-cols-2 gap-0  mx-auto">
+            <div className="group overflow-hidden">
+              <img
+                src="/media/images/sections/gala1.jpg"
+                alt="Gala Event 1"
+                className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="group overflow-hidden">
+              <img
+                src="/media/images/sections/gala2.jpg"
+                alt="Gala Event 2"
+                className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="group overflow-hidden">
+              <img
+                src="/media/images/sections/gala3.jpg"
+                alt="Gala Event 3"
+                className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="group overflow-hidden">
+              <img
+                src="/media/images/sections/gala4.jpg"
+                alt="Gala Event 4"
+                className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      {/* Mission Section */}
+      {/* Mission Section */}
+      <section className="mission-section-bg footer-bg">
+        <div className="container mx-auto ">
+          <h2 className="mission-title">
+            Mission
+          </h2>
+          
+          <p className="mission-subtitle">
+            Activate spaces. Amplify talent. Build local creative power.
+          </p>
+          
+          <div className="mission-buttons mb-12">
+            <button className="hero-action-button hero-donate-button">
+              Donate
+            </button>
+            <button className="hero-action-button hero-partner-button">
+              Partner With Us
+            </button>
+          </div>
+          
+          <ContactForm />
+        </div>
+      </section>
+
+      
+      <Copyright />
+    </div>
+  );
+};
+
+export default FundGala;
