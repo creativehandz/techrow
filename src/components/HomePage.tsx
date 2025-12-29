@@ -173,7 +173,8 @@ const HomePage = () => {
             </Swiper>
         </div>
       </div>
-
+{/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
       <Footer />
     </div>
   );

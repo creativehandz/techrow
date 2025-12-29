@@ -113,7 +113,7 @@
 }
 
 .hero-donate-button {
-  background-color: #7ED321;
+  background-color: #6BC202;
       color: #262728;
 }
 
@@ -322,6 +322,105 @@
 
 .animate-slideRightOut {
   animation: slideRightOut 0.25s ease-out forwards;
+}
+
+/* Video Swiper Custom Styles */
+.video-swiper .swiper-button-next,
+.video-swiper .swiper-button-prev {
+  background: rgba(31, 41, 55, 0.8);
+  border: 2px solid white;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  top: 50px !important;
+  margin-top: 0;
+  transition: all 0.3s ease;
+}
+
+.video-swiper .swiper-button-next {
+  right: 25px !important;
+  top: 0;
+}
+
+.video-swiper .swiper-button-prev {
+  left: 25px !important;
+}
+
+.video-swiper .swiper-button-next:hover,
+.video-swiper .swiper-button-prev:hover {
+  background: rgba(55, 65, 81, 1);
+}
+
+.video-swiper .swiper-button-next:after,
+.video-swiper .swiper-button-prev:after {
+  content: '' !important;
+  display: none !important;
+}
+
+.video-swiper .swiper-button-next {
+  background-image: url('/media/images/icons/arrows.png') !important;
+  background-size: 24px 24px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.video-swiper .swiper-button-prev {
+  background-image: url('/media/images/icons/arrows.png') !important;
+  background-size: 24px 24px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  transform: rotate(180deg) !important;
+}
+
+/* Override default Swiper button colors */
+.video-swiper .swiper-button-next,
+.video-swiper .swiper-button-prev {
+  color: transparent !important;
+}
+
+.video-swiper .swiper-button-next::before,
+.video-swiper .swiper-button-prev::before {
+  color: transparent !important;
+}
+
+.video-swiper .swiper-pagination {
+  bottom: 16px;
+}
+
+.video-swiper .custom-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.video-swiper .custom-bullet:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.video-swiper .custom-bullet-active {
+  background: white;
+}
+
+/* Video Action Tags */
+.video-action-tag {
+  padding: 8px 24px;
+  background: #0F0F0F33;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+}
+
+.video-action-tag:hover {
+  background: #0F0F0F66;
+  transform: translateY(-2px);
 }
 
 /* Customers and Partners Section Background */

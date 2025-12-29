@@ -1,5 +1,5 @@
 import './Button.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 interface HeaderProps {
@@ -11,6 +11,9 @@ interface HeaderProps {
 const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: HeaderProps) => {
   const [localMenuOpen, setLocalMenuOpen] = useState(false);
   const [localMenuClosing, setLocalMenuClosing] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleMenuToggle = () => {
     if (onMenuToggle) {
@@ -29,12 +32,46 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+
+      // Show/hide header based on scroll direction after 1200px
+      if (currentScrollY > 1200) {
+        if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 200) {
+          // Scrolling down - hide header
+          setHeaderVisible(false);
+        } else if (lastScrollY > currentScrollY && lastScrollY - currentScrollY > 200) {
+          // Scrolling up - show header
+          setHeaderVisible(true);
+        }
+      } else {
+        // Always show header when above 1200px
+        setHeaderVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   const menuState = onMenuToggle ? { isMenuOpen, isMenuClosing } : { isMenuOpen: localMenuOpen, isMenuClosing: localMenuClosing };
 
   return (
     <>
       {/* Navigation */}
-      <nav className="sticky top-0 shadow-lg w-full z-[100]" style={{backgroundColor: '#F2B522'}}>
+      <nav 
+        className={`fixed top-0 shadow-lg w-full z-[100] transform transition-all duration-100 ease-in-out ${
+          headerVisible ? 'translate-y-0' : '-translate-y-full'
+        }`} 
+        style={{
+          backgroundColor: scrollY > 1200 ? '#F2B522' : 'transparent',
+          opacity: scrollY > 1200 ? 1 : (scrollY > 0 ? 0.9 : 1)
+        }}
+      >
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center" style={{height: '100px'}}>
             <div className="flex items-center">
