@@ -83,12 +83,12 @@ const HomePage = () => {
         <img 
           src="/media/images/sections/spiderman-kid.jpg" 
           alt="Spiderman Kid" 
-          className="w-full h-auto object-cover"
+          className="w-full h-screen object-cover"
         />
         <div className="absolute inset-0" style={{background: 'var(--Background-Black-20, #0F0F0F33)'}}></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container mx-auto relative">
-            <div className="max-w-3/4">
+          <div className="container mx-auto relative px-4 sm:px-6 lg:px-8 lg:w-full lg:max-w-none xl:container 2xl:container">
+            <div className="w-full sm:max-w-3/4 lg:max-w-5/6 xl:max-w-3/4">
             <h2 className="neighborhood-text text-left">
               Neighborhoods come <span style={{color: '#FFD058'}}>alive when entertainment is close</span> to home.
             </h2>
@@ -106,7 +106,7 @@ const HomePage = () => {
       {/* Video Slider Section */}
       <VideoSlider 
         videos={sliderVideos}
-        height="80vh"
+        height="90vh"
         showNavigation={true}
       />
 {/* Gap between sections */}
