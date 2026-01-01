@@ -64,11 +64,11 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
     <>
       {/* Navigation */}
       <nav 
-        className={`fixed top-0 shadow-lg w-full z-[100] transform transition-all duration-100 ease-in-out ${
+        className={`fixed top-0 w-full z-[100] transform transition-all duration-100 ease-in-out ${
           headerVisible ? 'translate-y-0' : '-translate-y-full'
         }`} 
         style={{
-          backgroundColor: scrollY > 1200 ? '#F2B522' : 'transparent',
+          backgroundColor: menuState.isMenuOpen || scrollY > 1200 ? '#F2B522' : 'transparent',
           opacity: scrollY > 1200 ? 1 : (scrollY > 0 ? 0.9 : 1)
         }}
       >

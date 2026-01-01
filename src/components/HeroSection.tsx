@@ -24,7 +24,7 @@ const HeroSection = ({
   backgroundImage,
   overlay = true,
   overlayColor = 'bg-black bg-opacity-40',
-  height = 'calc(100vh - 0px)'
+  height = 'var(--hero-height)'
 }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -71,9 +71,9 @@ const HeroSection = ({
       {/* Hero Content */}
       <div className="relative z-50 h-full flex flex-col justify-between">
         {/* Main Content - Centered */}
-        <div className="container mx-auto flex-1 flex items-end sm:items-center lg:w-full lg:max-w-none xl:container 2xl:container">
+        <div className="container mx-auto flex-1 flex items-center sm:items-center sm:w-full sm:max-w-none md:w-full md:max-w-none lg:w-full lg:max-w-none xl:w-full xl:max-w-non 2xl:w-full 2xl:max-w-non">
           <div className="text-left text-white px-4 sm:px-6 lg:px-8">
-            <div className="w-full sm:max-w-3/4 lg:max-w-5/6 xl:max-w-3/4">
+            <div className="w-full sm:max-w-3/4 lg:max-w-5/6 xl:max-w-3/4 tablet-landscape-full-width mobile-landscape-full-width">
               {/* Title */}
               <h1 
                 className="hero-title mb-0"
