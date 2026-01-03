@@ -16,12 +16,10 @@ interface VideoSlide {
 interface VideoSliderProps {
   videos: VideoSlide[];
   height?: string;
-  showNavigation?: boolean;
 }
 
 const VideoSlider = ({ 
-  videos, 
-  showNavigation = true 
+  videos 
 }: VideoSliderProps) => {
 
   if (!videos || videos.length === 0) {
