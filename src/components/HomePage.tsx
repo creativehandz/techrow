@@ -107,7 +107,6 @@ const HomePage = () => {
       <div className="video-slider-section">
         <VideoSlider 
           videos={sliderVideos}
-          showNavigation={false}
         />
       </div>
 {/* Gap between sections */}
