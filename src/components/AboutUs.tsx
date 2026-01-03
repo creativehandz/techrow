@@ -87,7 +87,6 @@ const AboutUs = () => {
         <VideoSlider 
           videos={aboutUsVideos}
           height="70vh"
-          showNavigation={true}
         />
       </section>
       {/* Gap between sections */}
