@@ -172,6 +172,24 @@
   color: white;
 }
 
+/* Spiderman Section Responsive Heights */
+.spiderman-section {
+  height: 800px; /* Default desktop height */
+}
+
+.spiderman-image {
+  height: 800px; /* Default desktop height */
+}
+
+/* Video Slider Section Responsive Heights */
+.video-slider-section {
+  height: 700px; /* Default desktop height */
+}
+
+.video-content-height {
+  height: 700px; /* Default desktop height */
+}
+
 /* Video Title Text */
 .video-title {
   font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
@@ -738,31 +756,69 @@
   margin-bottom: 0px;
 }
 
+.required-star {
+  color: #FFD058;
+}
+
 .form-input,
 .form-textarea {
   background: #0F0F0F33;
-  border: 0px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid transparent;
   border-radius: 8px;
   padding: 12px 16px;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
   color: white;
   transition: all 0.3s ease;
-  font-family: Quicksand;
-  font-weight: 400;
-  color:#43454A;
+}
+
+/* Override browser autofill styles */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #0F0F0F33 inset !important;
+  -webkit-text-fill-color: white !important;
+  background: #0F0F0F33 !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: #43454A;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #7ED321;
-  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid #6234C2;
+  background: transparent;
+}
+
+.form-input-error,
+.form-textarea.form-input-error {
+  border: 1px solid #DC194280!important;
+}
+
+.form-input-error:focus,
+.form-textarea.form-input-error:focus {
+  border: 1px solid #DC194280 !important;
+  box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.2);
+
+
+}
+
+.form-error {
+  color: #DC1942; 
+
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 4px;
+  display: block;
 }
 
 .form-textarea {
@@ -771,23 +827,149 @@
 }
 
 .form-submit-button {
-  background-color: #7ED321;
+  background-color: #FFC737;
   color: #262728;
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
   font-size: 16px;
-  padding: 16px 40px;
+  padding: 16px 60px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 16px;
   align-self: center;
+  min-width: 200px;
 }
 
 .form-submit-button:hover {
-  background-color: #6BB01E;
+  background-color: #D19A1C;
   transform: translateY(-2px);
+}
+
+.form-success-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 0px;
+  background-color:transparent;
+  border: 0px solid rgba(126, 211, 33, 0.3);
+  border-radius: 8px;
+}
+
+.success-icon {
+  background-image: url('/media/images/icons/sucess.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.success-text {
+  color: #20A345;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ===== DONATION PAGE STYLES ===== */
+.donation-section {
+  padding-top: 180px;
+  padding-bottom: 180px;
+  background-color: #E8F2FC;
+}
+
+.impact-heading-new {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.1;
+  color: #2D3E93;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.impact-button-new {
+  background-color: #FFD058;
+   color: #262728;
+ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  padding: 12px 50px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+
+  white-space: nowrap;
+
+  
+
+}
+
+.impact-button-new:hover {
+  background-color: #D19A1C;
+  transform: translateY(-1px);
+}
+
+.impact-button-new.span-2 {
+  grid-column: 1 / -1;
+}
+
+.tax-info-text, .tax-info-text {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+  color: #202372;
+    padding: 0 60px;
+}
+.tax-info-text a{
+color: #202372;
+}
+.tax-info-text a:hover{
+color: #202372;
+text-decoration: none;
+}
+.donation-receipt-text {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #202372;
+
+}
+
+.donorbox-iframe {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+.donation-widget.tabs {
+  position: relative !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+.impact-content-wrapper {
+  background-color: #ffffff;
+      padding: 35px 0px;
+  border-radius: 8px;
+  width: 100%;
 }
 
 /* ===== COPYRIGHT SECTION STYLES ===== */
@@ -819,25 +1001,45 @@
 }
 
 .social-icon {
-  color: white;
-  transition: all 0.3s ease;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-icon img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
+  width: 100%;
+  height: 100%;
+  
   transition: all 0.3s ease;
 }
 
 .social-icon:hover img {
-  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(70deg);
+  
   transform: translateY(-2px);
+}
+
+.social-icon[aria-label="Facebook"]:hover img {
+  content: url('/media/images/icons/facebook-hovered.png');
+}
+
+.social-icon[aria-label="X (Twitter)"]:hover img {
+  content: url('/media/images/icons/twitter-hovered.png');
+}
+
+.social-icon[aria-label="Instagram"]:hover img {
+  content: url('/media/images/icons/instagram-hovered.png');
+}
+
+.social-icon[aria-label="YouTube"]:hover img {
+  content: url('/media/images/icons/youtube-hovered.png');
+}
+
+.social-icon[aria-label="LinkedIn"]:hover img {
+  content: url('/media/images/icons/linkedIn-hovered.png');
 }
 
 .copyright-text {
@@ -966,6 +1168,20 @@
   background-color: #5a61c7;
 }
 
+/* ===== GALA PAGE STYLES ===== */
+.gala-hero-title {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 96px;
+  text-transform: uppercase;
+  color: #FFD058;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.gala-slider-height {
+  height: 100vh; /* Default desktop height */
+}
+
 /* ===== MEDIA QUERIES ===== */
 
 
@@ -982,9 +1198,42 @@
       .hero-title {
         font-size: 48px;
     }
+    
+        .spiderman-section,
+        .spiderman-image {
+          height: 80vh; /* Good height for medium tablets */
+        }
+        
+        .video-slider-section,
+        .video-content-height {
+          height: 75vh; /* Reduced height for medium tablets */
+        }
+        
         .neighborhood-text {
         font-size: 40px;
         line-height: 120%;
+    }
+    
+    .gala-slider-height {
+      height: 80vh; /* Medium tablets */
+    }
+    
+    .gala-hero-title {
+      font-size: 64px; /* Smaller title for tablets */
+    }
+    
+    /* Donation page layout changes for iPad Pro */
+    .donation-section .flex-col.lg\:flex-row {
+      flex-direction: column !important;
+    }
+    
+    .donation-section .order-2.lg\:order-1 {
+      order: 2 !important; /* Donation form second */
+    }
+    
+    .donation-section .order-1.lg\:order-2 {
+      order: 1 !important; /* Impact section first */
+      width: 100% !important; /* Full width for impact section */
     }
 }
 
@@ -995,9 +1244,10 @@
   body {
     border: 3px solid rgb(255, 0, 98) !important;
   }
+
   .menu-item {
-    font-size: 48px !important;
-  }
+        font-size: 40px !important;
+    }
 }
 
 /* Large Tablet Responsive Styles */
@@ -1016,6 +1266,16 @@
   
   .neighborhood-paragraph {
     font-size: 24px;
+  }
+  
+  .spiderman-section,
+  .spiderman-image {
+    height: 80vh; /* Reduced height for tablets */
+  }
+  
+  .video-slider-section,
+  .video-content-height {
+    height: 80vh; /* Good height for large tablets */
   }
   
   .video-title {
@@ -1052,6 +1312,10 @@
   body {
     border: 3px solid rgb(30, 139, 158) !important;
   }
+  .menu-button {
+    background: #676ee100;
+    
+}
 }
 
 /* Mobile Landscape */
@@ -1078,6 +1342,26 @@
     font-size: 18px;
   }
   
+  .spiderman-section,
+  .spiderman-image {
+    height: 600px; /* Very reduced height for mobile landscape */
+  }
+  
+  .video-slider-section,
+  .video-content-height {
+    height: 700px; /* Very compact for mobile landscape */
+  }
+  
+  .neighborhood-text {
+    font-size: 28px;
+    line-height: 120%;
+  }
+  
+  .neighborhood-paragraph {
+    font-size: 16px;
+    line-height: 140%;
+  }
+  
   .hero-action-button {
     padding: 8px 30px;
     font-size: 14px;
@@ -1087,6 +1371,61 @@
     padding: 12px 25px;
     font-size: 18px;
   }
+  
+  .gala-slider-height {
+    height: 70vh; /* Mobile landscape */
+  }
+  
+  .gala-hero-title {
+    font-size: 32px; /* Much smaller for mobile landscape */
+  }
+  .impact-button-new {
+    background-color: #FFD058;
+    color: #262728;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    padding: 5px 21px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+.impact-heading-new {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 39px;
+    line-height: 1.1;
+    color: #2D3E93;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+.impact-content-wrapper {
+    background-color: #ffffff;
+    padding: 35px 20px;
+    border-radius: 0;
+    width: 100%;
+}
+.tax-info-text, .tax-info-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: left;
+    color: #202372;
+    padding: 0 20px;
+}
+.donation-receipt-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: #202372;
+    padding: 10px 30px;
+}
 }
 
 /* Tablet Landscape */
@@ -1120,6 +1459,20 @@
     font-size: 24px;
   }
   
+  .spiderman-section,
+  .spiderman-image {
+    height: 700px; /* Good balance for tablet landscape */
+  }
+  
+  .video-slider-section,
+  .video-content-height {
+    height: 700px; /* Optimized for tablet landscape */
+  }
+  
+  .neighborhood-text {
+    font-size: 56px;
+  }
+  
   .hero-action-button {
     padding: 10px 40px;
     font-size: 15px;
@@ -1133,6 +1486,65 @@
     padding: 16px 30px;
     font-size: 20px;
   }
+  
+  .gala-slider-height {
+    height: 85vh; /* Tablet landscape */
+  }
+  
+  .gala-hero-title {
+    font-size: 72px; /* Good size for tablet landscape */
+  }
+  .menu-item {
+        font-size: 24px !important;
+    }
+  .impact-button-new {
+    background-color: #FFD058;
+    color: #262728;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    padding: 5px 21px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+.impact-heading-new {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 39px;
+    line-height: 1.1;
+    color: #2D3E93;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+.impact-content-wrapper {
+    background-color: #ffffff;
+    padding: 35px 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+.tax-info-text, .tax-info-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: left;
+    color: #202372;
+    padding: 0 20px;
+}
+.donation-receipt-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: #202372;
+    padding: 10px 30px;
+}
+  
 }
 
 @media (max-width: 480px) {
@@ -1161,12 +1573,30 @@
     line-height: 140%;
   }
   
+  .spiderman-section,
+  .spiderman-image {
+    height: 70vh; /* Smaller height for mobile */
+  }
+  
+  .video-slider-section,
+  .video-content-height {
+    height: 60vh; /* Compact height for mobile portrait */
+  }
+  
   .menu-item {
     font-size: 22px !important;
   }
   
   .hero-action-button {
     width: 100%;
+  }
+  
+  .gala-slider-height {
+    height: 75vh; /* Mobile portrait */
+  }
+  
+  .gala-hero-title {
+    font-size: 40px; /* Mobile friendly size */
   }
   
   /* Video Swiper Mobile Navigation */
@@ -1239,16 +1669,74 @@
     flex: 1 1 100%;
   }
    .hero-title {
-    font-size: 48px;
+    font-size: 32px;
   }
   
   .hero-bottom-item {
     display: none;
   }
+  
+  .spiderman-section,
+  .spiderman-image {
+    height: 75vh; /* Medium height for tablets */
+  }
+  
+  .video-slider-section,
+  .video-content-height {
+    height: 700px; /* Balanced height for small tablets */
+  }
+      
       .neighborhood-text {
         font-size: 40px;
         line-height: 120%;
     }
+    .impact-button-new {
+    background-color: #FFD058;
+    color: #262728;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    padding: 5px 21px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+.impact-heading-new {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 39px;
+    line-height: 1.1;
+    color: #2D3E93;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+.impact-content-wrapper {
+    background-color: #ffffff;
+    padding: 35px 20px;
+    border-radius: 0;
+    width: 100%;
+}
+.tax-info-text, .tax-info-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: left;
+    color: #202372;
+    padding: 0 20px;
+}
+.donation-receipt-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: #202372;
+    padding: 10px 30px;
+}
 }
 
 @media (max-width: 480px) {
@@ -1258,4 +1746,60 @@
   .team-heading {
     font-size: 36px;
   }
+  .impact-button-new {
+    background-color: #FFD058;
+    color: #262728;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    padding: 5px 21px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+.impact-heading-new {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 39px;
+    line-height: 1.1;
+    color: #2D3E93;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+.impact-content-wrapper {
+    background-color: #ffffff;
+    padding: 35px 20px;
+    border-radius: 0;
+    width: 100%;
+}
+.tax-info-text, .tax-info-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: left;
+    color: #202372;
+    padding: 0 20px;
+}
+.donation-receipt-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: #202372;
+    padding: 10px 30px;
+}
+.gala-hero-title {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 35px;
+    text-transform: uppercase;
+    color: #FFD058;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: left
+}
 }

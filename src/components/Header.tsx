@@ -83,7 +83,18 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
             </div>
             <div className="flex items-center">
               <button className="menu-button" onClick={handleMenuToggle}>
-                {menuState.isMenuOpen ? 'Close' : 'Menu'}
+                {menuState.isMenuOpen ? (
+                  <div className="flex items-center">
+                    <img 
+                      src="/media/images/icons/Union.png" 
+                      alt="Close" 
+                      className="w-6 h-6 md:hidden" 
+                    />
+                    <span className="hidden md:inline">Close</span>
+                  </div>
+                ) : (
+                  'Menu'
+                )}
               </button>
             </div>
           </div>

@@ -15,6 +15,7 @@ TechRow is a modern React + TypeScript fundraising website built with Vite, usin
 - **Typography**: Uses League Spartan (headings) and Quicksand (UI elements) fonts defined in `tailwind.config.js`
 - **Custom Classes**: Hero sections use `.hero-title`, `.hero-subtitle`, `.hero-subtitle-bottom` for consistent typography
 - **Button Patterns**: `.menu-button` class provides the standard button appearance with `#676EE140` background
+- **CSS Variables**: Uses `--hero-height: calc(100vh - 0px)` root variable for responsive height management
 
 ### Media & Assets
 - **Static Assets**: All media lives in `/public/media/` with organized subdirectories (`images/clients/`, `videos/hero/`, etc.)
@@ -39,7 +40,8 @@ npm run lint       # ESLint with TypeScript-aware rules
 ### Build Configuration
 - **Rolldown Vite**: Uses `rolldown-vite@7.2.5` override for enhanced performance
 - **TypeScript**: Dual config with `tsconfig.app.json` (app) and `tsconfig.node.json` (build tools)
-- **Auto-deployment**: GitHub Actions deploy to FTP on main branch pushes (see `DEPLOYMENT.md`)
+- **Auto-deployment**: GitHub Actions deploy to FTP on main branch pushes via `.github/workflows/deploy.yml`
+- **Dependencies**: React 19.2, React Router DOM 7.11, Swiper 12.0.3, Tailwind CSS 4.1.18
 
 ## Component Conventions
 
@@ -56,12 +58,18 @@ npm run lint       # ESLint with TypeScript-aware rules
 
 ### State Management
 - Uses React hooks (`useState`) for local component state
-- Menu toggle pattern with closing animations in HomePage
-- Video refs for autoplay control
+- Menu toggle pattern: `handleMenuToggle` with closing animations in HomePage
+- Video refs for autoplay control with error handling patterns
 
 ### Data Structures
 - Client logos and video data defined as arrays of objects with consistent `id`, `src`, `alt` properties
 - Color-coded video titles using `titleColor` prop in video slider components
+- Video slides interface: `{ id: number; src: string; title: string; titleColor?: string; description: string; }`
+
+### Animation & Interactions
+- Menu toggle uses state pattern: `isMenuOpen`, `isMenuClosing` for smooth transitions
+- Video autoplay implemented via `useRef<HTMLVideoElement>` with error handling
+- Swiper integration: Import modules (`Autoplay`, `Navigation`, `Pagination`) individually
 
 ## File Organization Rules
 - Pages go in `/src/components/` (not `/src/pages/`)

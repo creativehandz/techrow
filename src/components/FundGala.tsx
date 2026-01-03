@@ -78,14 +78,14 @@ const FundGala = () => {
           >
             {galaImages.map((image) => (
               <SwiperSlide key={image.id}>
-                <div className="relative group overflow-hidden h-screen">
+                <div className="relative group overflow-hidden gala-slider-height">
                   <img
                     src={image.src}
                     alt={image.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                    <h3 className="text-white font-bold mb-4" style={{fontFamily: 'League Spartan', fontWeight: '900', fontSize: '96px', textTransform: 'uppercase', color: '#FFD058', textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center  p-6">
+                    <h3 className="gala-hero-title mb-4">
                       {image.title}
                     </h3>
                   </div>
