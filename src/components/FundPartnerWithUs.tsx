@@ -46,7 +46,6 @@ const FundPartnerWithUs = () => {
         <VideoSlider 
           videos={partnershipVideos}
           height="70vh"
-          showNavigation={true}
         />
       </section>
       {/* Gap between sections */}
