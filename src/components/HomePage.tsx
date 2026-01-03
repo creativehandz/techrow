@@ -79,11 +79,11 @@ const HomePage = () => {
       <div style={{height: '180px', backgroundColor: '#000000'}}></div>
 
       {/* Spiderman Kid Section */}
-      <div className="bg-gray-100 relative">
+      <div className="bg-gray-100 relative spiderman-section">
         <img 
           src="/media/images/sections/spiderman-kid.jpg" 
           alt="Spiderman Kid" 
-          className="w-full h-screen object-cover"
+          className="w-full spiderman-image object-cover"
         />
         <div className="absolute inset-0" style={{background: 'var(--Background-Black-20, #0F0F0F33)'}}></div>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -104,11 +104,12 @@ const HomePage = () => {
       <div style={{height: '180px', backgroundColor: '#000000'}}></div>
 
       {/* Video Slider Section */}
-      <VideoSlider 
-        videos={sliderVideos}
-        height="90vh"
-        showNavigation={true}
-      />
+      <div className="video-slider-section">
+        <VideoSlider 
+          videos={sliderVideos}
+          showNavigation={false}
+        />
+      </div>
 {/* Gap between sections */}
       <div style={{height: '180px', backgroundColor: '#000000'}}></div>
       {/* Customers and Partners Section */}

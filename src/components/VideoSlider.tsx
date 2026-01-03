@@ -21,7 +21,6 @@ interface VideoSliderProps {
 
 const VideoSlider = ({ 
   videos, 
-  height = '80vh',
   showNavigation = true 
 }: VideoSliderProps) => {
 
@@ -32,20 +31,27 @@ const VideoSlider = ({
   return (
     <div className="bg-black">
       <div className="w-full mx-auto relative">
-        <div className="relative overflow-hidden" style={{height}}>
+        <div className="relative overflow-hidden video-content-height">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
-            loop={videos.length > 1}
-            navigation={showNavigation && videos.length > 1}
-            pagination={videos.length > 1 ? {
-              clickable: true,
-              bulletClass: 'swiper-pagination-bullet custom-bullet',
-              bulletActiveClass: 'swiper-pagination-bullet-active custom-bullet-active'
-            } : false}
+            loop={false}
+            navigation={false}
+            pagination={false}
             autoplay={false}
-            speed={800}
+            allowTouchMove={false}
+            allowSlideNext={false}
+            allowSlidePrev={false}
+            touchStartPreventDefault={false}
+            simulateTouch={false}
+            grabCursor={false}
+            noSwiping={true}
+            noSwipingClass="swiper-no-swiping"
+            preventClicks={true}
+            preventClicksPropagation={true}
+            touchMoveStopPropagation={false}
+            speed={0}
             effect="slide"
             className="video-swiper h-full"
           >

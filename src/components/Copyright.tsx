@@ -15,23 +15,23 @@ const Copyright: React.FC<CopyrightProps> = ({ className = '' }) => {
         
         <div className="copyright-social-icons">
           <a href="#" className="social-icon" aria-label="Facebook">
-            <img src="/media/images/icons/facebook-v1.svg" alt="Facebook" />
+            <img src="/media/images/icons/facebook.png" alt="Facebook" />
           </a>
           
           <a href="#" className="social-icon" aria-label="X (Twitter)">
-            <img src="/media/images/icons/twitter-v1.svg" alt="Twitter" />
+            <img src="/media/images/icons/twitter.png" alt="Twitter" />
           </a>
           
           <a href="#" className="social-icon" aria-label="Instagram">
-            <img src="/media/images/icons/insta-v1.svg" alt="Instagram" />
+            <img src="/media/images/icons/instagram.png" alt="Instagram" />
           </a>
           
           <a href="#" className="social-icon" aria-label="YouTube">
-            <img src="/media/images/icons/youtube-v1.svg" alt="YouTube" />
+            <img src="/media/images/icons/youtube.png" alt="YouTube" />
           </a>
           
           <a href="#" className="social-icon" aria-label="LinkedIn">
-            <img src="/media/images/icons/linkedin-v1.svg" alt="LinkedIn" />
+            <img src="/media/images/icons/linkedin.png" alt="LinkedIn" />
           </a>
         </div>
         
