@@ -38,8 +38,8 @@ const AboutUs = () => {
       
       <HeroSection 
         videoSrc="/media/videos/pages/harlem-legendary-cultural-history.mp4"
-        title="Born in <span style='color: #FFD058'>Harlem —</span> Steps From the Apollo."
-        subHeading="A place that entertained the world. A history shaped by legendary talent. A neighborhood built on creativity, pride, and possibility."
+        title="Born in <span style='color: #FFD058'>Harlem — <br /></span> Steps From the Apollo."
+        subHeading="A place that entertained the world. <br />A history shaped by legendary talent. <br />A neighborhood built on creativity, pride, and possibility."
         showActionButtons={false}
         showBottomItems={false}
         overlayColor="bg-black/70"

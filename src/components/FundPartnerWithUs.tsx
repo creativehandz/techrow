@@ -30,14 +30,17 @@ const FundPartnerWithUs = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Header />
       
-      <HeroSectionv1 
-        videoSrc="/media/videos/pages/celebrating-diverse-talents-together-veed.mp4"
-        title="<span style='color: #7ED321'>PARTNER WITH US</span>"
-        subHeading="Let's Bring Entertainment and Creative Capacity Into More Communities."
-        showActionButtons={false}
-        showBottomItems={true}
-        overlayColor="bg-black/70"
-      />
+      <div className="partner-hero-section">
+        <HeroSectionv1 
+          videoSrc="/media/videos/pages/celebrating-diverse-talents-together-veed.mp4"
+          title="<span style='color: #7ED321'>PARTNER WITH US</span>"
+          subHeading="Let's Bring Entertainment and Creative Capacity Into More Communities."
+          showActionButtons={false}
+          showBottomItems={true}
+          overlayColor="bg-black/70"
+          height="100%"
+        />
+      </div>
       {/* Gap between sections */}
       <div style={{height: '180px', backgroundColor: '#000000'}}></div>
       
@@ -53,11 +56,14 @@ const FundPartnerWithUs = () => {
       {/* Mission Section */}
       <section className="mission-section-bg footer-bg">
         <div className="container mx-auto ">
+          <p className="our-promise">
+            <span>• Our Promise</span>
+          </p>
           <h2 className="mission-title">
             This is how entertainment deserts<br />begin to disappear.
           </h2>
           
-          <p className="mission-subtitle">
+          <p className="mission-subtitle hide-mobile">
             Activate spaces. Amplify talent. Build local creative power.
           </p>
           
