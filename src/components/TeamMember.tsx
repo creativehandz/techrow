@@ -30,7 +30,7 @@ const TeamMember = ({
           {/* Text Second - 60% */}
           <div className="text-white team-grid-column">
             <div className="flex items-center mb-2">
-              <img src="/media/images/icons/linkedin.png" alt="LinkedIn" className="w-5 h-5 mr-2" />
+              <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 h-5 mr-2" />
               <h3 className="team-member-name">
                 {name}
               </h3>
@@ -49,7 +49,7 @@ const TeamMember = ({
           {/* Text First - 60% */}
           <div className="text-white team-grid-column">
             <div className="flex items-center mb-2">
-              <img src="/media/images/icons/linkedin.png" alt="LinkedIn" className="w-5 h-5 mr-2" />
+              <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
               <h3 className="team-member-name">
                 {name}
               </h3>
