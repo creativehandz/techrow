@@ -137,6 +137,15 @@ const HeroSectionv1 = ({
               <span className="hero-bottom-item">Activate</span>
               <span className="hero-bottom-item">Expand</span>
             </div>
+            {/* Learn More Button - Mobile Only */}
+            <button className="learn-more-button mobile-only-button">
+              Learn more<br></br>
+              <img 
+                src="/media/images/icons/down-arrow.png" 
+                alt="Down arrow" 
+                className="ml-2 w-4 inline-block"
+              />
+            </button>
           </div>
         )}
       </div>

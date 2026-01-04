@@ -4,6 +4,7 @@ import AboutUs from './components/AboutUs';
 import FundPartnerWithUs from './components/FundPartnerWithUs';
 import FundGala from './components/FundGala';
 import Donate from './components/Donate';
+import ImpactProgramWeFunded from './components/ImpactProgramWeFunded';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/fund-partner-with-us" element={<FundPartnerWithUs />} />
         <Route path="/fund-gala" element={<FundGala />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/impact-program-we-funded" element={<ImpactProgramWeFunded />} />
       </Routes>
     </Router>
   );

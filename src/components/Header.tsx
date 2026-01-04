@@ -125,9 +125,9 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
                 <Link to="/about" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   ABOUT US
                 </Link>
-                <a href="#" className="block font-league hover:text-purple-400 transition-colors menu-item">
+                <Link to="/impact-program-we-funded" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   OUR PROGRAMS
-                </a>
+                </Link>
                 <Link to="/fund-gala" className="block font-league hover:text-purple-400 transition-colors menu-item">
                   GALA
                 </Link>

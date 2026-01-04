@@ -73,7 +73,7 @@ const HeroSection = ({
         {/* Main Content - Centered */}
         <div className="container mx-auto flex-1 flex items-center sm:items-center sm:w-full sm:max-w-none md:w-full md:max-w-none lg:w-full lg:max-w-none xl:w-full xl:max-w-non 2xl:w-full 2xl:max-w-non">
           <div className="text-left text-white px-4 sm:px-6 lg:px-8">
-            <div className="w-full sm:max-w-3/4 lg:max-w-5/6 xl:max-w-3/4 tablet-landscape-full-width mobile-landscape-full-width">
+            <div className="w-full sm:max-w-3/4 lg:max-w-5/6 xl:max-w-3/4 2xl:w-full 2xl:max-w-full tablet-landscape-full-width mobile-landscape-full-width">
               {/* Title */}
               <h1 
                 className="hero-title mb-0"
@@ -84,15 +84,8 @@ const HeroSection = ({
               {subHeading && (
                 <h2 
                   className="hero-subtitle mt-4 mb-4"
-                >
-                  {subHeading.split('. ').map((line, index, array) => (
-                    <span key={index}>
-                      {line}
-                      {index < array.length - 1 && '.'}
-                      {index < array.length - 1 && <br />}
-                    </span>
-                  ))}
-                </h2>
+                  dangerouslySetInnerHTML={{ __html: subHeading }}
+                />
               )}
               
               {/* Subtitle */}

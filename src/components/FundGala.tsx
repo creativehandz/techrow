@@ -99,15 +99,15 @@ const FundGala = () => {
       <div style={{height: '180px', backgroundColor: '#000000'}}></div>
       {/* Forum Description Section */}
       <section className="bg-black">
-        <div className="container mx-auto">
-          <div className="w-4/5">
+        <div className="container mx-auto responsive-padding">
+          <div className="w-full lg:w-4/5">
             <h2 className="forum-main-title mb-8">
               TECHROW FUND'S ANNUAL FORUM AND GALA PLATFORM LEVERAGES THE POWER OF <span className="forum-highlight">DIPLOMACY</span> AND <span className="forum-highlight">TECHNOLOGY</span> TO ADDRESS THE MOST CRITICAL ISSUES <span className="forum-highlight">IMPACTING OUR YOUTH</span>.
             </h2>
             
             
           </div>
-          <div className="w-2/5 ml-auto">
+          <div className="w-full lg:w-2/5 xl:w-2/5 2xl:w-2/5 ml-auto">
             
             
             <p className="forum-description">
@@ -123,7 +123,7 @@ const FundGala = () => {
       {/* Gala Gallery Section */}
       <section className="bg-black">
         <div className="w-full mx-auto">
-          <div className="grid grid-cols-2 gap-0  mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0  mx-auto">
             <div className="group overflow-hidden">
               <img
                 src="/media/images/sections/gala1.jpg"
