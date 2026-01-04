@@ -28,6 +28,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -115,9 +116,58 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     const isValid = Object.values(newErrors).every(error => error === '');
     
     if (isValid) {
-      console.log('Form submitted:', formData);
-      setIsSubmitted(true);
-      // Handle form submission logic here
+      sendEmail();
+    }
+  };
+
+  const sendEmail = async () => {
+    setIsSubmitting(true);
+    
+    try {
+      // Using Formspree to send emails directly to Gmail
+      const response = await fetch('https://formspree.io/f/xdakyzyv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.workEmail,
+          company: formData.company,
+          message: formData.message,
+          _replyto: formData.workEmail,
+          _subject: `New Contact Form Submission from ${formData.name}`,
+          _template: 'table'
+        })
+      });
+
+      if (response.ok) {
+        console.log('Email sent successfully');
+        setIsSubmitted(true);
+        
+        // Reset form
+        setFormData({
+          name: '',
+          workEmail: '',
+          company: '',
+          message: ''
+        });
+        
+        setTouched({
+          name: false,
+          workEmail: false,
+          company: false,
+          message: false
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
+      
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -192,8 +242,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           {errors.message && touched.message && <span className="form-error">{errors.message}</span>}
         </div>
 
-        <button type="submit" className="form-submit-button">
-          Book a Demo
+        <button type="submit" className="form-submit-button" disabled={isSubmitting}>
+          {isSubmitting ? 'Sending...' : 'Book a Demo'}
         </button>
         
         {isSubmitted && (
