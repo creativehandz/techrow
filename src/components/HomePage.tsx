@@ -52,6 +52,7 @@ const HomePage = () => {
         "Creative pathways skip entire communities"
       ],
       description: "Across the country, neighborhoods are becoming entertainment deserts",
+      additionalText: "It's not a lack of creativity. It's a lack of access.",
       
     },
     {
