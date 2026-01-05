@@ -35,6 +35,21 @@ const VideoSlider2 = ({
     <div className="bg-black">
       <div className="w-full mx-auto relative">
         <div className="relative overflow-hidden video-content-height">
+          {/* Static Background Video */}
+          <div className="absolute inset-0">
+            <video 
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={videos[0]?.src || "/media/videos/hero/techrow_montage_new.mp4"} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          {/* Text Content Swiper */}
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={0}
@@ -60,22 +75,11 @@ const VideoSlider2 = ({
             followFinger={true}
             speed={1000}
             effect="slide"
-            className="video-swiper h-full"
+            className="video-swiper h-full relative z-10"
           >
             {videos.map((video) => (
               <SwiperSlide key={video.id}>
                 <div className="relative h-full">
-                  <video 
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source src={video.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  
                   {/* Action Buttons - Positioned at top center, bottom on mobile */}
                   <div className="absolute top-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 md:top-10 md:left-1/2 md:transform md:-translate-x-1/2">
                     <div className="hidden md:flex space-x-4">

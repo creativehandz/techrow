@@ -263,7 +263,11 @@ const HomePage = () => {
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="max-w-full h-16 object-contain filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                      className={`max-w-full h-16 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 ${
+                        logo.alt === "Cartoon Network" 
+                          ? "filter-none" 
+                          : "filter brightness-0 invert"
+                      }`}
                     />
                   </div>
                 </SwiperSlide>
