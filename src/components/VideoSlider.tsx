@@ -89,50 +89,21 @@ const VideoSlider = ({
                   <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 md:hidden">
                   </div>
                   
-                  {/* Mobile Title - Outside overlay */}
-                  <div className="absolute bottom-45 left-0 right-0 w-full text-center md:hidden z-20 px-4">
+                  {/* Mobile Title - Outside overlay, positioned above black box */}
+                  <div className={`absolute left-0 right-0 w-full text-center md:hidden z-20 px-4 ${video.challengeButtons ? 'bottom-80' : video.id === 3 ? 'bottom-72' : 'bottom-80'}`}>
                     <h3 
-                      className="video-title text-2xl mb-4" 
+                      className="video-title text-2xl mb-2" 
                       style={{color: video.titleColor || '#FFD058'}}
                     >
                       {video.title}
                     </h3>
-                    {video.subtitle && (
-                      <p className="video-description text-lg mb-4 text-white">
-                        {video.subtitle}
-                      </p>
-                    )}
-                    {video.challengeButtons && (
-                      <div className="flex flex-col gap-3 mb-4 max-w-sm">
-                        {/* First row - 1 button */}
-                        <div className="flex justify-start">
-                          <div className="challenge-button w-full">
-                            {video.challengeButtons[0]}
-                          </div>
-                        </div>
-                        {/* Second row - 2 buttons */}
-                        <div className="flex gap-2 justify-start">
-                          <div className="challenge-button flex-1 text-sm">
-                            {video.challengeButtons[1]}
-                          </div>
-                          <div className="challenge-button flex-1 text-sm">
-                            {video.challengeButtons[2]}
-                          </div>
-                        </div>
-                        {/* Third row - 1 button */}
-                        <div className="flex justify-start">
-                          <div className="challenge-button w-full">
-                            {video.challengeButtons[3]}
-                          </div>
-                        </div>
-                      </div>
-                    )}
                   </div>
                   
                   {/* Video Overlay Info */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8" style={{background: 'var(--Background-Black-40, #0F0F0F66)'}}>
-                    {/* Mobile Layout - Description and action tags in overlay */}
+                    {/* Mobile Layout - Action tags, description and challenge buttons in overlay */}
                     <div className="md:hidden text-center">
+                      {/* Action tags */}
                       <div className="flex justify-center space-x-4 mb-4">
                         {video.actionTags && video.actionTags.map((tag, index) => (
                           <button key={index} className="video-action-tag">
@@ -140,9 +111,28 @@ const VideoSlider = ({
                           </button>
                         ))}
                       </div>
-                      <p className="video-description text-sm leading-relaxed">
+                      {/* Subtitle - appears after action tags in mobile */}
+                      {video.subtitle && (
+                        <p className="video-description text-lg text-white mb-4">
+                          {video.subtitle}
+                        </p>
+                      )}
+                      {/* Description */}
+                      <p className="video-description text-sm leading-relaxed mb-4">
                         {video.description}
                       </p>
+                      {/* Challenge buttons */}
+                      {video.challengeButtons && (
+                        <div className="flex flex-col gap-3 w-full">
+                          {video.challengeButtons.map((button, index) => (
+                            <div key={index} className="flex justify-start">
+                              <div className="challenge-button text-left">
+                                {button}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                     
                     {/* Desktop Layout */}

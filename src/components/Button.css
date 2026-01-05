@@ -1515,6 +1515,19 @@
     font-size: 18px;
     /* Smaller font for mobile */
   }
+
+  /* Challenge Button Mobile Styles */
+  .challenge-button {
+    background: transparent;
+    color: #89B7E8;
+    padding: 0;
+    text-align: left;
+  }
+
+  .challenge-button:hover {
+    background: transparent;
+    color: #89B7E8;
+  }
 }
 
 /* Mobile Landscape */
@@ -1975,6 +1988,7 @@
 
   .video-description {
     font-size: 22px;
+    text-align: left;
   }
 
   .customers-partners-title {
