@@ -24,11 +24,12 @@ const Donate = () => {
       
       <HeroSection 
         videoSrc="/media/videos/pages/harlem-legendary-cultural-history.mp4"
-        title="Help Us Bring Entertainment and Creative Opportunity <span style='color: #FFD058'>to Neighborhoods That Need It Most.</span> "
+        title="Help Us Bring Entertainment <br />and Creative Opportunity <br /><span style='color: #FFD058'>to Neighborhoods That Need It Most.</span> "
         subHeading="Your support activates spaces, powers creativity. and fuels the makers who bring entertainment to life."
         showActionButtons={false}
         showBottomItems={false}
         overlayColor="bg-black/70"
+        height="calc(100vh - 50px)"
       />
       
       {/* Gap between sections - Hidden on mobile */}
