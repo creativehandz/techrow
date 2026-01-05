@@ -220,12 +220,12 @@
 
 /* Video Slider Section Responsive Heights */
 .video-slider-section {
-  height: 700px;
+  height: 900px;
   /* Default desktop height */
 }
 
 .video-content-height {
-  height: 700px;
+  height: 900px;
   /* Default desktop height */
 }
 
@@ -384,8 +384,8 @@
 /* Video Swiper Custom Styles */
 .video-swiper .swiper-button-next,
 .video-swiper .swiper-button-prev {
-  background: rgba(31, 41, 55, 0.8);
-  border: 2px solid #fdfdfd;
+  
+  border: 0px solid #fdfdfd;
   border-radius: 8px;
   width: 48px;
   height: 48px;
@@ -403,8 +403,7 @@
   left: 25px !important;
 }
 
-.video-swiper .swiper-button-next:hover,
-.video-swiper .swiper-button-prev:hover {
+.video-swiper .swiper-button-next:hover {
   background: rgba(55, 65, 81, 1);
 }
 
@@ -415,18 +414,26 @@
 }
 
 .video-swiper .swiper-button-next {
-  background-image: url('/media/images/icons/arrows.png') !important;
-  background-size: 24px 24px !important;
+  background-image: url('/media/images/icons/right-arrow.png') !important;
+  background-size: 48px 48px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
 
+.video-swiper .swiper-button-next:hover {
+  background-image: url('/media/images/icons/right-hover.png') !important;
+}
+
 .video-swiper .swiper-button-prev {
-  background-image: url('/media/images/icons/arrows.png') !important;
-  background-size: 24px 24px !important;
+  background-image: url('/media/images/icons/left-arrow.png') !important;
+  background-size: 48px 48px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  transform: rotate(180deg) !important;
+}
+
+.video-swiper .swiper-button-prev:hover {
+  background-image: url('/media/images/icons/left-hover.png') !important;
+  transform: none !important;
 }
 
 /* Override default Swiper button colors */
@@ -477,6 +484,27 @@
 
 .video-action-tag:hover {
   background: #0F0F0F66;
+  transform: translateY(-2px);
+}
+
+/* Challenge Button Styles */
+.challenge-button {
+  padding: 12px 20px;
+  background: #193F63;
+
+
+  color: #fdfdfd;
+  border-radius: 8px;
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.challenge-button:hover {
+  background: rgba(58, 111, 185, 1);
   transform: translateY(-2px);
 }
 
@@ -1320,8 +1348,8 @@
 
   .video-slider-section,
   .video-content-height {
-    height: 75vh;
-    /* Reduced height for medium tablets */
+    height: 900px;
+    /* Standard height for medium tablets */
   }
 
   .neighborhood-text {
@@ -1431,7 +1459,7 @@
 
   .video-slider-section,
   .video-content-height {
-    height: 80vh;
+    height: 900px;
     /* Good height for large tablets */
   }
 
@@ -1521,8 +1549,8 @@
 
   .video-slider-section,
   .video-content-height {
-    height: 700px;
-    /* Very compact for mobile landscape */
+    height: 900px;
+    /* Standard height for mobile landscape */
   }
 
   .neighborhood-text {
@@ -1714,7 +1742,7 @@
 
   .video-slider-section,
   .video-content-height {
-    height: 700px;
+    height: 900px;
     /* Optimized for tablet landscape */
   }
 
@@ -1886,8 +1914,8 @@
 
   .video-slider-section,
   .video-content-height {
-    height: 60vh;
-    /* Compact height for mobile portrait */
+    height: 900px;
+    /* Standard height for mobile portrait */
   }
 
   .menu-item {
@@ -2021,7 +2049,7 @@
 
   .video-slider-section,
   .video-content-height {
-    height: 700px;
+    height: 900px;
     /* Balanced height for small tablets */
   }
 
