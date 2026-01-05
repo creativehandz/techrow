@@ -126,7 +126,7 @@ const HeroSection = ({
         {showBottomItems && (
           <div className="pb-8 flex flex-col items-center space-y-4">
             <div className="flex items-center space-x-8 text-white">
-              <span className="hero-bottom-item">• Activate</span>
+              <span className="hero-bottom-item" style={{color: '#FFD058'}}>• Activate</span>
               <span className="hero-bottom-item">• Engage</span>
               <span className="hero-bottom-item">• Empower</span>
             </div>
