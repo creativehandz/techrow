@@ -10,6 +10,9 @@ interface VideoSlide {
   src: string;
   title: string;
   titleColor?: string;
+  subtitle?: string;
+  challengeButtons?: string[];
+  actionTags?: string[];
   description: string;
 }
 
@@ -34,22 +37,26 @@ const VideoSlider = ({
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
-            loop={false}
-            navigation={false}
-            pagination={false}
+            loop={true}
+            navigation={true}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true
+            }}
             autoplay={false}
-            allowTouchMove={false}
-            allowSlideNext={false}
-            allowSlidePrev={false}
+            allowTouchMove={true}
+            allowSlideNext={true}
+            allowSlidePrev={true}
             touchStartPreventDefault={false}
-            simulateTouch={false}
-            grabCursor={false}
-            noSwiping={true}
-            noSwipingClass="swiper-no-swiping"
-            preventClicks={true}
-            preventClicksPropagation={true}
-            touchMoveStopPropagation={false}
-            speed={0}
+            simulateTouch={true}
+            grabCursor={true}
+            touchRatio={1}
+            threshold={5}
+            longSwipes={true}
+            longSwipesRatio={0.5}
+            longSwipesMs={300}
+            followFinger={true}
+            speed={1000}
             effect="slide"
             className="video-swiper h-full"
           >
@@ -70,15 +77,11 @@ const VideoSlider = ({
                   {/* Action Buttons - Positioned at top center, bottom on mobile */}
                   <div className="absolute top-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 md:top-10 md:left-1/2 md:transform md:-translate-x-1/2">
                     <div className="hidden md:flex space-x-4">
-                      <button className="video-action-tag">
-                        See
-                      </button>
-                      <button className="video-action-tag">
-                        Explore
-                      </button>
-                      <button className="video-action-tag">
-                        Create
-                      </button>
+                      {video.actionTags && video.actionTags.map((tag, index) => (
+                        <button key={index} className="video-action-tag">
+                          {tag}
+                        </button>
+                      ))}
                     </div>
                   </div>
                   
@@ -94,6 +97,36 @@ const VideoSlider = ({
                     >
                       {video.title}
                     </h3>
+                    {video.subtitle && (
+                      <p className="video-description text-lg mb-4 text-white">
+                        {video.subtitle}
+                      </p>
+                    )}
+                    {video.challengeButtons && (
+                      <div className="flex flex-col gap-3 mb-4 max-w-sm">
+                        {/* First row - 1 button */}
+                        <div className="flex justify-start">
+                          <div className="challenge-button w-full">
+                            {video.challengeButtons[0]}
+                          </div>
+                        </div>
+                        {/* Second row - 2 buttons */}
+                        <div className="flex gap-2 justify-start">
+                          <div className="challenge-button flex-1 text-sm">
+                            {video.challengeButtons[1]}
+                          </div>
+                          <div className="challenge-button flex-1 text-sm">
+                            {video.challengeButtons[2]}
+                          </div>
+                        </div>
+                        {/* Third row - 1 button */}
+                        <div className="flex justify-start">
+                          <div className="challenge-button w-full">
+                            {video.challengeButtons[3]}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                   
                   {/* Video Overlay Info */}
@@ -101,15 +134,11 @@ const VideoSlider = ({
                     {/* Mobile Layout - Description and action tags in overlay */}
                     <div className="md:hidden text-center">
                       <div className="flex justify-center space-x-4 mb-4">
-                        <button className="video-action-tag">
-                          Gather
-                        </button>
-                        <button className="video-action-tag">
-                          Connect
-                        </button>
-                        <button className="video-action-tag">
-                          Thrive
-                        </button>
+                        {video.actionTags && video.actionTags.map((tag, index) => (
+                          <button key={index} className="video-action-tag">
+                            {tag}
+                          </button>
+                        ))}
                       </div>
                       <p className="video-description text-sm leading-relaxed">
                         {video.description}
@@ -126,6 +155,36 @@ const VideoSlider = ({
                         >
                           {video.title}
                         </h3>
+                        {video.subtitle && (
+                          <p className="video-description mt-4 text-white">
+                            {video.subtitle}
+                          </p>
+                        )}
+                        {video.challengeButtons && (
+                          <div className="flex flex-col gap-4 mt-6 max-w-2xl">
+                            {/* First row - 1 button */}
+                            <div className="flex justify-start">
+                              <div className="challenge-button w-full max-w-lg">
+                                {video.challengeButtons[0]}
+                              </div>
+                            </div>
+                            {/* Second row - 2 buttons */}
+                            <div className="flex gap-4 justify-start">
+                              <div className="challenge-button flex-1 max-w-xs">
+                                {video.challengeButtons[1]}
+                              </div>
+                              <div className="challenge-button flex-1 max-w-xs">
+                                {video.challengeButtons[2]}
+                              </div>
+                            </div>
+                            {/* Third row - 1 button */}
+                            <div className="flex justify-start">
+                              <div className="challenge-button w-full max-w-lg">
+                                {video.challengeButtons[3]}
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </div>
                       
                       {/* Right side - Description */}

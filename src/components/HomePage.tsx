@@ -32,17 +32,45 @@ const HomePage = () => {
     {
       id: 1,
       src: "/media/videos/hero/celebrating-diverse-talents-together-veed.mp4",
-      title: "DISTRIBUTION CHANNEL FOR PREMIUM PROGRAMMING",
+      title: "Why Entertainment Matters",
       titleColor: "#FFD058",
-      description: "Distribute films and series through curated, organization-run streaming destinations beyond traditional consumer platforms.",
+      actionTags: ["Gather", "Connect", "Thrive"],
+      description: "When entertainment returns to neighborhoods, families come together, safety improves, and communities feel alive again.",
       
     },
     {
       id: 2,
       src: "/media/videos/hero/techrow_montage_new.mp4", 
-      title: "Why It Works",
-      titleColor: "#7ED321",
-      description: "This isn't just entertainment — it's infrastructure for belonging, pride, and future-ready possibility.",
+      title: "The Challenge",
+      titleColor: "#89E717",
+      actionTags: ["Access", "Equity", "Opportunity"],
+      challengeButtons: [
+        "Local screens and venues vanish",
+        "Commutes grow longer",
+        "Public spaces sit unused",
+        "Creative pathways skip entire communities"
+      ],
+      description: "Across the country, neighborhoods are becoming entertainment deserts",
+      
+    },
+    {
+      id: 3,
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "Immersive Experiences",
+      subtitle: "Entertainment that starts from within the neighborhood.",
+      titleColor: "#FFD058",
+      actionTags: ["Experience", "Celebrate", "Belong"],
+      description: "We activate gyms, theaters, and auditoriums with performances, films, gaming, esports, cultural nights, and community events.",
+      
+    },
+    {
+      id: 4,
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "Maker Experiences",
+      titleColor: "#89E717",
+      subtitle: "Makers who bring entertainment to life — and build futures in the process.",
+      actionTags: ["Learn", "Create", "Lead"],
+      description: "We build community-powered creative capacity through hands-on skills in sound, lighting, stagecraft, media, streaming, and emerging creative technologies.",
       
     }
   ];
