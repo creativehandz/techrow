@@ -37,24 +37,24 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
 
-      // Show/hide header based on scroll direction after 1200px
-      if (currentScrollY > 1200) {
-        if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 200) {
+      // Show/hide header based on scroll direction
+      if (currentScrollY > 50) {
+        if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 10) {
           // Scrolling down - hide header
           setHeaderVisible(false);
-        } else if (lastScrollY > currentScrollY && lastScrollY - currentScrollY > 200) {
+        } else if (lastScrollY > currentScrollY && lastScrollY - currentScrollY > 10) {
           // Scrolling up - show header
           setHeaderVisible(true);
         }
       } else {
-        // Always show header when above 1200px
+        // Always show header when at the very top
         setHeaderVisible(true);
       }
 
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
@@ -64,7 +64,7 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
     <>
       {/* Navigation */}
       <nav 
-        className={`fixed top-0 w-full z-[100] transform transition-all duration-100 ease-in-out ${
+        className={`fixed top-0 w-full z-[100] transform transition-all duration-300 ease-in-out ${
           headerVisible ? 'translate-y-0' : '-translate-y-full'
         }`} 
         style={{

@@ -119,9 +119,9 @@ const VideoSlider2 = ({
                         </p>
                       )}
                       {/* Description */}
-                      <p className="video-description text-sm leading-relaxed mb-4">
+                      <h5 className="video-description text-sm leading-relaxed mb-4 font-semibold">
                         {video.description}
-                      </p>
+                      </h5>
                       {/* Explore Button */}
                       {video.exploreButton && (
                         <div className="flex justify-center mb-4">
@@ -188,9 +188,9 @@ const VideoSlider2 = ({
                       
                       {/* Right side - Description */}
                       <div className="space-y-4">
-                        <p className="video-description">
+                        <h5 className="video-description font-semibold">
                           {video.description}
-                        </p>
+                        </h5>
                         {/* Explore Button */}
                         {video.exploreButton && (
                           <div className="flex justify-start">
