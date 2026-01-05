@@ -90,7 +90,7 @@ const VideoSlider = ({
                   </div>
                   
                   {/* Mobile Title - Outside overlay, positioned above black box */}
-                  <div className={`absolute left-0 right-0 w-full text-center md:hidden z-20 px-4 ${video.challengeButtons ? 'bottom-80' : video.id === 3 ? 'bottom-72' : 'bottom-80'}`}>
+                  <div className={`absolute left-0 right-0 w-full text-center md:hidden z-20 px-4 ${video.challengeButtons ? 'bottom-80' : video.id === 3 ? 'bottom-72' : video.id === 1 ? 'bottom-56' : 'bottom-80'}`}>
                     <h3 
                       className="video-title text-2xl mb-2" 
                       style={{color: video.titleColor || '#FFD058'}}
