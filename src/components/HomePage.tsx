@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import HeroSection from './HeroSection';
 import VideoSlider from './VideoSlider';
+import VideoSlider2 from './VideoSlider2';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,6 +76,65 @@ const HomePage = () => {
     }
   ];
 
+  // Second slider video data
+  const sliderVideos2 = [
+    {
+      id: 1,
+      src: "/media/videos/hero/celebrating-diverse-talents-together-veed.mp4",
+      title: "Why It Works",
+      titleColor: "#7ED321",
+      actionTags: ["Engage", "Build", "Transform"],
+      description: "This isn’t just entertainment — it’s infrastructure for belonging, pride, and future-ready possibility.",
+      
+    },
+    {
+      id: 2,
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "Our Vision",
+      titleColor: "#FFD058",
+      actionTags: ["Imagine", "Activate", "Sustain"],
+      description: "A world where every neighborhood can create, host and own their entertainment.",
+      
+    },
+    {
+      id: 3,
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "Programs We Funded",
+      titleColor: "#89E717",
+      actionTags: ["Activate", "Engage", "Empower"],
+      description: "From VR worlds to robotics to music and digital creation, we supported programs that sparked imagination and brought entertainment-centered creativity into community spaces.",
+      exploreButton: "Explore Programs We Funded",
+      
+    },
+    {
+      id: 4,
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "10,000+ people reached",
+      titleColor: "#FFD058",
+      actionTags: ["Joy", "Gather", "Celebrate"],
+      description: "Through joyful, community-centered experiences that bring neighborhoods together.",
+      
+    },
+    {
+      id: 5,
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "50+ schools and campuses activated",
+      titleColor: "#89E717",
+      actionTags: ["Creativity", "Imagine", "Create"],
+      description: "With immersive entertainment and creative-tech programs that spark imagination and possibility.",
+      
+    },
+    {
+      id: 6,
+      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      title: "150+ local makers engaged",
+      titleColor: "#FFD058",
+      actionTags: ["Community", "Build", "Empower"],
+      description: "Powering neighborhood events and strengthening local creative capacity.",
+      
+    }
+  ];
+
   const handleMenuToggle = () => {
     if (isMenuOpen) {
       setIsMenuClosing(true);
@@ -135,6 +195,15 @@ const HomePage = () => {
       <div className="video-slider-section">
         <VideoSlider 
           videos={sliderVideos}
+        />
+      </div>
+{/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+
+      {/* Second Video Slider Section */}
+      <div className="video-slider-section">
+        <VideoSlider2 
+          videos={sliderVideos2}
         />
       </div>
 {/* Gap between sections */}

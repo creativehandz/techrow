@@ -508,6 +508,28 @@
   transform: translateY(-2px);
 }
 
+/* Explore Programs Button Styles */
+.explore-programs-button {
+  font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 22px;
+  padding-top: 16px;
+  padding-right: 24px;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  border-radius: 8px;
+  background-color: #6BC202;
+  color: #262728;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-programs-button:hover {
+  background-color: #6BB01E;
+}
+
 /* Customers and Partners Section Background */
 .customers-partners-bg {
   position: relative;
