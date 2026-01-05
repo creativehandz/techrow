@@ -15,7 +15,7 @@ const FundGala = () => {
   const galaImages = [
     {
       id: 1,
-      src: "/media/images/hero/gala.jpg",
+      src: "/media/images/sections/NMSS-0971.jpg",
       title: "FORUM AND GALA",
       description: "Celebrating the power of community, creativity, and collaboration"
     },
