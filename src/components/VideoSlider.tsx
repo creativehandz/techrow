@@ -14,6 +14,7 @@ interface VideoSlide {
   challengeButtons?: string[];
   actionTags?: string[];
   description: string;
+  additionalText?: string;
 }
 
 interface VideoSliderProps {
@@ -121,6 +122,12 @@ const VideoSlider = ({
                       <h5 className="video-description text-sm leading-relaxed mb-4 font-semibold">
                         {video.description}
                       </h5>
+                      {/* Additional Text */}
+                      {video.additionalText && (
+                        <p className="video-additional-text text-sm leading-relaxed mb-4">
+                          {video.additionalText}
+                        </p>
+                      )}
                       {/* Challenge buttons */}
                       {video.challengeButtons && (
                         <div className="flex flex-col gap-3 w-full">
@@ -182,6 +189,12 @@ const VideoSlider = ({
                         <h5 className="video-description font-semibold">
                           {video.description}
                         </h5>
+                        {/* Additional Text */}
+                        {video.additionalText && (
+                          <p className="video-additional-text">
+                            {video.additionalText}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>

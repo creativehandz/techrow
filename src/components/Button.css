@@ -101,6 +101,14 @@
 
 }
 
+/* Video Additional Text */
+.video-additional-text {
+  font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #FDFDFD;
+}
+
 .learn-more-button:hover {
   opacity: 0.8;
 }
@@ -495,7 +503,7 @@
 
   color: #fdfdfd;
   border-radius: 8px;
-  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
   font-size: 18px;
   text-align: center;
