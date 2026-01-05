@@ -173,7 +173,7 @@ const HomePage = () => {
           alt="Spiderman Kid" 
           className="w-full spiderman-image object-cover"
         />
-        <div className="absolute inset-0" style={{background: 'var(--Background-Black-20, #0F0F0F33)'}}></div>
+        <div className="absolute inset-0" style={{background: '#0f0f0f5e'}}></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto relative px-4  max-w-none sm:px-6 lg:px-8 lg:w-full lg:max-w-none xl:w-full 2xl:w-full">
             <div className="w-full sm:max-w-3/4 lg:max-w-5/6 xl:max-w-3/4 tablet-landscape-full-width mobile-landscape-full-width">

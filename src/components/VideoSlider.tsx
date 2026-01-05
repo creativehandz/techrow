@@ -113,14 +113,14 @@ const VideoSlider = ({
                       </div>
                       {/* Subtitle - appears after action tags in mobile */}
                       {video.subtitle && (
-                        <p className="video-description text-lg text-white mb-4">
+                        <h6 className="video-description text-lg text-white mb-4 font-semibold">
                           {video.subtitle}
-                        </p>
+                        </h6>
                       )}
                       {/* Description */}
-                      <p className="video-description text-sm leading-relaxed mb-4">
+                      <h5 className="video-description text-sm leading-relaxed mb-4 font-semibold">
                         {video.description}
-                      </p>
+                      </h5>
                       {/* Challenge buttons */}
                       {video.challengeButtons && (
                         <div className="flex flex-col gap-3 w-full">
@@ -146,9 +146,9 @@ const VideoSlider = ({
                           {video.title}
                         </h3>
                         {video.subtitle && (
-                          <p className="video-description mt-4 text-white">
+                          <h6 className="video-description mt-4 text-white font-semibold">
                             {video.subtitle}
-                          </p>
+                          </h6>
                         )}
                         {video.challengeButtons && (
                           <div className="flex flex-col gap-4 mt-6 max-w-2xl">
@@ -179,9 +179,9 @@ const VideoSlider = ({
                       
                       {/* Right side - Description */}
                       <div className="space-y-4">
-                        <p className="video-description">
+                        <h5 className="video-description font-semibold">
                           {video.description}
-                        </p>
+                        </h5>
                       </div>
                     </div>
                   </div>
