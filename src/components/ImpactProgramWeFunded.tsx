@@ -1,7 +1,7 @@
 import './Button.css';
 import Header from './Header';
 import HeroSection from './HeroSection';
-import VideoSlider from './VideoSlider';
+import VideoSlider from './VideoSlider2';
 import ContactForm from './ContactForm';
 import Copyright from './Copyright';
 
@@ -12,30 +12,58 @@ const ImpactProgramWeFunded = () => {
       id: 1,
       src: "/media/videos/pages/spaces-desktop-veed.mp4",
       title: "Augmented Reality",
-      titleColor: "#FFD058",
+      titleColor: "#89E717",
+      actionTags: ["See", "Explore", "Create"],
       description: "Digital magic that let young creators remix their surroundings and reimagine their world."
     },
     {
       id: 2,
       src: "/media/videos/pages/booking-talent-desktop-veed.mp4",
-      title: "Local Talent Development",
-      titleColor: "#7ED321",
-      description: "Discover the creative capacity we've built within communities, empowering local talent and fostering artistic growth through strategic funding and support programs."
+      title: "Virtual Reality",
+      titleColor: "#FFD058",
+      actionTags: ["Enter", "Imagine", "Build"],
+      description: "Immersive worlds that transported creators into new realities — and let them shape their own."
     },
     {
       id: 3,
       src: "/media/videos/pages/media-partnerships-veed.mp4",
-      title: "Measurable Impact",
-      titleColor: "#FF6B6B",
-      description: "From workforce development to community engagement, explore the tangible results of our funded programs across diverse neighborhoods and creative initiatives."
+      title: "Esports",
+      titleColor: "#89E717",
+      actionTags: ["Play", "Compete", "Connect"],
+      description: "High-energy gaming that turned community spaces into arenas of excitement, teamwork, and belonging."
     },
     {
       id: 4,
       src: "/media/videos/pages/spaces-desktop-veed.mp4",
-      title: "Augmented Reality",
-      titleColor: "#8A40CA",
-      description: "Digital magic that let young creators remix their surroundings and reimagine their world."
-    }
+      title: "Video Game Design",
+      titleColor: "#FFD058",
+      actionTags: ["Design", "Storytell", "Develop"],
+      description: "Interactive storytelling where students built characters, worlds, and action."
+    },
+    {
+      id: 5,
+      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      title: "Robotics",
+      titleColor: "#89E717",
+      actionTags: ["Think", "Engineer", "Innovate"],
+      description: "Hands-on creation where imagination moved, lit up, and came alive."
+    },
+    {
+      id: 6,
+      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      title: "Music & Technology",
+      titleColor: "#FFD058",
+      actionTags: ["Write", "Produce", "Publish"],
+      description: "Beats, lyrics, and digital creativity — original tracks crafted with modern tools."
+    },
+    {
+      id: 7,
+      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      title: "Professional Development",
+      titleColor: "#89E717",
+      actionTags: ["Train", "Inspire", "Empower"],
+      description: "Helping educators bring dynamic, tech-forward experiences into community spaces."
+    },
   ];
 
   return (
@@ -49,6 +77,7 @@ const ImpactProgramWeFunded = () => {
         showActionButtons={false}
         showBottomItems={false}
         overlayColor="bg-black/70"
+        height="calc(100vh - 50px)"
       />
 
       {/* Gap between sections */}
@@ -63,12 +92,12 @@ const ImpactProgramWeFunded = () => {
       </section>
       
       {/* Gap between sections */}
-      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+      <div style={{height: '180px', backgroundColor: '#141414'}}></div>
 
       {/* Impact Summary Section */}
-      <section className="bg-black">
+      <section className="bg-black" style={{backgroundColor: '#141414'}}>
         <div className="container mx-auto text-center responsive-padding">
-          <h2 className="impact-heading mb-5">YOUR IMPACT</h2>
+          <h2 className="impact-heading mb-5">Impact Summary</h2>
           
           <p className="impact-summary-subtitle pb-5">
             OUR PROGRAMS STRENGTHENED COMMUNITIES THROUGH:
@@ -103,7 +132,7 @@ const ImpactProgramWeFunded = () => {
       </section>
       
       {/* Gap between sections */}
-      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+      <div style={{height: '180px', backgroundColor: '#141414'}}></div>
 
       {/* Impact Programs Section */}
       <section className="mission-section-bg footer-bg">

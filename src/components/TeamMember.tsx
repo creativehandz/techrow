@@ -6,6 +6,7 @@ interface TeamMemberProps {
   position: string;
   description: string;
   imageOnLeft?: boolean;
+  linkedinUrl?: string;
 }
 
 const TeamMember = ({ 
@@ -13,7 +14,8 @@ const TeamMember = ({
   name, 
   position, 
   description, 
-  imageOnLeft = false 
+  imageOnLeft = false,
+  linkedinUrl
 }: TeamMemberProps) => {
   return (
     <div className={imageOnLeft ? "team-grid-reverse" : "team-grid"}>
@@ -30,7 +32,13 @@ const TeamMember = ({
           {/* Text Second - 60% */}
           <div className="text-white team-grid-column">
             <div className="flex items-center mb-2">
-              <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 h-5 mr-2" />
+              {linkedinUrl ? (
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                  <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" />
+                </a>
+              ) : (
+                <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
+              )}
               <h3 className="team-member-name">
                 {name}
               </h3>
@@ -49,7 +57,13 @@ const TeamMember = ({
           {/* Text First - 60% */}
           <div className="text-white team-grid-column">
             <div className="flex items-center mb-2">
-              <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
+              {linkedinUrl ? (
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                  <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" />
+                </a>
+              ) : (
+                <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
+              )}
               <h3 className="team-member-name">
                 {name}
               </h3>

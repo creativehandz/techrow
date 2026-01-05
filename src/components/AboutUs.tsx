@@ -14,7 +14,7 @@ const AboutUs = () => {
       src: "/media/videos/pages/harlem-legendary-cultural-history.mp4",
       title: "Who We Are",
       titleColor: "#FFD058",
-      description: "TechRow Fund transforms underused public spaces into vibrant entertainment hubs and builds the creative capacity inside communities to power them. We work where talent already lives — in the neighborhoods that shaped culture."
+      description: "TechRow Fund transforms underused public spaces into vibrant entertainment hubsand builds the creative capacity inside communities to power them. We work where talent already lives — in the neighborhoods that shaped culture."
     },
     {
       id: 2,
@@ -65,6 +65,7 @@ const AboutUs = () => {
                 position="Founder"
                 description="Travis Feldler is Founder and CEO of TechRow Fund, where he leads a national effort to transform underused public spaces into vibrant entertainment hubs powered by local creators, immersive technology, and community engagement. His work spans workforce development, and community-led innovation to build sustainable local entertainment economies."
                 imageOnLeft={false}
+                linkedinUrl="https://www.linkedin.com/in/travis-feldler-38636727/"
               />
 
               {/* Rudy Blanco - Image Left, Text Right */}
@@ -74,6 +75,7 @@ const AboutUs = () => {
                 position="Executive Director"
                 description="Rudy Blanco is Program Manager at TechRow Fund, designing youth and adult programs at the intersection of education, entertainment, and digital culture to expand access to technology and creative careers."
                 imageOnLeft={true}
+                linkedinUrl="https://www.linkedin.com/in/rudyblanco"
               />
             </div>
           </div>
@@ -94,6 +96,9 @@ const AboutUs = () => {
       {/* Mission Section */}
       <section className="mission-section-bg footer-bg">
         <div className="container mx-auto ">
+          <p className="our-promise">
+            <span>• Our Promise</span>
+          </p>
           <h2 className="mission-title">
             Mission
           </h2>

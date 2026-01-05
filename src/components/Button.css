@@ -707,7 +707,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   font-weight: 900;
   font-size: 35px;
   text-transform: uppercase;
-  color: #7ED321;
+  color: #FDFDFD;
 }
 
 /* Team Position Styling */
@@ -950,7 +950,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
 }
 
 .form-submit-button {
-  background-color: #FFC737;
+  background-color: #89E717;
   color: #262728;
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
@@ -966,7 +966,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
 }
 
 .form-submit-button:hover {
-  background-color: #D19A1C;
+  background-color: #6BB012;
   transform: translateY(-2px);
 }
 
