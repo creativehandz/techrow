@@ -124,7 +124,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     setIsSubmitting(true);
     
     try {
-      // Using Formspree to send emails directly to Gmail
+      // Using Formspree to send emails to multiple Gmail addresses
       const response = await fetch('https://formspree.io/f/xdakyzyv', {
         method: 'POST',
         headers: {
@@ -137,7 +137,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           message: formData.message,
           _replyto: formData.workEmail,
           _subject: `New Contact Form Submission from ${formData.name}`,
-          _template: 'table'
+          _template: 'table',
+          // Send to multiple email addresses (configure these in Formspree dashboard)
+          _cc: import.meta.env.VITE_ADMIN_EMAIL_2 || ''
         })
       });
 
