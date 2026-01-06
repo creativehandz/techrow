@@ -2644,3 +2644,84 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
 
    
 }
+
+/* Challenge buttons for AboutUs page */
+.aboutus-challenge-button {
+     background: #193F63;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    color: #fdfdfd;
+    padding: 5px 20px 5px 20px;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: normal;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+
+
+ }
+
+.aboutus-challenge-button:hover {
+  background: rgba(52, 73, 94, 1);
+  transform: translateY(-2px);
+}
+
+.aboutus-challenge-button-wide {
+  background: #193F63;
+ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+
+  color: #fdfdfd;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 32px;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+
+
+}
+
+.aboutus-challenge-button-wide:hover {
+  background: rgba(52, 73, 94, 1);
+  transform: translateY(-2px);
+}
+
+.aboutus-challenge-button-outline {
+background: #193F63;
+ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+
+  color: #fdfdfd;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 32px;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+
+
+
+}
+
+.aboutus-challenge-button-outline:hover {
+  background: #60A5FA;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments for AboutUs challenge buttons */
+@media (max-width: 768px) {
+  .aboutus-challenge-button,
+  .aboutus-challenge-button-wide,
+  .aboutus-challenge-button-outline {
+    font-size: 18px;
+        padding: 0;
+        min-height: auto;
+        color: #89B7E8;
+        background: #193f6300;
+  }
+}
