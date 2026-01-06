@@ -153,6 +153,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .hero-donate-button {
@@ -251,10 +252,19 @@
 .video-description {
   font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   font-weight: 600;
-  font-style: SemiBold;
+ 
   font-size: 32px;
   line-height: 110%;
-  letter-spacing: 1%;
+
+  color: #fdfdfd;
+}
+
+/* Video Subtitle Text */
+.video-subtitle {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 120%;
   color: #fdfdfd;
 }
 
@@ -505,10 +515,10 @@
   border-radius: 8px;
 font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 24px;
   text-align: center;
   white-space: nowrap;
-  min-width: 380px;
+
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -1437,6 +1447,19 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     padding-left: 30px;
     padding-right: 30px;
   }
+  .challenge-button {
+    padding: 0;
+    background: #193f6300;
+    color: #fdfdfd;
+    border-radius: 8px;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 }
 
 @media (min-width: 1025px) {
@@ -1556,12 +1579,28 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     color: #89B7E8;
     padding: 0;
     text-align: left;
+    font-size: 20px;
   }
 
   .challenge-button:hover {
     background: transparent;
     color: #89B7E8;
   }
+  .video-additional-text {
+    font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #FDFDFD;
+    text-align: left;
+}
+.video-subtitle {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 120%;
+    color: #fdfdfd;
+    text-align: left;
+}
 }
 
 /* Mobile Landscape */
@@ -1748,6 +1787,46 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     line-height: 36px;
     margin: 0 0 20px 0;
   }
+  .video-description {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 110%;
+    color: #fdfdfd;
+}
+.video-title {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 39px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #FFD058;
+}
+.challenge-button {
+    padding: 0;
+    background: #193f6300;
+            color: #89B7E8;
+    border-radius: 8px;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.video-action-tag {
+    padding: 8px 16px 4px 16px;
+    background: #0F0F0F33;
+    color: #fdfdfd;
+    border-radius: 8px;
+    border: none;
+    font-weight: 400;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+}
 }
 
 /* Tablet Landscape */
@@ -1923,6 +2002,46 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   .hero-subtitle-v1 {
     font-size: 20px;
   }
+    .video-description {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 110%;
+    color: #fdfdfd;
+}
+.video-title {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 39px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #FFD058;
+}
+.challenge-button {
+    padding: 0;
+    background: #193f6300;
+            color: #89B7E8;
+    border-radius: 8px;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.video-action-tag {
+    padding: 8px 16px 4px 16px;
+    background: #0F0F0F33;
+    color: #fdfdfd;
+    border-radius: 8px;
+    border: none;
+    font-weight: 400;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+}
 
 }
 
@@ -1971,6 +2090,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
 
   .hero-action-button {
     width: 100%;
+    text-align: center;
   }
 
   .gala-slider-height {
@@ -2045,6 +2165,18 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     width: 100%;
     min-width: unset;
   }
+  .video-action-tag {
+    padding: 8px 16px 4px 16px;
+    background: #0F0F0F33;
+    color: #fdfdfd;
+    border-radius: 8px;
+    border: none;
+    font-weight: 400;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+}
 }
 
 /* Responsive adjustments for team heading */
@@ -2210,6 +2342,29 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     height: 700px;
     /* Partner hero height for small mobile */
   }
+  .video-additional-text {
+    font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #FDFDFD;
+    text-align: left;
+}
+    .video-description {
+        font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 110%;
+        color: #fdfdfd;
+        text-align: left;
+    }
+    .video-subtitle {
+    font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 120%;
+    color: #fdfdfd;
+    text-align: left;
+}
 }
 
 @media (max-width: 480px) {
