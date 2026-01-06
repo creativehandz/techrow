@@ -95,68 +95,73 @@ const VideoSlider2 = ({
                   <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 md:hidden">
                   </div>
                   
-                  {/* Mobile Title - Outside overlay, positioned above black box */}
-                  <div className={`absolute left-0 right-0 w-full text-center md:hidden z-20 px-4 ${video.challengeButtons ? 'bottom-80' : video.id === 3 ? 'bottom-72' : video.id === 1 ? 'bottom-56' : 'bottom-80'}`}>
-                    <h3 
-                      className="video-title text-2xl mb-2" 
-                      style={{color: video.titleColor || '#FFD058'}}
-                    >
-                      {video.title}
-                    </h3>
-                  </div>
-                  
-                  {/* Video Overlay Info */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8" style={{background: 'var(--Background-Black-40, #0F0F0F66)'}}>
-                    {/* Mobile Layout - Action tags, description and challenge buttons in overlay */}
-                    <div className="md:hidden text-center">
-                      {/* Action tags */}
-                      <div className="flex justify-center space-x-4 mb-4">
-                        {video.actionTags && video.actionTags.map((tag, index) => (
-                          <button key={index} className="video-action-tag">
-                            {tag}
-                          </button>
-                        ))}
-                      </div>
-                      {/* Subtitle - appears after action tags in mobile */}
-                      {video.subtitle && (
-                        <p className="video-description text-lg text-white mb-4">
-                          {video.subtitle}
-                        </p>
-                      )}
-                      {/* Description */}
-                      <h5 className="video-description text-sm leading-relaxed mb-4 font-semibold">
-                        {video.description}
-                      </h5>
-                      {/* Additional Text */}
-                      {video.additionalText && (
-                        <p className="video-additional-text text-sm leading-relaxed mb-4">
-                          {video.additionalText}
-                        </p>
-                      )}
-                      {/* Explore Button */}
-                      {video.exploreButton && (
-                        <div className="flex justify-center mb-4">
-                          <button className="explore-programs-button">
-                            {video.exploreButton}
-                          </button>
-                        </div>
-                      )}
-                      {/* Challenge buttons */}
-                      {video.challengeButtons && (
-                        <div className="flex flex-col gap-3 w-full">
-                          {video.challengeButtons.map((button, index) => (
-                            <div key={index} className="flex justify-start">
-                              <div className="challenge-button text-left">
-                                {button}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                  {/* Mobile Title Section - Positioned above black overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 md:hidden z-30">
+                    <div className="w-full text-center px-4 pb-2 mb-2">
+                      <h3 
+                        className="video-title text-2xl mb-2" 
+                        style={{color: video.titleColor || '#FFD058'}}
+                      >
+                        {video.title}
+                      </h3>
                     </div>
                     
+                    {/* Video Overlay Info for Mobile */}
+                    <div className="p-4" style={{background: 'var(--Background-Black-40, #0F0F0F66)'}}>
+                      {/* Mobile Layout - Action tags, description and challenge buttons in overlay */}
+                      <div className="text-center">
+                        {/* Action tags */}
+                        <div className="flex justify-center space-x-4 mb-4">
+                          {video.actionTags && video.actionTags.map((tag, index) => (
+                            <button key={index} className="video-action-tag">
+                              {tag}
+                            </button>
+                          ))}
+                        </div>
+                        {/* Subtitle - appears after action tags in mobile */}
+                        {video.subtitle && (
+                          <p className="video-description text-lg text-white mb-4">
+                            {video.subtitle}
+                          </p>
+                        )}
+                        {/* Description */}
+                        <h5 className="video-description text-sm leading-relaxed mb-4 font-semibold">
+                          {video.description}
+                        </h5>
+                        {/* Additional Text */}
+                        {video.additionalText && (
+                          <p className="video-additional-text text-sm leading-relaxed mb-4">
+                            {video.additionalText}
+                          </p>
+                        )}
+                        {/* Explore Button */}
+                        {video.exploreButton && (
+                          <div className="flex justify-center mb-4">
+                            <button className="explore-programs-button">
+                              {video.exploreButton}
+                            </button>
+                          </div>
+                        )}
+                        {/* Challenge buttons */}
+                        {video.challengeButtons && (
+                          <div className="flex flex-col gap-3 w-full">
+                            {video.challengeButtons.map((button, index) => (
+                              <div key={index} className="flex justify-start">
+                                <div className="challenge-button text-left">
+                                  {button}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Video Overlay Info - Desktop Only */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 hidden md:block" style={{background: 'var(--Background-Black-40, #0F0F0F66)'}}>
                     {/* Desktop Layout */}
-                    <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                       {/* Left side - Title */}
                       <div>
                         <h3 

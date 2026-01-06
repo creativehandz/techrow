@@ -51,7 +51,7 @@ const HomePage = () => {
         "Public spaces sit unused",
         "Creative pathways skip entire communities"
       ],
-      challengeButtonsPosition: 'left',
+      challengeButtonsPosition: 'left' as const,
       description: "Across the country, neighborhoods are becoming entertainment deserts",
       additionalText: "It's not a lack of creativity. It's a lack of access.",
       
