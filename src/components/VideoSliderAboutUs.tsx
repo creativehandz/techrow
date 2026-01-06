@@ -14,6 +14,7 @@ interface VideoSlideAboutUs {
   subtitle2?: string;
   challengeButtons?: string[];
   challengeButtonsPosition?: 'left' | 'right';
+  actionTags?: string[];
   description: string;
 }
 
@@ -62,6 +63,15 @@ const VideoSliderAboutUs = ({
                     playsInline
                   />
                   
+                  {/* Action Buttons - Positioned at top center */}
+                  <div className="absolute top-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 hidden md:flex">
+                    {video.actionTags && video.actionTags.map((tag, index) => (
+                      <button key={index} className="video-action-tag">
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                  
                   {/* Mobile Title Section - Positioned above black overlay */}
                   <div className="absolute bottom-0 left-0 right-0 md:hidden z-30">
                     <div className="w-full text-center px-4 pb-2 mb-2">
@@ -77,6 +87,14 @@ const VideoSliderAboutUs = ({
                     <div className="p-4" style={{background: 'var(--Background-Black-40, #0F0F0F66)'}}>
                       {/* Mobile Layout - centered content */}
                       <div className="text-center">
+                        {/* Action tags */}
+                        <div className="flex justify-center space-x-4 mb-4">
+                          {video.actionTags && video.actionTags.map((tag, index) => (
+                            <button key={index} className="video-action-tag">
+                              {tag}
+                            </button>
+                          ))}
+                        </div>
                         {/* Subtitle - appears in mobile */}
                         {video.subtitle && (
                           <p className="video-subtitle text-lg text-white mb-4">

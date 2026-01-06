@@ -14,6 +14,7 @@ const AboutUs = () => {
       src: "/media/videos/pages/media-partnerships-veed.mp4",
       title: "Who We Are",
       titleColor: "#FFD058",
+      actionTags: ["Activate", "Engage", "Empower"],
       description: "TechRow Fund transforms underused public spaces into vibrant entertainment hubsand builds the creative capacity inside communities to power them. We work where talent already lives — in the neighborhoods that shaped culture."
     },
     {
@@ -21,6 +22,7 @@ const AboutUs = () => {
   src: "/media/videos/pages/spaces-desktop-veed.mp4", 
   title: "The Challenge",
   titleColor: "#7ED321",
+  actionTags: ["Access", "Equity", "Opportunity"],
   description: "Across the country, neighborhoods face:",
   subtitle: "Communities Aren't Losing Creativity —  They're Losing Access.",
   subtitle2: "Empty spaces lead to empty evenings — and fading community life.",
@@ -36,6 +38,7 @@ const AboutUs = () => {
       src: "/media/videos/pages/spaces-desktop-veed.mp4",
       title: "Why It Matters",
       titleColor: "#FFD058",
+      actionTags: ["Belong", "Engage", "Flourish"],
       description: "Entertainment is more than a show — it’s how communities gather, connect, and grow. Activated spaces create:",
       subtitle: "When spaces open, people show up.",
       subtitle2: "When makers rise, neighborhoods rise with them.",
@@ -51,6 +54,7 @@ const AboutUs = () => {
       src: "/media/videos/pages/listing-talent-veed.mp4",
       title: "Our Vision",
       titleColor: "#7ED321",
+      actionTags: ["Imagine", "Activate", "Sustain"],
       description: "A future where every neighborhood has:",
       subtitle: "When spaces open, Communities shouldnt wait for entertainment. They should create it, host it, and own it.",
       challengeButtons: [
