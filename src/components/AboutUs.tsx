@@ -2,7 +2,7 @@ import './Button.css';
 import Header from './Header';
 import HeroSection from './HeroSection';
 import TeamMember from './TeamMember';
-import VideoSlider from './VideoSlider';
+import VideoSliderAboutUs from './VideoSliderAboutUs';
 import ContactForm from './ContactForm';
 import Copyright from './Copyright';
 
@@ -11,24 +11,54 @@ const AboutUs = () => {
   const aboutUsVideos = [
     {
       id: 1,
-      src: "/media/videos/pages/harlem-legendary-cultural-history.mp4",
+      src: "/media/videos/pages/media-partnerships-veed.mp4",
       title: "Who We Are",
       titleColor: "#FFD058",
       description: "TechRow Fund transforms underused public spaces into vibrant entertainment hubsand builds the creative capacity inside communities to power them. We work where talent already lives — in the neighborhoods that shaped culture."
     },
     {
-      id: 2,
-      src: "/media/videos/pages/booking-talent-desktop-veed.mp4",
-      title: "Our Mission",
-      titleColor: "#7ED321",
-      description: "We activate spaces, amplify talent, and build local creative power. Our work empowers communities to create sustainable entertainment economies."
-    },
+  id: 2,
+  src: "/media/videos/pages/spaces-desktop-veed.mp4", 
+  title: "The Challenge",
+  titleColor: "#7ED321",
+  description: "Across the country, neighborhoods face:",
+  subtitle: "Communities Aren't Losing Creativity —  They're Losing Access.",
+  subtitle2: "Empty spaces lead to empty evenings — and fading community life.",
+  challengeButtons: [
+    "Fewer local venues",
+    "Darkened screens", 
+    "Unused public spaces after 3 PM",
+    "Creative pathways that rarely reach the block"
+  ]
+},
     {
       id: 3,
-      src: "/media/videos/pages/media-partnerships-veed.mp4",
-      title: "Our Impact",
-      titleColor: "#FF6B6B",
-      description: "From transformed spaces to empowered communities, see how we're making a real difference in neighborhoods across the country."
+      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      title: "Why It Matters",
+      titleColor: "#FFD058",
+      description: "Entertainment is more than a show — it’s how communities gather, connect, and grow. Activated spaces create:",
+      subtitle: "When spaces open, people show up.",
+      subtitle2: "When makers rise, neighborhoods rise with them.",
+      challengeButtons: [
+    "Safety",
+    "Belonging", 
+    "Shared moments",
+    "New opportunities"
+  ],
+    },
+    {
+      id: 4,
+      src: "/media/videos/pages/listing-talent-veed.mp4",
+      title: "Our Vision",
+      titleColor: "#7ED321",
+      description: "A future where every neighborhood has:",
+      subtitle: "When spaces open, Communities shouldnt wait for entertainment. They should create it, host it, and own it.",
+      challengeButtons: [
+    "Entertainment close to home",
+    "Creative-tech pathways", 
+    "Active community spaces",
+    "Local makers powering local shows"
+  ],
     }
   ];
 
@@ -49,7 +79,7 @@ const AboutUs = () => {
       <div style={{height: '180px', backgroundColor: '#000000'}}></div>
 
       {/* Mission Section */}
-      <section className="team-section-bg">
+      <section className="team-section-bg responsive-padding">
         <div className="container mx-auto team-container-border">
           <div className="mx-auto team-container-border" >
             <h2 className="team-heading mb-16">
@@ -86,9 +116,9 @@ const AboutUs = () => {
       
       {/* Video Section */}
       <section>
-        <VideoSlider 
+        <VideoSliderAboutUs 
           videos={aboutUsVideos}
-          height="70vh"
+          height="800px"
         />
       </section>
       {/* Gap between sections */}
