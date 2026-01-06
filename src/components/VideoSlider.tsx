@@ -157,16 +157,22 @@ const VideoSlider = ({
                             {video.subtitle}
                           </h6>
                         )}
-                        {video.challengeButtons && (
-                          <div className="flex flex-col gap-4 mt-6 max-w-2xl">
-                            {/* First row - 1 button */}
-                            <div className="flex justify-start">
-                              <div className="challenge-button w-full max-w-lg">
+                        {!video.challengeButtons && (
+                          <h5 className="video-description mt-6 font-semibold">
+                            {video.description}
+                          </h5>
+                        )}
+                      </div>
+                      
+                      {/* Right side - Description or Challenge Buttons */}
+                      <div className="space-y-4">
+                        {video.challengeButtons ? (
+                          <div className="flex flex-col gap-4 max-w-2xl">
+                            {/* First row - 3 buttons */}
+                            <div className="flex gap-4 justify-center">
+                              <div className="challenge-button flex-1 max-w-xs">
                                 {video.challengeButtons[0]}
                               </div>
-                            </div>
-                            {/* Second row - 2 buttons */}
-                            <div className="flex gap-4 justify-start">
                               <div className="challenge-button flex-1 max-w-xs">
                                 {video.challengeButtons[1]}
                               </div>
@@ -174,21 +180,18 @@ const VideoSlider = ({
                                 {video.challengeButtons[2]}
                               </div>
                             </div>
-                            {/* Third row - 1 button */}
-                            <div className="flex justify-start">
-                              <div className="challenge-button w-full max-w-lg">
+                            {/* Second row - 1 button */}
+                            <div className="flex justify-center">
+                              <div className="challenge-button w-full max-w-xs">
                                 {video.challengeButtons[3]}
                               </div>
                             </div>
                           </div>
+                        ) : (
+                          <h5 className="video-description font-semibold">
+                            {video.description}
+                          </h5>
                         )}
-                      </div>
-                      
-                      {/* Right side - Description */}
-                      <div className="space-y-4">
-                        <h5 className="video-description font-semibold">
-                          {video.description}
-                        </h5>
                         {/* Additional Text */}
                         {video.additionalText && (
                           <p className="video-additional-text">

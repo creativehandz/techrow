@@ -13,16 +13,11 @@ const FundPartnerWithUs = () => {
       id: 1,
       src: "/media/videos/pages/booking-talent-desktop-veed.mp4",
       title: "We help communities",
-      titleColor: "#7ED321",
-      description: "Discover how we can work together to transform communities through creative spaces and local talent development. Join our mission to build sustainable entertainment economies."
-    },
-    {
-      id: 2,
-      src: "/media/videos/pages/media-partnerships-veed.mp4",
-      title: "What We Bring",
       titleColor: "#FFD058",
-      description: "See the real impact of our partnerships in communities like Harlem. Together, we create opportunities for local creators and sustainable economic growth."
-    },
+      actionTags: ["Local", "Creative", "Impactful"],
+      challengeButtons: ["Activate unused spaces", "Engage families", "Build creative capacity", "Strengthen neighborhood identity"]
+    }
+   
  
   ];
 
