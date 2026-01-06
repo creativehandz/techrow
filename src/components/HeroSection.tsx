@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Button.css';
 
 interface HeroSectionProps {
@@ -35,6 +36,14 @@ const HeroSection = ({
       });
     }
   }, []);
+
+  const scrollToNextSection = () => {
+    const heroHeight = window.innerHeight;
+    window.scrollTo({
+      top: heroHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="relative overflow-hidden bg-gray-900" style={{height}}>
@@ -107,13 +116,16 @@ const HeroSection = ({
               {/* Action Buttons */}
               {showActionButtons && (
                 <div className="flex flex-wrap gap-4 sm:gap-8 mt-8">
-                  <button className="hero-action-button hero-donate-button">
+                  <Link to="/donate" className="hero-action-button hero-donate-button">
                     Donate
-                  </button>
-                  <button className="hero-action-button hero-partner-button">
+                  </Link>
+                  <Link to="/fund-partner-with-us" className="hero-action-button hero-partner-button">
                     Partner
-                  </button>
-                  <button className="hero-action-button hero-community-button">
+                  </Link>
+                  <button 
+                    className="hero-action-button hero-community-button"
+                    onClick={scrollToNextSection}
+                  >
                     Bring Us to Your Community
                   </button>
                 </div>
