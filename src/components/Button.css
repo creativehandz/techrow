@@ -497,7 +497,7 @@
 
 /* Challenge Button Styles */
 .challenge-button {
-  padding: 12px 20px;
+  padding: 12px 24px;
   background: #193F63;
 
 
@@ -505,8 +505,10 @@
   border-radius: 8px;
 font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
+  white-space: nowrap;
+  min-width: 380px;
   transition: all 0.3s ease;
   cursor: pointer;
 }

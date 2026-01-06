@@ -17,8 +17,18 @@ const FundPartnerWithUs = () => {
       actionTags: ["Local", "Creative", "Impactful"],
       challengeButtons: ["Activate unused spaces", "Engage families", "Build creative capacity", "Strengthen neighborhood identity"]
     }
-   
- 
+  ];
+
+  // Second slider video data
+  const partnershipVideos2 = [
+    {
+      id: 1,
+      src: "/media/videos/pages/media-partnerships-veed.mp4",
+      title: "What We Bring",
+      titleColor: "#7ED321",
+      actionTags: ["Model", "Experience", "Support"],
+      challengeButtons: ["A proven activation + creative-capacity model", "High-energy, entertainment-first programs", "Experience partnering with schools & CBOs", "A mission centered on belonging and opportunity"]
+    }
   ];
 
   return (
@@ -43,6 +53,16 @@ const FundPartnerWithUs = () => {
       <section>
         <VideoSlider 
           videos={partnershipVideos}
+          height="70vh"
+        />
+      </section>
+      {/* Gap between sections */}
+      <div style={{height: '180px', backgroundColor: '#000000'}}></div>
+
+      {/* Second Video Section */}
+      <section>
+        <VideoSlider 
+          videos={partnershipVideos2}
           height="70vh"
         />
       </section>
