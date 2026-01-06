@@ -173,10 +173,10 @@ const VideoSliderFundPartner = ({
                             </div>
                             {/* Second row - 2 buttons */}
                             <div className="flex gap-4 justify-start">
-                              <div className="fundpartner-challenge-button flex-1 max-w-xs">
+                              <div className="fundpartner-challenge-button flex-1 max-w-lg">
                                 {video.challengeButtons[1]}
                               </div>
-                              <div className="fundpartner-challenge-button flex-1 max-w-xs">
+                              <div className="fundpartner-challenge-button flex-1 max-w-lg">
                                 {video.challengeButtons[2]}
                               </div>
                             </div>
@@ -196,19 +196,19 @@ const VideoSliderFundPartner = ({
                           <div className="flex flex-col gap-4 max-w-2xl">
                             {/* First row - 3 buttons */}
                             <div className="flex gap-4 justify-center">
-                              <div className="fundpartner-challenge-button flex-1 max-w-xs">
+                              <div className="fundpartner-challenge-button flex-1 ">
                                 {video.challengeButtons[0]}
                               </div>
-                              <div className="fundpartner-challenge-button flex-1 max-w-xs">
+                              <div className="fundpartner-challenge-button flex-1 max-w-lg">
                                 {video.challengeButtons[1]}
                               </div>
-                              <div className="fundpartner-challenge-button flex-1 max-w-xs">
+                              <div className="fundpartner-challenge-button flex-1 max-w-lg">
                                 {video.challengeButtons[2]}
                               </div>
                             </div>
                             {/* Second row - 1 button */}
                             <div className="flex justify-center">
-                              <div className="fundpartner-challenge-button w-full max-w-xs">
+                              <div className="fundpartner-challenge-button w-full max-w-md">
                                 {video.challengeButtons[3]}
                               </div>
                             </div>
