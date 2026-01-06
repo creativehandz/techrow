@@ -565,9 +565,11 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   line-height: 100%;
   text-align: center;
   text-transform: uppercase;
-  color: #8A40CA;
+  color: #89E717;
   position: relative;
   z-index: 1;
+
+
 }
 
 /* Client Logos Swiper Styling */

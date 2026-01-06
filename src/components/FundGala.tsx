@@ -102,16 +102,16 @@ const FundGala = () => {
         <div className="container mx-auto responsive-padding">
           <div className="w-full lg:w-4/5">
             <h2 className="forum-main-title mb-8">
-              TECHROW FUND'S ANNUAL FORUM AND GALA PLATFORM LEVERAGES THE POWER OF <span className="forum-highlight">DIPLOMACY</span> AND <span className="forum-highlight">TECHNOLOGY</span> TO ADDRESS THE MOST CRITICAL ISSUES <span className="forum-highlight">IMPACTING OUR YOUTH</span>.
+              The TechRow Fund Gala brings together <span className="forum-highlight">community leaders, creators, educators, and partners</span> to support our mission of eradicating entertainment deserts.
             </h2>
-            
+              
             
           </div>
           <div className="w-full lg:w-2/5 xl:w-2/5 2xl:w-2/5 ml-auto">
             
             
             <p className="forum-description">
-              TechRow Fund's Forum for Technology and Education hosts strategic partners and innovators trailblazing social impact initiatives.
+              Proceeds fuel the activation of local spaces, youth training programs, and live experiences in neighborhoods where access is scarce—helping rebuild vibrant, local entertainment ecosystems.
             </p>
           </div>
         </div>
@@ -156,11 +156,25 @@ const FundGala = () => {
         </div>
       </section>
       
-      
+     
+ {/* Transformation Section */}
+      <section className="customers-partners-bg" style={{height: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="customers-partners-title">
+              We transform local spaces into vibrant hubs of joy, creativity, and community.
+            </h2>
+          </div>
+        </div>
+      </section>
+
       {/* Mission Section */}
       {/* Mission Section */}
       <section className="mission-section-bg footer-bg">
         <div className="container mx-auto ">
+          <p className="our-promise">
+            <span>• Our Promise</span>
+          </p>
           <h2 className="mission-title">
             Mission
           </h2>
