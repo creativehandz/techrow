@@ -15,7 +15,8 @@ const FundPartnerWithUs = () => {
       title: "We help communities",
       titleColor: "#FFD058",
       actionTags: ["Local", "Creative", "Impactful"],
-      challengeButtons: ["Activate unused spaces", "Engage families", "Build creative capacity", "Strengthen neighborhood identity"]
+      challengeButtons: ["Activate unused spaces", "Engage families", "Build creative capacity", "Strengthen neighborhood identity"],
+      description: "Partner with us to transform communities through creative spaces and local talent development."
     }
   ];
 
@@ -27,7 +28,8 @@ const FundPartnerWithUs = () => {
       title: "What We Bring",
       titleColor: "#7ED321",
       actionTags: ["Model", "Experience", "Support"],
-      challengeButtons: ["A proven activation + creative-capacity model", "High-energy, entertainment-first programs", "Experience partnering with schools & CBOs", "A mission centered on belonging and opportunity"]
+      challengeButtons: ["A proven activation + creative-capacity model", "High-energy, entertainment-first programs", "Experience partnering with schools & CBOs", "A mission centered on belonging and opportunity"],
+      description: "Discover our proven approach and extensive experience in building sustainable entertainment ecosystems."
     }
   ];
 
