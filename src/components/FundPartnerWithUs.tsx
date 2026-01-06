@@ -1,7 +1,7 @@
 import './Button.css';
 import Header from './Header';
 import HeroSectionv1 from './HeroSectionv1';
-import VideoSlider from './VideoSlider';
+import VideoSliderFundPartner from './VideoSliderFundPartner';
 import Copyright from './Copyright';
 import ContactForm from './ContactForm';
 
@@ -53,7 +53,7 @@ const FundPartnerWithUs = () => {
       
       {/* Video Section */}
       <section>
-        <VideoSlider 
+        <VideoSliderFundPartner 
           videos={partnershipVideos}
           height="70vh"
         />
@@ -63,7 +63,7 @@ const FundPartnerWithUs = () => {
 
       {/* Second Video Section */}
       <section>
-        <VideoSlider 
+        <VideoSliderFundPartner 
           videos={partnershipVideos2}
           height="70vh"
         />
