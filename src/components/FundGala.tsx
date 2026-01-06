@@ -138,6 +138,28 @@ const FundGala = () => {
                 className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
+            
+          </div>
+        </div>
+      </section>
+      
+     
+ {/* Transformation Section */}
+      <section className="customers-partners-bg" style={{height: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="customers-partners-title">
+              We transform local spaces into vibrant hubs of joy, creativity, and community.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      {/* Gala Gallery Section */}
+      <section className="bg-black">
+        <div className="w-full mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0  mx-auto">
+            
             <div className="group overflow-hidden">
               <img
                 src="/media/images/sections/gala3.jpg"
@@ -152,18 +174,6 @@ const FundGala = () => {
                 className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-          </div>
-        </div>
-      </section>
-      
-     
- {/* Transformation Section */}
-      <section className="customers-partners-bg" style={{height: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="customers-partners-title">
-              We transform local spaces into vibrant hubs of joy, creativity, and community.
-            </h2>
           </div>
         </div>
       </section>
