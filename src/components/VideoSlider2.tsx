@@ -50,7 +50,7 @@ const VideoSlider2 = ({
                 e.currentTarget.style.display = 'none';
               }}
             >
-              <source src={videos[0]?.src || "/media/videos/hero/techrow_montage_new.mp4"} type="video/mp4" />
+              <source src={videos[0]?.src || "/media/videos/hero/techrow_montage_new-v1.mp4"} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

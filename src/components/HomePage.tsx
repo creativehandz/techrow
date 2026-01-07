@@ -33,7 +33,7 @@ const HomePage = () => {
   const sliderVideos = [
     {
       id: 1,
-      src: "/media/videos/hero/celebrating-diverse-talents-together-veed.mp4",
+      src: "/media/videos/hero/HomeVid2Sec3.mp4",
       title: "Why Entertainment Matters",
       titleColor: "#FFD058",
       actionTags: ["Gather", "Connect", "Thrive"],
@@ -42,7 +42,7 @@ const HomePage = () => {
     },
     {
       id: 2,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "The Challenge",
       titleColor: "#89E717",
       actionTags: ["Access", "Equity", "Opportunity"],
@@ -59,7 +59,7 @@ const HomePage = () => {
     },
     {
       id: 3,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "Immersive Experiences",
       subtitle: "Entertainment that starts from within the neighborhood.",
       titleColor: "#FFD058",
@@ -69,7 +69,7 @@ const HomePage = () => {
     },
     {
       id: 4,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "Maker Experiences",
       titleColor: "#89E717",
       subtitle: "Makers who bring entertainment to life — and build futures in the process.",
@@ -83,7 +83,7 @@ const HomePage = () => {
   const sliderVideos2 = [
     {
       id: 1,
-      src: "/media/videos/hero/celebrating-diverse-talents-together-veed.mp4",
+      src: "/media/videos/pages/HomeVid3Sec4.mp4",
       title: "Why It Works",
       titleColor: "#7ED321",
       actionTags: ["Engage", "Build", "Transform"],
@@ -92,7 +92,7 @@ const HomePage = () => {
     },
     {
       id: 2,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "Our Vision",
       titleColor: "#FFD058",
       actionTags: ["Imagine", "Activate", "Sustain"],
@@ -101,7 +101,7 @@ const HomePage = () => {
     },
     {
       id: 3,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "Programs We Funded",
       titleColor: "#89E717",
       actionTags: ["Activate", "Engage", "Empower"],
@@ -111,7 +111,7 @@ const HomePage = () => {
     },
     {
       id: 4,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "10,000+ people reached",
       titleColor: "#FFD058",
       actionTags: ["Joy", "Gather", "Celebrate"],
@@ -120,7 +120,7 @@ const HomePage = () => {
     },
     {
       id: 5,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "50+ schools and campuses activated",
       titleColor: "#89E717",
       actionTags: ["Creativity", "Imagine", "Create"],
@@ -129,7 +129,7 @@ const HomePage = () => {
     },
     {
       id: 6,
-      src: "/media/videos/hero/techrow_montage_new.mp4", 
+      src: "/media/videos/hero/techrow_montage_new-v1.mp4", 
       title: "150+ local makers engaged",
       titleColor: "#FFD058",
       actionTags: ["Community", "Build", "Empower"],
@@ -159,7 +159,7 @@ const HomePage = () => {
       />
 
       <HeroSection 
-        videoSrc="/media/videos/hero/techrow_montage_new.mp4"
+        videoSrc="/media/videos/hero/techrow_montage_new-v1.mp4"
         title="Let's Eradicate <span style='color: #FFD058'>Entertainment Deserts —</span> One Neighborhood at a Time."
         showActionButtons={true}
         showBottomItems={true}
