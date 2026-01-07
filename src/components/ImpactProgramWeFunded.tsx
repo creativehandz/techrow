@@ -10,7 +10,7 @@ const ImpactProgramWeFunded = () => {
   const impactVideos = [
     {
       id: 1,
-      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      src: "/media/videos/pages/reality.mp4",
       title: "Augmented Reality",
       titleColor: "#89E717",
       actionTags: ["See", "Explore", "Create"],
@@ -34,7 +34,7 @@ const ImpactProgramWeFunded = () => {
     },
     {
       id: 4,
-      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      src: "/media/videos/pages/reality.mp4",
       title: "Video Game Design",
       titleColor: "#FFD058",
       actionTags: ["Design", "Storytell", "Develop"],
@@ -42,7 +42,7 @@ const ImpactProgramWeFunded = () => {
     },
     {
       id: 5,
-      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      src: "/media/videos/pages/reality.mp4",
       title: "Robotics",
       titleColor: "#89E717",
       actionTags: ["Think", "Engineer", "Innovate"],
@@ -50,7 +50,7 @@ const ImpactProgramWeFunded = () => {
     },
     {
       id: 6,
-      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      src: "/media/videos/pages/reality.mp4",
       title: "Music & Technology",
       titleColor: "#FFD058",
       actionTags: ["Write", "Produce", "Publish"],
@@ -58,7 +58,7 @@ const ImpactProgramWeFunded = () => {
     },
     {
       id: 7,
-      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      src: "/media/videos/pages/reality.mp4",
       title: "Professional Development",
       titleColor: "#89E717",
       actionTags: ["Train", "Inspire", "Empower"],

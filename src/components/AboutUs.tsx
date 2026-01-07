@@ -19,7 +19,7 @@ const AboutUs = () => {
     },
     {
   id: 2,
-  src: "/media/videos/pages/spaces-desktop-veed.mp4", 
+  src: "/media/videos/pages/thechallagne.mp4", 
   title: "The Challenge",
   titleColor: "#7ED321",
   actionTags: ["Access", "Equity", "Opportunity"],
@@ -35,7 +35,7 @@ const AboutUs = () => {
 },
     {
       id: 3,
-      src: "/media/videos/pages/spaces-desktop-veed.mp4",
+      src: "/media/videos/pages/thechallagne.mp4",
       title: "Why It Matters",
       titleColor: "#FFD058",
       actionTags: ["Belong", "Engage", "Flourish"],
@@ -51,7 +51,7 @@ const AboutUs = () => {
     },
     {
       id: 4,
-      src: "/media/videos/pages/listing-talent-veed.mp4",
+      src: "/media/videos/pages/our-vision.mp4",
       title: "Our Vision",
       titleColor: "#7ED321",
       actionTags: ["Imagine", "Activate", "Sustain"],

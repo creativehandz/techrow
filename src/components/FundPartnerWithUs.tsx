@@ -11,7 +11,7 @@ const FundPartnerWithUs = () => {
   const partnershipVideos = [
     {
       id: 1,
-      src: "/media/videos/pages/booking-talent-desktop-veed.mp4",
+      src: "/media/videos/pages/we-help.mp4",
       title: "We help communities",
       titleColor: "#FFD058",
       actionTags: ["Local", "Creative", "Impactful"],
@@ -24,7 +24,7 @@ const FundPartnerWithUs = () => {
   const partnershipVideos2 = [
     {
       id: 1,
-      src: "/media/videos/pages/media-partnerships-veed.mp4",
+      src: "/media/videos/pages/what-we-bring.mp4",
       title: "What We Bring",
       titleColor: "#7ED321",
       actionTags: ["Model", "Experience", "Support"],
@@ -39,7 +39,7 @@ const FundPartnerWithUs = () => {
       
       <div className="partner-hero-section">
         <HeroSectionv1 
-          videoSrc="/media/videos/pages/celebrating-diverse-talents-together-veed.mp4"
+          videoSrc="/media/videos/pages/HomeVid1Final.mp4"
           title="<span style='color: #7ED321'>PARTNER WITH US</span>"
           subHeading="Let's Bring Entertainment and Creative Capacity Into More Communities."
           showActionButtons={false}
