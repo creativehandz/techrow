@@ -79,10 +79,11 @@ jobs:
         username: ${{ secrets.FTP_USERNAME_PROD }}
         password: ${{ secrets.FTP_PASSWORD_PROD }}
         local-dir: ./dist/
-        server-dir: /
+        server-dir: /public_html/
         state-name: production-sync-state.json
-        dry-run: false
-        log-level: verbose
+        timeout: 600000
+        server-type: ftp
+        security: loose
         exclude: |
           **/.git*
           **/.git*/**
