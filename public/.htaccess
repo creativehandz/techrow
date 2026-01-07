@@ -6,7 +6,17 @@ RewriteEngine On
 # then redirect to index.html (client-side routing)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /index.html [QSA,L]
+
+# Fallback for root directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
+
+# Ensure proper MIME types
+AddType text/html .html
+AddType application/javascript .js
+AddType text/css .css
 
 # Optional: Force HTTPS (uncomment if needed)
 # RewriteCond %{HTTPS} off
