@@ -106,7 +106,7 @@ const AboutUs = () => {
               <TeamMember 
                 imageSrc="/media/images/sections/rudy.png"
                 name="RUDY BLANCO"
-                position="Executive Director"
+                position="Program Manager"
                 description="Rudy Blanco is Program Manager at TechRow Fund, designing youth and adult programs at the intersection of education, entertainment, and digital culture to expand access to technology and creative careers."
                 imageOnLeft={true}
                 linkedinUrl="https://www.linkedin.com/in/rudyblanco"
