@@ -71,9 +71,9 @@ const VideoSlider = ({
                     muted
                     loop
                     playsInline
-                    preload="metadata"
                     webkit-playsinline="true"
-                    onError={(e) => {
+                    preload="none"
+                    onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
                       console.log('Video failed to load:', video.src);
                       e.currentTarget.style.display = 'none';
                     }}

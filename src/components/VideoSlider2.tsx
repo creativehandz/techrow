@@ -44,8 +44,8 @@ const VideoSlider2 = ({
               loop
               playsInline
               webkit-playsinline="true"
-              preload="metadata"
-              onError={(e) => {
+              preload="none"
+              onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
                 console.log('VideoSlider2 video failed to load');
                 e.currentTarget.style.display = 'none';
               }}
