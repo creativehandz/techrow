@@ -172,7 +172,7 @@ const HomePage = () => {
       {/* Spiderman Kid Section */}
       <div className="bg-gray-100 relative spiderman-section">
         <img 
-          src="/media/images/sections/spiderman-kid.jpg" 
+          src="/media/images/sections/spiderman-kid-v1.jpg" 
           alt="Spiderman Kid" 
           className="w-full spiderman-image object-cover"
         />
