@@ -5,6 +5,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import Header from './Header';
 import Footer from './Footer';
+import Copyright from './Copyright';
 import HeroSection from './HeroSection';
 import VideoSlider from './VideoSlider';
 import VideoSlider2 from './VideoSlider2';
@@ -276,9 +277,10 @@ const HomePage = () => {
             </Swiper>
         </div>
       </div>
-{/* Gap between sections */}
+      {/* Gap between sections */}
       <div style={{height: '180px', backgroundColor: '#000000'}}></div>
       <Footer />
+      <Copyright />
     </div>
   );
 };

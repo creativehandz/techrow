@@ -2757,3 +2757,13 @@ background: #193F63;
     white-space: normal;
   }
 }
+
+/* Footer email styling */
+.footer-email {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  text-align: center;
+  color: #89E717;
+  margin: 24px 0;
+}

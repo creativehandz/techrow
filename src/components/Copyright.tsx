@@ -13,24 +13,20 @@ const Copyright: React.FC<CopyrightProps> = ({ className = '' }) => {
           Local Spaces. Local Talent. Local Content. Powered by TechRow.
         </p>
         
+        <p className="footer-email">
+          info@techrowfund.org
+        </p>
+        
         <div className="copyright-social-icons">
-          <a href="https://www.facebook.com/techrownyc/" target='_blank' className="social-icon" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=100066689012548&fb_dtsg_ag=AdwuUh4oJPtu6_nBNF[…]a9nJPp6K-vQ%3AAdyQU9J7HPtLAjAydsyYiNqBslZ6SmH6hDetuUZ_7lLc3w" target='_blank' className="social-icon" aria-label="Facebook">
             <img src="/media/images/icons/facebook.png" alt="Facebook" />
           </a>
           
-          <a href="https://x.com/TechRowNYC" target='_blank' className="social-icon" aria-label="X (Twitter)">
+          <a href="https://x.com/techrowfund" target='_blank' className="social-icon" aria-label="X (Twitter)">
             <img src="/media/images/icons/twitter.png" alt="Twitter" />
           </a>
           
-          <a href="https://www.instagram.com/techrow_official" target='_blank' className="social-icon" aria-label="Instagram">
-            <img src="/media/images/icons/instagram.png" alt="Instagram" />
-          </a>
-          
-          <a href="https://www.youtube.com/channel/UCdqBRNn-6lN6d-omGFZXPxw" target='_blank' className="social-icon" aria-label="YouTube">
-            <img src="/media/images/icons/youtube.png" alt="YouTube" />
-          </a>
-          
-          <a href="https://www.linkedin.com/company/tech-row/" target='_blank' className="social-icon" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/techrow-fund/" target='_blank' className="social-icon" aria-label="LinkedIn">
             <img src="/media/images/icons/linkedin.png" alt="LinkedIn" />
           </a>
         </div>
