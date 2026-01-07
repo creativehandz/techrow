@@ -14,7 +14,7 @@ const Copyright: React.FC<CopyrightProps> = ({ className = '' }) => {
         </p>
         
         <p className="footer-email">
-          info@techrowfund.org
+          <a href="mailto:info@techrowfund.org">info@techrowfund.org</a>
         </p>
         
         <div className="copyright-social-icons">
