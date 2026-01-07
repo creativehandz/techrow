@@ -52,6 +52,9 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
         server-dir: /
+        state-name: staging-sync-state.json
+        dry-run: false
+        log-level: verbose
         exclude: |
           **/.git*
           **/.git*/**
@@ -77,6 +80,9 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD_PROD }}
         local-dir: ./dist/
         server-dir: /
+        state-name: production-sync-state.json
+        dry-run: false
+        log-level: verbose
         exclude: |
           **/.git*
           **/.git*/**
