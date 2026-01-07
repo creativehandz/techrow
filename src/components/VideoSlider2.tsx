@@ -43,6 +43,12 @@ const VideoSlider2 = ({
               muted
               loop
               playsInline
+              webkit-playsinline="true"
+              preload="metadata"
+              onError={(e) => {
+                console.log('VideoSlider2 video failed to load');
+                e.currentTarget.style.display = 'none';
+              }}
             >
               <source src={videos[0]?.src || "/media/videos/hero/techrow_montage_new.mp4"} type="video/mp4" />
               Your browser does not support the video tag.

@@ -71,6 +71,12 @@ const VideoSliderFundPartner = ({
                     muted
                     loop
                     playsInline
+                    webkit-playsinline="true"
+                    preload="metadata"
+                    onError={(e) => {
+                      console.log('VideoSliderFundPartner video failed to load:', video.src);
+                      e.currentTarget.style.display = 'none';
+                    }}
                   >
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support the video tag.

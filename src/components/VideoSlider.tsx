@@ -71,6 +71,12 @@ const VideoSlider = ({
                     muted
                     loop
                     playsInline
+                    preload="metadata"
+                    webkit-playsinline="true"
+                    onError={(e) => {
+                      console.log('Video failed to load:', video.src);
+                      e.currentTarget.style.display = 'none';
+                    }}
                   >
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support the video tag.

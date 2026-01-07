@@ -61,6 +61,12 @@ const VideoSliderAboutUs = ({
                     muted
                     loop
                     playsInline
+                    webkit-playsinline="true"
+                    preload="metadata"
+                    onError={(e) => {
+                      console.log('VideoSliderAboutUs video failed to load:', video.src);
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
                   
                   {/* Action Buttons - Positioned at top center */}

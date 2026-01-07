@@ -44,12 +44,52 @@ if ($extension && in_array($extension, $staticExtensions)) {
             header('Content-Type: ' . $mimeTypes[$extension]);
         }
         
-        // Set cache headers for static files
-        if (in_array($extension, ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'woff', 'woff2', 'ttf'])) {
-            header('Cache-Control: public, max-age=31536000'); // 1 year
+        // Special handling for video files to support mobile streaming
+        if (in_array($extension, ['mp4', 'webm'])) {
+            $fileSize = filesize($filePath);
+            $start = 0;
+            $end = $fileSize - 1;
+            
+            // Handle range requests for video streaming
+            if (isset($_SERVER['HTTP_RANGE'])) {
+                $ranges = explode('=', $_SERVER['HTTP_RANGE']);
+                $range = $ranges[1];
+                $ranges = explode('-', $range);
+                $start = intval($ranges[0]);
+                if (!empty($ranges[1])) {
+                    $end = intval($ranges[1]);
+                }
+                
+                header('HTTP/1.1 206 Partial Content');
+                header('Accept-Ranges: bytes');
+                header("Content-Range: bytes $start-$end/$fileSize");
+                header('Content-Length: ' . ($end - $start + 1));
+            } else {
+                header('Accept-Ranges: bytes');
+                header('Content-Length: ' . $fileSize);
+            }
+            
+            // Open file and seek to start position
+            $fp = fopen($filePath, 'rb');
+            fseek($fp, $start);
+            
+            // Output the requested range
+            $buffer = 1024 * 8; // 8KB chunks
+            while (!feof($fp) && ($pos = ftell($fp)) <= $end) {
+                if ($pos + $buffer > $end) {
+                    $buffer = $end - $pos + 1;
+                }
+                echo fread($fp, $buffer);
+                flush();
+            }
+            fclose($fp);
+        } else {
+            // Set cache headers for non-video static files
+            if (in_array($extension, ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'woff', 'woff2', 'ttf'])) {
+                header('Cache-Control: public, max-age=31536000'); // 1 year
+            }
+            readfile($filePath);
         }
-        
-        readfile($filePath);
         exit;
     }
 }
