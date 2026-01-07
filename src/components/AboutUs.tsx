@@ -11,7 +11,7 @@ const AboutUs = () => {
   const aboutUsVideos = [
     {
       id: 1,
-      src: "/media/videos/pages/media-partnerships-veed.mp4",
+      src: "/media/videos/pages/HomVid2Final.mp4",
       title: "Who We Are",
       titleColor: "#FFD058",
       actionTags: ["Activate", "Engage", "Empower"],
@@ -71,7 +71,7 @@ const AboutUs = () => {
       <Header />
       
       <HeroSection 
-        videoSrc="/media/videos/pages/harlem-legendary-cultural-history.mp4"
+        videoSrc="/media/videos/pages/harlem_s-legendary-cultural-history-v1.mp4"
         title="Born in <span style='color: #FFD058'>Harlem — <br /></span> Steps From the Apollo."
         subHeading="A place that entertained the world. <br />A history shaped by legendary talent. <br />A neighborhood built on creativity, pride, and possibility."
         showActionButtons={false}
