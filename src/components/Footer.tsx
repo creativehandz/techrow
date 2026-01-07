@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Footer Description */}
           <div className="text-center mb-12">
             <p className="footer-description">
-              Help us bring entertainment, creativity, and opportunity back to neighborhoods nationwide.
+              Help us bring entertainment, creativity, and opportunity back to neighborhoods nationwide. 
             </p>
           </div>
         </div>
