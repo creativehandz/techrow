@@ -10,7 +10,7 @@ const Copyright: React.FC<CopyrightProps> = ({ className = '' }) => {
     <div className={`copyright-container footer-bg ${className}`}>
       <div className="copyright-content">
         <p className="copyright-tagline">
-          Local Spaces. Local Talent. Local Content. Powered by TechRow.
+          Local Spaces. Local Talent. Local Content.
         </p>
         
         <p className="footer-email">
