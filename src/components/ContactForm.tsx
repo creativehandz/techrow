@@ -245,7 +245,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         </div>
 
         <button type="submit" className="form-submit-button" disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Book a Demo'}
+          {isSubmitting ? 'Sending...' : 'Contact'}
         </button>
         
         {isSubmitted && (
