@@ -50,7 +50,10 @@ if ($extension && in_array($extension, $staticExtensions)) {
             $start = 0;
             $end = $fileSize - 1;
             
-            // Handle range requests for video streaming
+            // Detect mobile devices for optimized streaming
+            $isMobile = preg_match('/Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i', $_SERVER['HTTP_USER_AGENT'] ?? '');
+            
+            // Handle range requests for video streaming (essential for mobile)
             if (isset($_SERVER['HTTP_RANGE'])) {
                 $ranges = explode('=', $_SERVER['HTTP_RANGE']);
                 $range = $ranges[1];
@@ -67,20 +70,35 @@ if ($extension && in_array($extension, $staticExtensions)) {
             } else {
                 header('Accept-Ranges: bytes');
                 header('Content-Length: ' . $fileSize);
+                
+                // Mobile-specific headers for better video performance
+                if ($isMobile) {
+                    header('Cache-Control: public, max-age=3600'); // Shorter cache for mobile
+                    header('X-Content-Type-Options: nosniff');
+                    header('Connection: keep-alive');
+                }
             }
+            
+            // Set mobile-optimized buffer size
+            $buffer = $isMobile ? 1024 * 4 : 1024 * 8; // 4KB for mobile, 8KB for desktop
             
             // Open file and seek to start position
             $fp = fopen($filePath, 'rb');
             fseek($fp, $start);
             
-            // Output the requested range
-            $buffer = 1024 * 8; // 8KB chunks
+            // Output the requested range with mobile optimization
             while (!feof($fp) && ($pos = ftell($fp)) <= $end) {
                 if ($pos + $buffer > $end) {
                     $buffer = $end - $pos + 1;
                 }
                 echo fread($fp, $buffer);
-                flush();
+                
+                // For mobile devices, flush more frequently
+                if ($isMobile) {
+                    flush();
+                    // Small delay to prevent overwhelming mobile networks
+                    usleep(1000); // 1ms delay
+                }
             }
             fclose($fp);
         } else {

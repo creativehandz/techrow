@@ -1,3 +1,4 @@
+import React from 'react';
 import './Button.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -26,6 +27,31 @@ interface VideoSlider2Props {
 const VideoSlider2 = ({ 
   videos 
 }: VideoSlider2Props) => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    const video = videoRef.current;
+    
+    if (!video) return;
+
+    // Only autoplay on desktop, mobile users must tap to play
+    if (!isMobile) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => console.log('Autoplay prevented'));
+          } else {
+            video.pause();
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(video);
+      return () => observer.disconnect();
+    }
+  }, []);
 
   if (!videos || videos.length === 0) {
     return null;
@@ -39,12 +65,24 @@ const VideoSlider2 = ({
           <div className="absolute inset-0">
             <video 
               className="w-full h-full object-cover"
-              autoPlay
               muted
               loop
               playsInline
               webkit-playsinline="true"
               preload="none"
+              poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDAwMDAiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzMzMzMzMyIgeD0iMzAiIHk9IjMwIj4KPHBhdGggZD0iTTggNXYxNGwxMS03eiIvPgo8L3N2Zz4KPC9zdmc+"
+              onLoadStart={(e: React.SyntheticEvent<HTMLVideoElement>) => {
+                // Mobile optimization: reduce quality if slow connection
+                const video = e.currentTarget;
+                // @ts-ignore - Network Information API
+                if (navigator.connection) {
+                  // @ts-ignore
+                  const connection = navigator.connection;
+                  if (['slow-2g', '2g'].includes(connection.effectiveType)) {
+                    video.style.filter = 'contrast(0.9)';
+                  }
+                }
+              }}
               onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
                 console.log('VideoSlider2 video failed to load');
                 e.currentTarget.style.display = 'none';
