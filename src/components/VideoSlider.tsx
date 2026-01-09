@@ -1,4 +1,5 @@
 import './Button.css';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -26,6 +27,28 @@ interface VideoSliderProps {
 const VideoSlider = ({ 
   videos 
 }: VideoSliderProps) => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    
+    if (!video) return;
+
+    // Auto-play when video comes into view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => console.log('Autoplay prevented'));
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   if (!videos || videos.length === 0) {
     return null;
@@ -35,6 +58,30 @@ const VideoSlider = ({
     <div className="bg-black">
       <div className="w-full mx-auto relative">
         <div className="relative overflow-hidden video-content-height">
+          {/* Static Background Video */}
+          <div className="absolute inset-0">
+            <video 
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              muted
+              loop
+              playsInline
+              webkit-playsinline="true"
+              preload="none"
+              onCanPlay={(e) => {
+                e.currentTarget.play().catch(() => {})
+              }}
+              onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
+                console.log('Video failed to load:', videos[0]?.src);
+                e.currentTarget.style.display = 'none';
+              }}
+            >
+              <source src={videos[0]?.src || "/media/videos/hero/techrow_montage_new-v1.mp4"} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          {/* Text Content Swiper */}
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={0}
@@ -60,31 +107,11 @@ const VideoSlider = ({
             followFinger={true}
             speed={1000}
             effect="slide"
-            className="video-swiper h-full"
+            className="video-swiper h-full relative z-10"
           >
             {videos.map((video) => (
               <SwiperSlide key={video.id}>
                 <div className="relative h-full">
-                  <video 
-                    className="w-full h-full object-cover"
-                    
-                    muted
-                    loop
-                    playsInline
-                    webkit-playsinline="true"
-                    preload="metadata"
-                    onCanPlay={(e) => {
-    e.currentTarget.play().catch(() => {})
-  }}
-                    onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
-                      console.log('Video failed to load:', video.src);
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  >
-                    <source src={video.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  
                   {/* Action Buttons - Positioned at top center, bottom on mobile */}
                   <div className="absolute top-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 md:top-10 md:left-1/2 md:transform md:-translate-x-1/2">
                     <div className="hidden md:flex space-x-4">

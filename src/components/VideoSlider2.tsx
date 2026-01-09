@@ -28,7 +28,6 @@ const VideoSlider2 = ({
   videos 
 }: VideoSlider2Props) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
-  const [currentVideoIndex, setCurrentVideoIndex] = React.useState(0);
 
   React.useEffect(() => {
     const video = videoRef.current;
@@ -49,7 +48,7 @@ const VideoSlider2 = ({
 
     observer.observe(video);
     return () => observer.disconnect();
-  }, [currentVideoIndex]);
+  }, []);
 
   if (!videos || videos.length === 0) {
     return null;
@@ -91,7 +90,7 @@ const VideoSlider2 = ({
                 e.currentTarget.style.display = 'none';
               }}
             >
-              <source src={videos[currentVideoIndex]?.src || "/media/videos/hero/techrow_montage_new-v1.mp4"} type="video/mp4" />
+              <source src={videos[0]?.src || "/media/videos/hero/techrow_montage_new-v1.mp4"} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -123,18 +122,6 @@ const VideoSlider2 = ({
             speed={1000}
             effect="slide"
             className="video-swiper h-full relative z-10"
-            onSlideChange={(swiper) => {
-              const newIndex = swiper.realIndex;
-              setCurrentVideoIndex(newIndex);
-              
-              // Update video source when slide changes
-              const video = videoRef.current;
-              if (video && videos[newIndex]) {
-                video.src = videos[newIndex].src;
-                video.load(); // Reload the video with new source
-                video.play().catch(() => console.log('Autoplay prevented on slide change'));
-              }
-            }}
           >
             {videos.map((video) => (
               <SwiperSlide key={video.id}>
