@@ -72,7 +72,7 @@ const VideoSlider = ({
                     loop
                     playsInline
                     webkit-playsinline="true"
-                    preload="none"
+                    preload="metadata"
                     onCanPlay={(e) => {
     e.currentTarget.play().catch(() => {})
   }}
