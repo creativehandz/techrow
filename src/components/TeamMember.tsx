@@ -26,7 +26,7 @@ const TeamMember = ({
           <img 
             src={imageSrc} 
             alt={name}
-            className="w-full h-auto max-w-md"
+            className="w-full h-auto max-w-md team-image-tilt"
           />
         </div>
         {/* Text Second on Mobile */}

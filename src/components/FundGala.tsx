@@ -183,7 +183,7 @@ const FundGala = () => {
       <section className="mission-section-bg footer-bg">
         <div className="container mx-auto ">
           <p className="our-promise">
-            <span>• Our Promise</span>
+            <span>•&nbsp;&nbsp;Our Promise</span>
           </p>
           <h2 className="mission-title">
             Mission

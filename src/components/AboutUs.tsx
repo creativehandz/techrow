@@ -122,7 +122,7 @@ const AboutUs = () => {
       <section>
         <VideoSliderAboutUs 
           videos={aboutUsVideos}
-          height="800px"
+          height="700px"
         />
       </section>
       {/* Gap between sections */}
@@ -131,7 +131,7 @@ const AboutUs = () => {
       <section className="mission-section-bg footer-bg">
         <div className="container mx-auto ">
           <p className="our-promise">
-            <span>• Our Promise</span>
+            <span>•&nbsp;&nbsp;Our Promise</span>
           </p>
           <h2 className="mission-title">
             Mission
@@ -141,7 +141,7 @@ const AboutUs = () => {
             Activate spaces. Amplify talent. Build local creative power.
           </p>
           
-          <div className="mission-buttons mb-12">
+          <div className="mission-buttons mb-[70px]">
             <button className="hero-action-button hero-donate-button">
               Donate
             </button>

@@ -172,7 +172,7 @@
   font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
   font-weight: 600;
   font-size: 16px;
-      padding: 15px 55px 11px 55px;
+      padding: 15px 55px 17px 55px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -811,7 +811,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   width: 350px;
   height: auto;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   transform: rotate(-5deg);
   transition: transform 0.3s ease;
 }
@@ -825,7 +825,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   width: 350px;
   height: 350px;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   transform: rotate(5deg);
   transition: transform 0.3s ease;
 }
@@ -913,7 +913,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  color: #fdfdfd;
+      color: #C9CACE;
   margin-bottom: 0px;
 }
 
@@ -1626,6 +1626,25 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     color: #fdfdfd;
     text-align: left;
 }
+.team-member-name {
+    font-family: 'League Spartan';
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #FDFDFD;
+}
+.mission-subtitle {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fdfdfd;
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.3;
+}
 }
 
 /* Mobile Landscape */
@@ -2116,6 +2135,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   .hero-action-button {
     width: 100%;
     text-align: center;
+    padding: 20px 55px 19px 55px;
   }
 
   .gala-slider-height {
@@ -2236,6 +2256,12 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
   .team-grid-reverse .team-grid-column:first-child,
   .team-grid-reverse .team-grid-column:last-child {
     flex: 1 1 100%;
+  }
+
+  .team-image-tilt,
+  .team-image-tilt-right {
+    border-radius: 8px;
+    transform: rotate(-0deg);
   }
 
   .hero-title {
