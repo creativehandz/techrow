@@ -57,7 +57,7 @@ const HeroSection = ({
           loop
           playsInline
           webkit-playsinline="true"
-          preload="none"
+          preload="metadata"
           controls={false}
           onError={(e) => {
             console.log('Hero video failed to load:', videoSrc);

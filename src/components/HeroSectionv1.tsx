@@ -47,7 +47,7 @@ const HeroSectionv1 = ({
           muted 
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           controls={false}
           onLoadedData={() => console.log('Video loaded')}
           onError={() => console.log('Video error')}

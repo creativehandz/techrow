@@ -72,7 +72,7 @@ const VideoSliderFundPartner = ({
                     loop
                     playsInline
                     webkit-playsinline="true"
-                    preload="none"
+                    preload="metadata"
                     onError={(e) => {
                       console.log('VideoSliderFundPartner video failed to load:', video.src);
                       e.currentTarget.style.display = 'none';
