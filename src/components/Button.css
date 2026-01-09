@@ -2768,6 +2768,114 @@ background: #193F63;
   min-height: 56px;
 }
 
+/* ===== LOADING SPINNER STYLES ===== */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.loading-spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-ring {
+  box-sizing: border-box;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  animation: loading-spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.spinner-ring:nth-child(1) {
+  border-top-color: #FFD058;
+  animation-delay: -0.45s;
+}
+
+.spinner-ring:nth-child(2) {
+  border-top-color: #89E717;
+  animation-delay: -0.3s;
+}
+
+.spinner-ring:nth-child(3) {
+  border-top-color: #676EE1;
+  animation-delay: -0.15s;
+}
+
+.spinner-ring:nth-child(4) {
+  border-top-color: #7ED321;
+}
+
+@keyframes loading-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  text-align: center;
+  color: #fdfdfd;
+}
+
+.loading-logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.loading-message {
+  font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #fdfdfd;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Mobile responsive loading spinner */
+@media (max-width: 768px) {
+  .loading-spinner {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .spinner-ring {
+    width: 60px;
+    height: 60px;
+    border-width: 2px;
+  }
+  
+  .loading-logo {
+    width: 150px;
+  }
+  
+  .loading-message {
+    font-size: 18px;
+  }
+}
+
 .fundpartner-challenge-button:hover {
   background: rgba(25, 63, 99, 0.8);
   transform: translateY(-2px);
