@@ -25,6 +25,30 @@
   opacity: 0.9;
 }
 
+/* Burger Menu Styles */
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 24px;
+  height: 18px;
+}
+
+/* Hide burger menu on medium screens and up (desktop/tablet) */
+@media (min-width: 768px) {
+  .burger-menu {
+    display: none !important;
+  }
+}
+
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #FDFDFD;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
 /* Hero H2 Styles */
 .hero-subtitle {
   font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
@@ -1558,6 +1582,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
 
   .menu-button {
     background: #676ee100;
+            padding: 0 3px 0 0;
 
   }
 
@@ -2229,7 +2254,7 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
 
   .video-slider-section,
   .video-content-height {
-    height: 900px;
+    height: 600px;
     /* Balanced height for small tablets */
   }
 

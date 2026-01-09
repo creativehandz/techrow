@@ -1,4 +1,5 @@
 import './Button.css';
+import ContactForm from './ContactForm';
 
 const Footer = () => {
   return (
@@ -25,6 +26,11 @@ const Footer = () => {
             <p className="footer-description">
               Help us bring entertainment, creativity, and opportunity back to neighborhoods nationwide. 
             </p>
+          </div>
+          
+          {/* Contact Form Section */}
+          <div className="w-full max-w-4xl mx-auto">
+            <ContactForm />
           </div>
         </div>
       </div>

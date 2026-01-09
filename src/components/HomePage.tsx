@@ -163,7 +163,7 @@ const HomePage = () => {
         title="Let's Eradicate <span style='color: #FFD058'>Entertainment Deserts —</span> One Neighborhood at a Time."
         showActionButtons={true}
         showBottomItems={true}
-        overlayColor="bg-black/70"
+        overlayColor="bg-black/60"
       />
 
       {/* Gap between sections */}

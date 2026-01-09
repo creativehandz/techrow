@@ -37,7 +37,17 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
 
-      // Show/hide header based on scroll direction
+      // Get current menu state
+      const currentMenuOpen = onMenuToggle ? isMenuOpen : localMenuOpen;
+
+      // If menu is open, always keep header visible
+      if (currentMenuOpen) {
+        setHeaderVisible(true);
+        setLastScrollY(currentScrollY);
+        return;
+      }
+
+      // Show/hide header based on scroll direction only when menu is closed
       if (currentScrollY > 50) {
         if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 10) {
           // Scrolling down - hide header
@@ -56,7 +66,7 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, onMenuToggle, isMenuOpen, localMenuOpen]);
 
   const menuState = onMenuToggle ? { isMenuOpen, isMenuClosing } : { isMenuOpen: localMenuOpen, isMenuClosing: localMenuClosing };
 
@@ -93,7 +103,16 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
                     <span className="hidden md:inline">Close</span>
                   </div>
                 ) : (
-                  'Menu'
+                  <div className="flex items-center">
+                    {/* Burger lines for mobile only */}
+                    <div className="burger-menu block md:hidden">
+                      <span className="burger-line"></span>
+                      <span className="burger-line"></span>
+                      <span className="burger-line"></span>
+                    </div>
+                    {/* Text for desktop only */}
+                    <span className="hidden md:block">Menu</span>
+                  </div>
                 )}
               </button>
             </div>
