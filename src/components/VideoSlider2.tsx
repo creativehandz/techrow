@@ -66,11 +66,14 @@ const VideoSlider2 = ({
               className="w-full h-full object-cover"
               muted
               loop
-              autoPlay
+              
               playsInline
               webkit-playsinline="true"
-              preload="metadata"
+              preload="none"
               poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDAwMDAiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzMzMzMzMyIgeD0iMzAiIHk9IjMwIj4KPHBhdGggZD0iTTggNXYxNGwxMS03eiIvPgo8L3N2Zz4KPC9zdmc+"
+              onCanPlay={(e) => {
+    e.currentTarget.play().catch(() => {})
+  }}
               onLoadStart={(e: React.SyntheticEvent<HTMLVideoElement>) => {
                 // Mobile optimization: reduce quality if slow connection
                 const video = e.currentTarget;

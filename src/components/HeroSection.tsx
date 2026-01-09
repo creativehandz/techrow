@@ -52,12 +52,12 @@ const HeroSection = ({
         <video 
           ref={videoRef}
           className="absolute top-0 left-0 w-full h-full object-cover z-10"
-          autoPlay 
+          
           muted 
           loop
           playsInline
           webkit-playsinline="true"
-          preload="metadata"
+          preload="none"
           controls={false}
           onError={(e) => {
             console.log('Hero video failed to load:', videoSrc);

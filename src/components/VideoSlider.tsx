@@ -67,12 +67,15 @@ const VideoSlider = ({
                 <div className="relative h-full">
                   <video 
                     className="w-full h-full object-cover"
-                    autoPlay
+                    
                     muted
                     loop
                     playsInline
                     webkit-playsinline="true"
                     preload="none"
+                    onCanPlay={(e) => {
+    e.currentTarget.play().catch(() => {})
+  }}
                     onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
                       console.log('Video failed to load:', video.src);
                       e.currentTarget.style.display = 'none';

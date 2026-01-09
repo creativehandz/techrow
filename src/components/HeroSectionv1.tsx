@@ -43,11 +43,11 @@ const HeroSectionv1 = ({
         <video 
           ref={videoRef}
           className="absolute top-0 left-0 w-full h-full object-cover z-10"
-          autoPlay 
+          
           muted 
           loop
           playsInline
-          preload="auto"
+          preload="none"
           controls={false}
           onLoadedData={() => console.log('Video loaded')}
           onError={() => console.log('Video error')}

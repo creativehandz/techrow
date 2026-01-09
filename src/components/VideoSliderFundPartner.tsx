@@ -67,7 +67,7 @@ const VideoSliderFundPartner = ({
                 <div className="relative h-full">
                   <video 
                     className="w-full h-full object-cover"
-                    autoPlay
+                    
                     muted
                     loop
                     playsInline
