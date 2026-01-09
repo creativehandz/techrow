@@ -5,10 +5,12 @@ import FundPartnerWithUs from './components/FundPartnerWithUs';
 import FundGala from './components/FundGala';
 import Donate from './components/Donate';
 import ImpactProgramWeFunded from './components/ImpactProgramWeFunded';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
