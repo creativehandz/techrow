@@ -47,7 +47,7 @@ const HeroSectionv1 = ({
           muted 
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           controls={false}
           onLoadedData={() => console.log('Video loaded')}
           onError={() => console.log('Video error')}
@@ -60,7 +60,6 @@ const HeroSectionv1 = ({
           src={backgroundImage}
           alt="Hero Background"
           className="absolute top-0 left-0 w-full h-full object-cover z-10"
-          fetchPriority="high"
         />
       ) : null}
       

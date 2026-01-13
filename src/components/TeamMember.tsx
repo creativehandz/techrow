@@ -27,7 +27,6 @@ const TeamMember = ({
             src={imageSrc} 
             alt={name}
             className="w-full h-auto max-w-md team-image-tilt"
-            loading="lazy"
           />
         </div>
         {/* Text Second on Mobile */}
@@ -35,15 +34,15 @@ const TeamMember = ({
           <div className="flex items-center mb-2">
             {linkedinUrl ? (
               <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" loading="lazy" />
+                <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" />
               </a>
             ) : (
-              <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" loading="lazy" />
+              <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
             )}
             <h3 className="team-member-name">
               {name}
             </h3>
-            <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" loading="lazy" />
+            <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" />
           </div>
           <p className="team-position mb-4">
             {position}
@@ -64,7 +63,6 @@ const TeamMember = ({
                 src={imageSrc} 
                 alt={name}
                 className={imageOnLeft ? "team-image-tilt-right" : "team-image-tilt"}
-                loading="lazy"
               />
             </div>
             {/* Text Second - 60% */}
@@ -72,15 +70,15 @@ const TeamMember = ({
               <div className="flex items-center mb-2">
                 {linkedinUrl ? (
                   <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                    <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" loading="lazy" />
+                    <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" />
                   </a>
                 ) : (
-                  <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" loading="lazy" />
+                  <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
                 )}
                 <h3 className="team-member-name">
                   {name}
                 </h3>
-                <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" loading="lazy" />
+                <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" />
               </div>
               <p className="team-position mb-4">
                 {position}
@@ -97,15 +95,15 @@ const TeamMember = ({
               <div className="flex items-center mb-2">
                 {linkedinUrl ? (
                   <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                    <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" loading="lazy" />
+                    <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2 hover:opacity-80 transition-opacity cursor-pointer" />
                   </a>
                 ) : (
-                  <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" loading="lazy" />
+                  <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
                 )}
                 <h3 className="team-member-name">
                   {name}
                 </h3>
-                <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" loading="lazy" />
+                <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" />
               </div>
               <p className="team-position mb-4">
                 {position}
@@ -120,7 +118,6 @@ const TeamMember = ({
                 src={imageSrc} 
                 alt={name}
                 className={imageOnLeft ? "team-image-tilt-right" : "team-image-tilt"}
-                loading="lazy"
               />
             </div>
           </>

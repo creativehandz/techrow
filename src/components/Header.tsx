@@ -87,7 +87,7 @@ const Header = ({ onMenuToggle, isMenuOpen = false, isMenuClosing = false }: Hea
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link to="/">
-                  <img src="/media/images/logo/techrow-fund.svg" alt="TechRow" style={{width: '162.57px'}} fetchPriority="high" />
+                  <img src="/media/images/logo/techrow-fund.svg" alt="TechRow" style={{width: '162.57px'}} />
                 </Link>
               </div>
             </div>

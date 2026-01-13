@@ -175,7 +175,6 @@ const HomePage = () => {
           src="/media/images/sections/spiderman-kid-v1.jpg" 
           alt="Spiderman Kid" 
           className="w-full spiderman-image object-cover"
-          loading="lazy"
         />
         <div className="absolute inset-0" style={{background: '#0f0f0f5e'}}></div>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -271,7 +270,6 @@ const HomePage = () => {
                           ? "filter-none" 
                           : "filter brightness-0 invert"
                       }`}
-                      loading="lazy"
                     />
                   </div>
                 </SwiperSlide>
