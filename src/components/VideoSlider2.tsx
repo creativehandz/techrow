@@ -43,7 +43,7 @@ const VideoSlider2 = ({
           video.pause();
         }
       },
-      { threshold: 0.3 } // Lower threshold for better mobile experience
+      { threshold: 0.1 } // Lower threshold for better mobile experience
     );
 
     observer.observe(video);
@@ -61,8 +61,7 @@ const VideoSlider2 = ({
           {/* Static Background Video */}
           <div className="absolute inset-0">
             <video 
-              ref={videoRef}
-              className="w-full h-full object-cover"
+              autoPlay
               muted
               loop
               
