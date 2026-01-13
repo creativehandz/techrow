@@ -43,7 +43,7 @@ const VideoSlider = ({
           video.pause();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
 
     observer.observe(video);
@@ -61,12 +61,13 @@ const VideoSlider = ({
           {/* Static Background Video */}
           <div className="absolute inset-0">
             <video 
-              autoPlay
+              ref={videoRef}
+              className="w-full h-full object-cover"
               muted
               loop
               playsInline
               webkit-playsinline="true"
-              preload="metadata"
+              preload="none"
               onCanPlay={(e) => {
                 e.currentTarget.play().catch(() => {})
               }}
