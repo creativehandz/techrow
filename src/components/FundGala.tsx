@@ -129,6 +129,7 @@ const FundGala = () => {
                 src="/media/images/sections/gala1.jpg"
                 alt="Gala Event 1"
                 className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
             </div>
             <div className="group overflow-hidden">
@@ -136,6 +137,7 @@ const FundGala = () => {
                 src="/media/images/sections/gala2.jpg"
                 alt="Gala Event 2"
                 className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
             </div>
             
@@ -165,6 +167,7 @@ const FundGala = () => {
                 src="/media/images/sections/gala3.jpg"
                 alt="Gala Event 3"
                 className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
             </div>
             <div className="group overflow-hidden">
@@ -172,6 +175,7 @@ const FundGala = () => {
                 src="/media/images/sections/gala4.jpg"
                 alt="Gala Event 4"
                 className="w-full h-120 object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
             </div>
           </div>
