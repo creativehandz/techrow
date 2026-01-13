@@ -57,7 +57,7 @@ const HeroSection = ({
           loop
           playsInline
           webkit-playsinline="true"
-          preload="metadata"
+          preload="auto"
           controls={false}
           onError={(e) => {
             console.log('Hero video failed to load:', videoSrc);
@@ -73,6 +73,7 @@ const HeroSection = ({
           src={backgroundImage}
           alt="Hero Background"
           className="absolute top-0 left-0 w-full h-full object-cover z-10"
+          fetchPriority="high"
         />
       ) : null}
       
