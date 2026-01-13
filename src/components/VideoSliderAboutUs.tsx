@@ -62,7 +62,7 @@ const VideoSliderAboutUs = ({
                     loop
                     playsInline
                     webkit-playsinline="true"
-                    preload="auto"
+                    preload="metadata"
                     onError={(e) => {
                       console.log('VideoSliderAboutUs video failed to load:', video.src);
                       e.currentTarget.style.display = 'none';

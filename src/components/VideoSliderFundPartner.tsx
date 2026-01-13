@@ -67,12 +67,12 @@ const VideoSliderFundPartner = ({
                 <div className="relative h-full">
                   <video 
                     className="w-full h-full object-cover"
-                    autoPlay
+                    
                     muted
                     loop
                     playsInline
                     webkit-playsinline="true"
-                    preload="auto"
+                    preload="metadata"
                     onError={(e) => {
                       console.log('VideoSliderFundPartner video failed to load:', video.src);
                       e.currentTarget.style.display = 'none';
