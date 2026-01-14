@@ -113,20 +113,20 @@ const ImpactProgramWeFunded = () => {
               <span>PRIDE</span>
             </button>
             <button className="impact-button impact-button-pride">
-              <img src="/media/images/icons/more-local-makers.png" alt="Connection icon" className="w-auto h-6" />
+              <img src="/media/images/icons/connection.png" alt="Connection icon" className="w-auto h-6 prideicon" />
               <span>Connection</span>
             </button>
             <button className="impact-button impact-button-pride">
-              <img src="/media/images/icons/safety-icon.png" alt="safety icon" className="w-auto h-6" />
+              <img src="/media/images/icons/safety.png" alt="safety icon" className="w-auto h-6 prideicon" />
               <span>Safety</span>
             </button>
             <button className="impact-button impact-button-pride">
-              <img src="/media/images/icons/more-active-community-spaces.png" alt="Creativity makers icon" className="w-auto h-6" />
+              <img src="/media/images/icons/creativity.png" alt="Creativity makers icon" className="w-auto h-6 prideicon" />
               <span>Creativity</span>
             </button>
             
             <button className="impact-button impact-button-pride">
-              <img src="/media/images/icons/more-opportunity.png" alt="Opportunity icon" className="w-6 h-6" />
+              <img src="/media/images/icons/opportunity.png" alt="Opportunity icon" className="w-6 h-6 prideicon" />
               <span>Opportunity</span>
             </button>
           </div>
