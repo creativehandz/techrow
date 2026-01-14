@@ -21,19 +21,19 @@ const FundGala = () => {
     },
     {
       id: 2,
-      src: "/media/images/hero/gala.jpg", 
+      src: "/media/images/sections/3.jpg", 
       title: "Creative Partnerships",
       description: "Building bridges between talent and opportunity"
     },
     {
       id: 3,
-      src: "/media/images/hero/gala.jpg",
+      src: "/media/images/sections/gala2.jpg",
       title: "Community Impact",
       description: "Transforming spaces and empowering communities"
     },
     {
       id: 4,
-      src: "/media/images/hero/gala.jpg",
+      src: "/media/images/sections/gala3.jpg",
       title: "Celebrating Success",
       description: "See the real difference we're making together"
     }
@@ -123,7 +123,7 @@ const FundGala = () => {
       {/* Gala Gallery Section */}
       <section className="bg-black">
         <div className="w-full mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0  mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-2 gap-0  mx-auto">
             <div className="group overflow-hidden">
               <img
                 src="/media/images/sections/gala1.jpg"
@@ -158,7 +158,7 @@ const FundGala = () => {
       {/* Gala Gallery Section */}
       <section className="bg-black">
         <div className="w-full mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0  mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-2 gap-0  mx-autogrid grid-cols-1 lg:grid-cols-2 gap-0  mx-auto">
             
             <div className="group overflow-hidden">
               <img
