@@ -29,7 +29,7 @@ const Donate = () => {
         showActionButtons={false}
         showBottomItems={false}
         overlayColor="bg-black/70"
-        height="calc(100vh - 50px)"
+        height="var(--donate-hero-height)"
       />
       
       {/* Gap between sections - Hidden on mobile */}
@@ -67,7 +67,7 @@ const Donate = () => {
                 </h2>
                 
                 {/* Impact Buttons - Responsive Layout */}
-                <div className="flex flex-col gap-4 mb-0 mx-auto">
+                <div className="flex flex-col gap-4 mb-0 mx-auto your-impact-buttons-wrapper">
                   {/* Desktop: 3 buttons, Mobile: 2 buttons left-aligned */}
                   <div className="flex gap-4 justify-start lg:justify-center flex-wrap lg:flex-nowrap">
                     <button className="impact-button-new">
