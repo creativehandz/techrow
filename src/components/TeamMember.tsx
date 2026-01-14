@@ -40,7 +40,13 @@ const TeamMember = ({
               <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
             )}
             <h3 className="team-member-name">
-              {name}
+              {linkedinUrl ? (
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors">
+                  {name}
+                </a>
+              ) : (
+                name
+              )}
             </h3>
             <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" />
           </div>
@@ -76,7 +82,13 @@ const TeamMember = ({
                   <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
                 )}
                 <h3 className="team-member-name">
-                  {name}
+                  {linkedinUrl ? (
+                    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors">
+                      {name}
+                    </a>
+                  ) : (
+                    name
+                  )}
                 </h3>
                 <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" />
               </div>
@@ -101,7 +113,13 @@ const TeamMember = ({
                   <img src="/media/images/icons/linked-in-icon.png" alt="LinkedIn" className="w-7 mr-2" />
                 )}
                 <h3 className="team-member-name">
-                  {name}
+                  {linkedinUrl ? (
+                    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors">
+                      {name}
+                    </a>
+                  ) : (
+                    name
+                  )}
                 </h3>
                 <img src="/media/images/icons/chat-quote.png" alt="Quote" className="w-6 h-6 ml-2" />
               </div>

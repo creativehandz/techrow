@@ -2215,6 +2215,14 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     position: relative;
     z-index: 1;
 }
+.team-heading {
+    font-family: 'League Spartan';
+    font-weight: 900;
+    font-size: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #89E717;
+}
 
 }
 
