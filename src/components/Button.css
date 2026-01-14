@@ -291,6 +291,9 @@
   line-height: 120%;
   color: #fdfdfd;
 }
+.prideicon {
+  filter: brightness(0) saturate(100%);
+}
 
 /* Menu slide animation */
 @keyframes slideDown {
@@ -2222,6 +2225,9 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
     cursor: pointer;
     font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
 }
+.prideicon {
+    filter: brightness(1) saturate(100%);
+}
 }
 
 /* Responsive adjustments for team heading */
@@ -2661,15 +2667,15 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
       justify-content: flex-start !important;
     }
     .impact-summary-subtitle {
-      font-size: 16px;
-      text-align: left;
-      line-height: 24px;
+             font-size: 28px;
+        text-align: left;
+        line-height: 33px;
     }
 
     .impact-heading {
       font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
       font-weight: 900;
-      font-size: 71px;
+      font-size: 48px;
       text-transform: uppercase;
       color: transparent;
       -webkit-text-stroke: 2px #FFD058;
@@ -2677,7 +2683,17 @@ font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
       line-height: normal;
       text-align: left;
     }
-
+.impact-button-pride {
+            background-color: #676ee100;
+        color: #ffffff;
+        padding: 0;
+       
+        /* display: inline; */
+        width: 100%;
+        /* text-align: left; */
+        /* align-items: anchor-center; */
+        justify-content: flex-start;
+}
     .hero-subtitle {
       font-family: 'League Spartan', ui-sans-serif, system-ui, sans-serif;
       font-weight: normal;
@@ -2818,3 +2834,7 @@ background: #193F63;
   color: #89E717;
   margin: 24px 0;
 }
+
+
+
+

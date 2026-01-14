@@ -102,10 +102,14 @@ const ImpactProgramWeFunded = () => {
           <p className="impact-summary-subtitle pb-5">
             OUR PROGRAMS STRENGTHENED COMMUNITIES THROUGH:
           </p>
+          
+          
+          
           {/* Impact Buttons */}
           <div className="flex flex-wrap justify-center gap-6 mobile-left-align">
             <button className="impact-button impact-button-pride">
-              <img src="/media/images/icons/more-pride.png" alt="Pride icon" className="w-auto h-6" />
+              <img src="/media/images/icons/pride.svg" alt="Pride icon" className="w-auto h-6 prideicon" />
+          
               <span>PRIDE</span>
             </button>
             <button className="impact-button impact-button-pride">
