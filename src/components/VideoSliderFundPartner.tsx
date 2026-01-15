@@ -59,12 +59,16 @@ const FundPartnerSlideVideo = ({
         style={muxBackgroundVideoStyle}
         playbackId={muxPlaybackId}
         poster={posterUrl}
+        autoPlay
         muted
         loop
         playsInline
         preload="metadata"
         onLoadStart={() => setShowPoster(true)}
         onLoadedData={() => setShowPoster(false)}
+        onCanPlay={() => {
+          muxRef.current?.play().catch(() => {});
+        }}
         onError={() => {
           console.log('VideoSliderFundPartner video failed to load:', muxPlaybackId);
           if (muxRef.current) {
