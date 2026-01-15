@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Button.css';
 
 interface HeroSectionv1Props {
@@ -114,12 +115,12 @@ const HeroSectionv1 = ({
               {/* Action Buttons */}
               {showActionButtons && (
                 <div className="flex flex-wrap gap-8 mt-8">
-                  <button className="hero-action-button hero-donate-button">
+                  <Link to="/donate" className="hero-action-button hero-donate-button">
                     Donate
-                  </button>
-                  <button className="hero-action-button hero-partner-button">
+                  </Link>
+                  <Link to="/fund-partner-with-us" className="hero-action-button hero-partner-button">
                     Partner
-                  </button>
+                  </Link>
                   <button className="hero-action-button hero-community-button">
                     Bring Us to Your Community
                   </button>

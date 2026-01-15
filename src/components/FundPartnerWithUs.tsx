@@ -1,4 +1,5 @@
 import './Button.css';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import HeroSectionv1 from './HeroSectionv1';
 import VideoSliderFundPartner from './VideoSliderFundPartner';
@@ -85,9 +86,9 @@ const FundPartnerWithUs = () => {
           </p>
           
           <div className="mission-buttons mb-12">
-            <button className="hero-action-button hero-donate-button">
+            <Link to="/donate" className="hero-action-button hero-donate-button">
               Donate
-            </button>
+            </Link>
             
           </div>
           
