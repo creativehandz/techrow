@@ -40,7 +40,7 @@ const FundPartnerWithUs = () => {
       
       <div className="partner-hero-section">
         <HeroSectionv1 
-          videoSrc="/media/videos/pages/HomeVid1Final.mp4"
+          videoSrc="/media/videos/pages/donate.mp4"
           title="<span style='color: #7ED321'>PARTNER WITH US</span>"
           subHeading="Let's Bring Entertainment and Creative Capacity Into More Communities."
           showActionButtons={false}

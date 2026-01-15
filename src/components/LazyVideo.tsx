@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface LazyVideoProps {
   src: string;
@@ -7,21 +7,21 @@ interface LazyVideoProps {
   muted?: boolean;
   loop?: boolean;
   playsInline?: boolean;
-  preload?: 'none' | 'metadata' | 'auto';
+  preload?: "none" | "metadata" | "auto";
   onError?: (e: React.SyntheticEvent<HTMLVideoElement>) => void;
   children?: React.ReactNode;
 }
 
 const LazyVideo: React.FC<LazyVideoProps> = ({
   src,
-  className = '',
+  className = "",
   autoPlay = false,
   muted = true,
   loop = false,
   playsInline = true,
-  preload = 'none',
+  preload = "none",
   onError,
-  children
+  children,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -41,7 +41,7 @@ const LazyVideo: React.FC<LazyVideoProps> = ({
       },
       {
         threshold: 0.1, // Load when 10% visible
-        rootMargin: '50px' // Load 50px before entering viewport
+        rootMargin: "50px", // Load 50px before entering viewport
       }
     );
 
@@ -56,8 +56,8 @@ const LazyVideo: React.FC<LazyVideoProps> = ({
   useEffect(() => {
     const video = videoRef.current;
     if (video && isInView && autoPlay) {
-      video.play().catch(e => {
-        console.log('Autoplay failed:', e);
+      video.play().catch((e) => {
+        console.log("Autoplay failed:", e);
       });
     }
   }, [isInView, autoPlay]);
@@ -70,13 +70,11 @@ const LazyVideo: React.FC<LazyVideoProps> = ({
       loop={loop}
       playsInline={playsInline}
       webkit-playsinline="true"
-      preload={isInView ? preload : 'none'}
+      preload={isInView ? preload : "none"}
       onError={onError}
-      onLoadedData={() => console.log('Lazy video loaded:', src)}
+      onLoadedData={() => console.log("Lazy video loaded:", src)}
     >
-      {isInView && (
-        <source src={src} type="video/mp4" />
-      )}
+      {isInView && <source src={src} type="video/mp4" />}
       {children}
     </video>
   );

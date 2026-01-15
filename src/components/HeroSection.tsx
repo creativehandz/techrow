@@ -1,9 +1,17 @@
+import MuxVideo from '@mux/mux-video-react';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Button.css';
+import {
+  getMuxPlaybackId,
+  getMuxPosterUrl,
+  muxBackgroundVideoStyle
+} from '../utils/muxPlayback';
 
 interface HeroSectionProps {
   videoSrc?: string;
+  videoPlaybackId?: string;
+  requireMux?: boolean;
   title: string;
   subtitle?: string;
   subHeading?: string;
@@ -17,6 +25,8 @@ interface HeroSectionProps {
 
 const HeroSection = ({
   videoSrc,
+  videoPlaybackId,
+  requireMux = false,
   title,
   subtitle,
   subHeading,
@@ -27,15 +37,30 @@ const HeroSection = ({
   overlayColor = 'bg-black bg-opacity-40',
   height = 'var(--hero-height)'
 }: HeroSectionProps) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const muxRef = useRef<HTMLVideoElement | null>(null);
+  const muxPlaybackId = videoPlaybackId ?? getMuxPlaybackId(videoSrc);
+  const usesMux = Boolean(muxPlaybackId);
+  const allowFallback = !requireMux;
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
+    const media = usesMux
+      ? muxRef.current
+      : allowFallback
+        ? videoRef.current
+        : null;
+    if (media) {
+      media.play().catch((error) => {
         console.log('Auto-play was prevented:', error);
       });
     }
-  }, []);
+  }, [allowFallback, usesMux, muxPlaybackId]);
+
+  useEffect(() => {
+    if (requireMux && videoSrc && !muxPlaybackId) {
+      console.warn('Mux playback ID missing for hero video:', videoSrc);
+    }
+  }, [requireMux, videoSrc, muxPlaybackId]);
 
   const scrollToNextSection = () => {
     const heroHeight = window.innerHeight;
@@ -48,7 +73,27 @@ const HeroSection = ({
   return (
     <div className="relative overflow-hidden bg-gray-900" style={{height}}>
       {/* Background Video or Image */}
-      {videoSrc ? (
+      {muxPlaybackId ? (
+        <MuxVideo
+          ref={muxRef}
+          className="absolute top-0 left-0 w-full h-full object-cover z-10"
+          style={muxBackgroundVideoStyle}
+          playbackId={muxPlaybackId}
+          poster={getMuxPosterUrl(muxPlaybackId)}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="metadata"
+          onError={() => {
+            console.log('Hero video failed to load:', muxPlaybackId);
+            if (muxRef.current) {
+              muxRef.current.style.display = 'none';
+            }
+          }}
+          onLoadedData={() => console.log('Video loaded')}
+        />
+      ) : allowFallback && videoSrc ? (
         <video 
           ref={videoRef}
           className="absolute top-0 left-0 w-full h-full object-cover z-10"
