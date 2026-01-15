@@ -1,13 +1,21 @@
+import MuxVideo from '@mux/mux-video-react';
+import { useEffect, useRef, useState } from 'react';
 import './Button.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import {
+  getMuxPlaybackId,
+  getMuxPosterUrl,
+  muxBackgroundVideoStyle
+} from '../utils/muxPlayback';
 
 interface VideoSlideFundPartner {
   id: number;
   src: string;
+  playbackId?: string;
   title: string;
   titleColor?: string;
   subtitle?: string;
@@ -21,10 +29,65 @@ interface VideoSlideFundPartner {
 interface VideoSliderFundPartnerProps {
   videos: VideoSlideFundPartner[];
   height?: string;
+  requireMux?: boolean;
 }
 
+const FundPartnerSlideVideo = ({
+  video,
+  requireMux
+}: {
+  video: VideoSlideFundPartner;
+  requireMux: boolean;
+}) => {
+  const muxRef = useRef<HTMLVideoElement | null>(null);
+  const muxPlaybackId = video.playbackId ?? getMuxPlaybackId(video.src);
+  const posterUrl = getMuxPosterUrl(muxPlaybackId);
+  const [showPoster, setShowPoster] = useState(true);
+
+  useEffect(() => {
+    if (requireMux && video.src && !muxPlaybackId) {
+      console.warn('Mux playback ID missing for fund partner video:', video.src);
+    }
+  }, [requireMux, video.src, muxPlaybackId]);
+  if (!muxPlaybackId) return null;
+
+  return (
+    <>
+      <MuxVideo
+        ref={muxRef}
+        className="w-full h-full object-cover"
+        style={muxBackgroundVideoStyle}
+        playbackId={muxPlaybackId}
+        poster={posterUrl}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        onLoadStart={() => setShowPoster(true)}
+        onLoadedData={() => setShowPoster(false)}
+        onError={() => {
+          console.log('VideoSliderFundPartner video failed to load:', muxPlaybackId);
+          if (muxRef.current) {
+            muxRef.current.style.display = 'none';
+          }
+        }}
+      />
+      {posterUrl ? (
+        <img
+          src={posterUrl}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+          style={{ opacity: showPoster ? 1 : 0, pointerEvents: 'none' }}
+        />
+      ) : null}
+    </>
+  );
+};
+
 const VideoSliderFundPartner = ({ 
-  videos
+  videos,
+  requireMux = true
 }: VideoSliderFundPartnerProps) => {
 
   if (!videos || videos.length === 0) {
@@ -65,22 +128,7 @@ const VideoSliderFundPartner = ({
             {videos.map((video) => (
               <SwiperSlide key={video.id}>
                 <div className="relative h-full">
-                  <video 
-                    className="w-full h-full object-cover"
-                    
-                    muted
-                    loop
-                    playsInline
-                    webkit-playsinline="true"
-                    preload="metadata"
-                    onError={(e) => {
-                      console.log('VideoSliderFundPartner video failed to load:', video.src);
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  >
-                    <source src={video.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <FundPartnerSlideVideo video={video} requireMux={requireMux} />
                   
                   {/* Action Buttons - Positioned at top center, bottom on mobile */}
                   <div className="absolute top-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 md:top-10 md:left-1/2 md:transform md:-translate-x-1/2">

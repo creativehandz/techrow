@@ -26,7 +26,7 @@ interface HeroSectionProps {
 const HeroSection = ({
   videoSrc,
   videoPlaybackId,
-  requireMux = false,
+  requireMux = true,
   title,
   subtitle,
   subHeading,
@@ -37,26 +37,21 @@ const HeroSection = ({
   overlayColor = 'bg-black bg-opacity-40',
   height = 'var(--hero-height)'
 }: HeroSectionProps) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
   const muxRef = useRef<HTMLVideoElement | null>(null);
   const muxPlaybackId = videoPlaybackId ?? getMuxPlaybackId(videoSrc);
   const usesMux = Boolean(muxPlaybackId);
-  const allowFallback = !requireMux;
   const posterUrl = getMuxPosterUrl(muxPlaybackId);
   const [showPoster, setShowPoster] = useState(true);
 
   useEffect(() => {
-    const media = usesMux
-      ? muxRef.current
-      : allowFallback
-        ? videoRef.current
-        : null;
+    if (!usesMux) return;
+    const media = muxRef.current;
     if (media) {
       media.play().catch((error) => {
         console.log('Auto-play was prevented:', error);
       });
     }
-  }, [allowFallback, usesMux, muxPlaybackId]);
+  }, [usesMux, muxPlaybackId]);
 
   useEffect(() => {
     if (requireMux && videoSrc && !muxPlaybackId) {
@@ -107,26 +102,6 @@ const HeroSection = ({
             />
           ) : null}
         </>
-      ) : allowFallback && videoSrc ? (
-        <video 
-          ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover z-10"
-          
-          muted 
-          loop
-          playsInline
-          webkit-playsinline="true"
-          preload="metadata"
-          controls={false}
-          onError={(e) => {
-            console.log('Hero video failed to load:', videoSrc);
-            e.currentTarget.style.display = 'none';
-          }}
-          onLoadedData={() => console.log('Video loaded')}
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
       ) : backgroundImage ? (
         <img 
           src={backgroundImage}

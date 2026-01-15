@@ -24,6 +24,7 @@ const Donate = () => {
 
       <HeroSection
         videoSrc="/media/videos/pages/donate.mp4"
+        requireMux={true}
         title="Help Us Bring Entertainment <br />and Creative Opportunity <br /><span style='color: #FFD058'>to Neighborhoods That Need It Most.</span> "
         subHeading="Your support activates spaces, powers creativity. and fuels the makers who bring entertainment to life."
         showActionButtons={false}

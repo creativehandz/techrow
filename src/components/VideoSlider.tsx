@@ -32,8 +32,7 @@ interface VideoSliderProps {
   requireMux?: boolean;
 }
 
-const VideoSlider = ({ videos, requireMux = false }: VideoSliderProps) => {
-  const videoRef = React.useRef<HTMLVideoElement | null>(null);
+const VideoSlider = ({ videos, requireMux = true }: VideoSliderProps) => {
   const muxRef = React.useRef<HTMLVideoElement | null>(null);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const backgroundVideo = videos?.[0];
@@ -41,10 +40,7 @@ const VideoSlider = ({ videos, requireMux = false }: VideoSliderProps) => {
   const muxPlaybackId =
     backgroundVideo?.playbackId ?? getMuxPlaybackId(backgroundVideoSrc);
   const muxPosterUrl = getMuxPosterUrl(muxPlaybackId);
-  const backgroundSrc =
-    backgroundVideoSrc || "/media/videos/hero/techrow_montage_new-v1.mp4";
   const usesMux = Boolean(muxPlaybackId);
-  const allowFallback = !requireMux;
   const [showPoster, setShowPoster] = React.useState(true);
 
   React.useEffect(() => {
@@ -54,11 +50,7 @@ const VideoSlider = ({ videos, requireMux = false }: VideoSliderProps) => {
     // Auto-play when video comes into view
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const video = usesMux
-          ? muxRef.current
-          : allowFallback
-          ? videoRef.current
-          : null;
+        const video = usesMux ? muxRef.current : null;
         if (!video) return;
         if (entry.isIntersecting) {
           video.play().catch(() => console.log("Autoplay prevented"));
@@ -71,7 +63,7 @@ const VideoSlider = ({ videos, requireMux = false }: VideoSliderProps) => {
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, [allowFallback, usesMux, muxPlaybackId]);
+  }, [usesMux, muxPlaybackId]);
 
   React.useEffect(() => {
     if (requireMux && backgroundVideoSrc && !muxPlaybackId) {
@@ -129,26 +121,6 @@ const VideoSlider = ({ videos, requireMux = false }: VideoSliderProps) => {
                   />
                 ) : null}
               </>
-            ) : allowFallback ? (
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                muted
-                loop
-                playsInline
-                webkit-playsinline="true"
-                preload="none"
-                onCanPlay={(e) => {
-                  e.currentTarget.play().catch(() => {});
-                }}
-                onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
-                  console.log("Video failed to load:", backgroundSrc);
-                  e.currentTarget.style.display = "none";
-                }}
-              >
-                <source src={backgroundSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
             ) : null}
           </div>
 

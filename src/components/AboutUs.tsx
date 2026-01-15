@@ -78,6 +78,7 @@ const AboutUs = () => {
 
       <HeroSection
         videoSrc="/media/videos/pages/harlem_s-legendary-cultural-history-v1.mp4"
+        requireMux={true}
         title="Born in <span style='color: #FFD058'>Harlem — <br /></span> Steps From the Apollo."
         subHeading="A place that entertained the world. <br />A history shaped by legendary talent. <br />A neighborhood built on creativity, pride, and possibility."
         showActionButtons={false}
@@ -124,7 +125,11 @@ const AboutUs = () => {
 
       {/* Video Section */}
       <section>
-        <VideoSliderAboutUs videos={aboutUsVideos} height="700px" />
+        <VideoSliderAboutUs
+          videos={aboutUsVideos}
+          height="700px"
+          requireMux={true}
+        />
       </section>
       {/* Gap between sections */}
       <div style={{ height: "180px", backgroundColor: "#000000" }}></div>

@@ -33,18 +33,14 @@ interface VideoSlider2Props {
   requireMux?: boolean;
 }
 
-const VideoSlider2 = ({ videos, requireMux = false }: VideoSlider2Props) => {
-  const videoRef = React.useRef<HTMLVideoElement | null>(null);
+const VideoSlider2 = ({ videos, requireMux = true }: VideoSlider2Props) => {
   const muxRef = React.useRef<HTMLVideoElement | null>(null);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const backgroundVideo = videos?.[0];
   const backgroundVideoSrc = backgroundVideo?.src;
   const muxPlaybackId =
     backgroundVideo?.playbackId ?? getMuxPlaybackId(backgroundVideoSrc);
-  const backgroundSrc =
-    backgroundVideoSrc || "/media/videos/hero/techrow_montage_new-v1.mp4";
   const usesMux = Boolean(muxPlaybackId);
-  const allowFallback = !requireMux;
   const placeholderPoster =
     "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDAwMDAiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzMzMzMzMyIgeD0iMzAiIHk9IjMwIj4KPHBhdGggZD0iTTggNXYxNGwxMS03eiIvPgo8L3N2Zz4KPC9zdmc+";
   const muxPosterUrl = getMuxPosterUrl(muxPlaybackId) ?? placeholderPoster;
@@ -57,11 +53,7 @@ const VideoSlider2 = ({ videos, requireMux = false }: VideoSlider2Props) => {
     // Auto-play for both desktop and mobile with better mobile optimization
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const video = usesMux
-          ? muxRef.current
-          : allowFallback
-          ? videoRef.current
-          : null;
+        const video = usesMux ? muxRef.current : null;
         if (!video) return;
         if (entry.isIntersecting) {
           video.play().catch(() => console.log("Autoplay prevented"));
@@ -74,7 +66,7 @@ const VideoSlider2 = ({ videos, requireMux = false }: VideoSlider2Props) => {
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, [allowFallback, usesMux, muxPlaybackId]);
+  }, [usesMux, muxPlaybackId]);
 
   React.useEffect(() => {
     if (requireMux && backgroundVideoSrc && !muxPlaybackId) {
@@ -137,34 +129,6 @@ const VideoSlider2 = ({ videos, requireMux = false }: VideoSlider2Props) => {
                   style={{ opacity: showPoster ? 1 : 0, pointerEvents: "none" }}
                 />
               </>
-            ) : allowFallback ? (
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                muted
-                loop
-                playsInline
-                webkit-playsinline="true"
-                preload="metadata"
-                poster={placeholderPoster}
-                onCanPlay={(e) => {
-                  e.currentTarget.play().catch(() => {});
-                }}
-                onLoadStart={(e: React.SyntheticEvent<HTMLVideoElement>) => {
-                  // Mobile optimization: reduce quality if slow connection
-                  const video = e.currentTarget;
-                  if (isSlowConnection()) {
-                    video.style.filter = "contrast(0.9)";
-                  }
-                }}
-                onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
-                  console.log("VideoSlider2 video failed to load");
-                  e.currentTarget.style.display = "none";
-                }}
-              >
-                <source src={backgroundSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
             ) : null}
           </div>
 

@@ -41,6 +41,7 @@ const FundPartnerWithUs = () => {
       <div className="partner-hero-section">
         <HeroSectionv1 
           videoSrc="/media/videos/pages/donate.mp4"
+          requireMux={true}
           title="<span style='color: #7ED321'>PARTNER WITH US</span>"
           subHeading="Let's Bring Entertainment and Creative Capacity Into More Communities."
           showActionButtons={false}
@@ -57,6 +58,7 @@ const FundPartnerWithUs = () => {
         <VideoSliderFundPartner 
           videos={partnershipVideos}
           height="70vh"
+          requireMux={true}
         />
       </section>
       {/* Gap between sections */}
@@ -67,6 +69,7 @@ const FundPartnerWithUs = () => {
         <VideoSliderFundPartner 
           videos={partnershipVideos2}
           height="70vh"
+          requireMux={true}
         />
       </section>
       {/* Gap between sections */}

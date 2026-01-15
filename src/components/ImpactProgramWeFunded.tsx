@@ -80,6 +80,7 @@ const ImpactProgramWeFunded = () => {
 
       <HeroSection
         videoSrc="/media/videos/pages/harlem_s-legendary-cultural-history-v1.mp4"
+        requireMux={true}
         title="Our Impact Lives in the <br />Experiences We Sparked — <br /><span style='color: #FFD058'>and the Makers We Supported.</span>"
         subHeading="Across Harlem and beyond, these programs brought <br />entertainment-centered creativity into community spaces."
         showActionButtons={false}
@@ -93,7 +94,7 @@ const ImpactProgramWeFunded = () => {
 
       {/* Video Section */}
       <section>
-        <VideoSlider videos={impactVideos} height="70vh" />
+        <VideoSlider videos={impactVideos} height="70vh" requireMux={true} />
       </section>
 
       {/* Gap between sections */}
