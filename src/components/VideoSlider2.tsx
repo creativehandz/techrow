@@ -47,6 +47,8 @@ const VideoSlider2 = ({ videos, requireMux = false }: VideoSlider2Props) => {
   const allowFallback = !requireMux;
   const placeholderPoster =
     "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDAwMDAiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzMzMzMzMyIgeD0iMzAiIHk9IjMwIj4KPHBhdGggZD0iTTggNXYxNGwxMS03eiIvPgo8L3N2Zz4KPC9zdmc+";
+  const muxPosterUrl = getMuxPosterUrl(muxPlaybackId) ?? placeholderPoster;
+  const [showPoster, setShowPoster] = React.useState(true);
 
   React.useEffect(() => {
     const container = containerRef.current;
@@ -97,33 +99,44 @@ const VideoSlider2 = ({ videos, requireMux = false }: VideoSlider2Props) => {
           {/* Static Background Video */}
           <div className="absolute inset-0">
             {muxPlaybackId ? (
-              <MuxVideo
-                ref={muxRef}
-                className="w-full h-full object-cover"
-                style={muxBackgroundVideoStyle}
-                playbackId={muxPlaybackId}
-                poster={getMuxPosterUrl(muxPlaybackId) ?? placeholderPoster}
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                onCanPlay={() => {
-                  muxRef.current?.play().catch(() => {});
-                }}
-                onLoadStart={() => {
-                  const player = muxRef.current;
-                  if (!player) return;
-                  if (isSlowConnection()) {
-                    player.style.filter = "contrast(0.9)";
-                  }
-                }}
-                onError={() => {
-                  console.log("VideoSlider2 video failed to load");
-                  if (muxRef.current) {
-                    muxRef.current.style.display = "none";
-                  }
-                }}
-              />
+              <>
+                <MuxVideo
+                  ref={muxRef}
+                  className="w-full h-full object-cover"
+                  style={muxBackgroundVideoStyle}
+                  playbackId={muxPlaybackId}
+                  poster={muxPosterUrl}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  onCanPlay={() => {
+                    muxRef.current?.play().catch(() => {});
+                  }}
+                  onLoadStart={() => {
+                    setShowPoster(true);
+                    const player = muxRef.current;
+                    if (!player) return;
+                    if (isSlowConnection()) {
+                      player.style.filter = "contrast(0.9)";
+                    }
+                  }}
+                  onLoadedData={() => setShowPoster(false)}
+                  onError={() => {
+                    console.log("VideoSlider2 video failed to load");
+                    if (muxRef.current) {
+                      muxRef.current.style.display = "none";
+                    }
+                  }}
+                />
+                <img
+                  src={muxPosterUrl}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                  style={{ opacity: showPoster ? 1 : 0, pointerEvents: "none" }}
+                />
+              </>
             ) : allowFallback ? (
               <video
                 ref={videoRef}

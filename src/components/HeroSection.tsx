@@ -1,5 +1,5 @@
 import MuxVideo from '@mux/mux-video-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Button.css';
 import {
@@ -42,6 +42,8 @@ const HeroSection = ({
   const muxPlaybackId = videoPlaybackId ?? getMuxPlaybackId(videoSrc);
   const usesMux = Boolean(muxPlaybackId);
   const allowFallback = !requireMux;
+  const posterUrl = getMuxPosterUrl(muxPlaybackId);
+  const [showPoster, setShowPoster] = useState(true);
 
   useEffect(() => {
     const media = usesMux
@@ -74,25 +76,37 @@ const HeroSection = ({
     <div className="relative overflow-hidden bg-gray-900" style={{height}}>
       {/* Background Video or Image */}
       {muxPlaybackId ? (
-        <MuxVideo
-          ref={muxRef}
-          className="absolute top-0 left-0 w-full h-full object-cover z-10"
-          style={muxBackgroundVideoStyle}
-          playbackId={muxPlaybackId}
-          poster={getMuxPosterUrl(muxPlaybackId)}
-          muted
-          loop
-          playsInline
-          autoPlay
-          preload="metadata"
-          onError={() => {
-            console.log('Hero video failed to load:', muxPlaybackId);
-            if (muxRef.current) {
-              muxRef.current.style.display = 'none';
-            }
-          }}
-          onLoadedData={() => console.log('Video loaded')}
-        />
+        <>
+          <MuxVideo
+            ref={muxRef}
+            className="absolute top-0 left-0 w-full h-full object-cover z-10"
+            style={muxBackgroundVideoStyle}
+            playbackId={muxPlaybackId}
+            poster={posterUrl}
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="metadata"
+            onLoadStart={() => setShowPoster(true)}
+            onLoadedData={() => setShowPoster(false)}
+            onError={() => {
+              console.log('Hero video failed to load:', muxPlaybackId);
+              if (muxRef.current) {
+                muxRef.current.style.display = 'none';
+              }
+            }}
+          />
+          {posterUrl ? (
+            <img
+              src={posterUrl}
+              alt=""
+              aria-hidden="true"
+              className="absolute top-0 left-0 w-full h-full object-cover z-10 transition-opacity duration-500"
+              style={{ opacity: showPoster ? 1 : 0, pointerEvents: 'none' }}
+            />
+          ) : null}
+        </>
       ) : allowFallback && videoSrc ? (
         <video 
           ref={videoRef}

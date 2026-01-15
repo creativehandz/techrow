@@ -40,10 +40,12 @@ const VideoSlider = ({ videos, requireMux = false }: VideoSliderProps) => {
   const backgroundVideoSrc = backgroundVideo?.src;
   const muxPlaybackId =
     backgroundVideo?.playbackId ?? getMuxPlaybackId(backgroundVideoSrc);
+  const muxPosterUrl = getMuxPosterUrl(muxPlaybackId);
   const backgroundSrc =
     backgroundVideoSrc || "/media/videos/hero/techrow_montage_new-v1.mp4";
   const usesMux = Boolean(muxPlaybackId);
   const allowFallback = !requireMux;
+  const [showPoster, setShowPoster] = React.useState(true);
 
   React.useEffect(() => {
     const container = containerRef.current;
@@ -94,26 +96,39 @@ const VideoSlider = ({ videos, requireMux = false }: VideoSliderProps) => {
           {/* Static Background Video */}
           <div className="absolute inset-0">
             {muxPlaybackId ? (
-              <MuxVideo
-                ref={muxRef}
-                className="w-full h-full object-cover"
-                style={muxBackgroundVideoStyle}
-                playbackId={muxPlaybackId}
-                poster={getMuxPosterUrl(muxPlaybackId)}
-                muted
-                loop
-                playsInline
-                preload="none"
-                onCanPlay={() => {
-                  muxRef.current?.play().catch(() => {});
-                }}
-                onError={() => {
-                  console.log("Video failed to load:", muxPlaybackId);
-                  if (muxRef.current) {
-                    muxRef.current.style.display = "none";
-                  }
-                }}
-              />
+              <>
+                <MuxVideo
+                  ref={muxRef}
+                  className="w-full h-full object-cover"
+                  style={muxBackgroundVideoStyle}
+                  playbackId={muxPlaybackId}
+                  poster={muxPosterUrl}
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  onLoadStart={() => setShowPoster(true)}
+                  onLoadedData={() => setShowPoster(false)}
+                  onCanPlay={() => {
+                    muxRef.current?.play().catch(() => {});
+                  }}
+                  onError={() => {
+                    console.log("Video failed to load:", muxPlaybackId);
+                    if (muxRef.current) {
+                      muxRef.current.style.display = "none";
+                    }
+                  }}
+                />
+                {muxPosterUrl ? (
+                  <img
+                    src={muxPosterUrl}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                    style={{ opacity: showPoster ? 1 : 0, pointerEvents: "none" }}
+                  />
+                ) : null}
+              </>
             ) : allowFallback ? (
               <video
                 ref={videoRef}
