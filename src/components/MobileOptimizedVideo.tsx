@@ -1,7 +1,14 @@
+import MuxVideo from '@mux/mux-video-react';
 import React, { useState, useRef, useEffect } from 'react';
+import {
+  getMuxPlaybackId,
+  getMuxPosterUrl,
+  muxBackgroundVideoStyle
+} from '../utils/muxPlayback';
 
 interface MobileOptimizedVideoProps {
   src: string;
+  playbackId?: string;
   className?: string;
   autoPlay?: boolean;
   muted?: boolean;
@@ -14,6 +21,7 @@ interface MobileOptimizedVideoProps {
 
 const MobileOptimizedVideo: React.FC<MobileOptimizedVideoProps> = ({
   src,
+  playbackId,
   className = '',
   autoPlay = false,
   muted = true,
@@ -23,17 +31,31 @@ const MobileOptimizedVideo: React.FC<MobileOptimizedVideoProps> = ({
   onError,
   children
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const muxPlaybackId = playbackId ?? getMuxPlaybackId(src);
+  const posterUrl = posterImage ?? getMuxPosterUrl(muxPlaybackId);
+  const [showPoster, setShowPoster] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    if (src && !muxPlaybackId) {
+      console.warn('Mux playback ID missing for MobileOptimizedVideo:', src);
+    }
+  }, [src, muxPlaybackId]);
+
   // Detect mobile device
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+      setIsMobile(
+        window.innerWidth <= 768 ||
+          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+      );
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -69,7 +91,7 @@ const MobileOptimizedVideo: React.FC<MobileOptimizedVideoProps> = ({
   const handleCanPlay = () => {
     const video = videoRef.current;
     if (video && autoPlay && isInView) {
-      video.play().catch(e => {
+      video.play().catch((e) => {
         console.log('Mobile autoplay failed:', e);
       });
     }
@@ -78,31 +100,47 @@ const MobileOptimizedVideo: React.FC<MobileOptimizedVideoProps> = ({
   // For mobile, only start loading when user scrolls to video
   const shouldLoadVideo = !isMobile || (isMobile && isInView && isLoaded);
 
+  if (!muxPlaybackId) {
+    return null;
+  }
+
   return (
-    <video
-      ref={videoRef}
-      className={className}
-      muted={muted}
-      loop={loop}
-      playsInline={playsInline}
-      webkit-playsinline="true"
-      preload={shouldLoadVideo ? 'metadata' : 'none'}
-      poster={posterImage}
-      onCanPlay={handleCanPlay}
-      onError={onError}
-      onLoadedData={() => console.log('Mobile optimized video loaded:', src)}
-      // Mobile-specific attributes
-      {...(isMobile && {
-        'data-setup': '{"fluid": true}',
-        controlsList: 'nodownload nofullscreen',
-        disablePictureInPicture: true
-      })}
-    >
-      {shouldLoadVideo && (
-        <source src={src} type="video/mp4" />
-      )}
-      {children}
-    </video>
+    <div className={`relative ${className}`.trim()}>
+      <MuxVideo
+        ref={videoRef}
+        className="w-full h-full object-cover"
+        style={muxBackgroundVideoStyle}
+        playbackId={muxPlaybackId}
+        poster={posterUrl}
+        autoPlay={autoPlay}
+        muted={muted}
+        loop={loop}
+        playsInline={playsInline}
+        preload={shouldLoadVideo ? 'metadata' : 'none'}
+        onCanPlay={handleCanPlay}
+        onLoadStart={() => setShowPoster(true)}
+        onLoadedData={() => {
+          setShowPoster(false);
+          console.log('Mobile optimized video loaded:', src);
+        }}
+        onError={(e) => onError?.(e as React.SyntheticEvent<HTMLVideoElement>)}
+        {...(isMobile && {
+          controlsList: 'nodownload nofullscreen',
+          disablePictureInPicture: true
+        })}
+      >
+        {children}
+      </MuxVideo>
+      {posterUrl ? (
+        <img
+          src={posterUrl}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+          style={{ opacity: showPoster ? 1 : 0, pointerEvents: 'none' }}
+        />
+      ) : null}
+    </div>
   );
 };
 

@@ -1,8 +1,14 @@
 // Network and device optimization utilities
 
+type NavigatorConnection = Navigator & {
+  connection?: { effectiveType?: string };
+  mozConnection?: { effectiveType?: string };
+  webkitConnection?: { effectiveType?: string };
+};
+
 export const getConnectionSpeed = (): string => {
-  // @ts-ignore - NetworkInformation API
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const nav = navigator as NavigatorConnection;
+  const connection = nav.connection || nav.mozConnection || nav.webkitConnection;
   
   if (connection) {
     const effectiveType = connection.effectiveType;

@@ -1,9 +1,17 @@
-import { useEffect, useRef } from 'react';
+import MuxVideo from '@mux/mux-video-react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Button.css';
+import {
+  getMuxPlaybackId,
+  getMuxPosterUrl,
+  muxBackgroundVideoStyle
+} from '../utils/muxPlayback';
 
 interface HeroSectionv1Props {
   videoSrc?: string;
+  videoPlaybackId?: string;
+  requireMux?: boolean;
   title: string;
   subtitle?: string;
   subHeading?: string;
@@ -17,6 +25,8 @@ interface HeroSectionv1Props {
 
 const HeroSectionv1 = ({
   videoSrc,
+  videoPlaybackId,
+  requireMux = true,
   title,
   subtitle,
   subHeading,
@@ -27,35 +37,63 @@ const HeroSectionv1 = ({
   overlayColor = 'bg-black bg-opacity-40',
   height = 'calc(100vh - 100px)'
 }: HeroSectionv1Props) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const muxRef = useRef<HTMLVideoElement | null>(null);
+  const muxPlaybackId = videoPlaybackId ?? getMuxPlaybackId(videoSrc);
+  const posterUrl = getMuxPosterUrl(muxPlaybackId);
+  const usesMux = Boolean(muxPlaybackId);
+  const [showPoster, setShowPoster] = useState(true);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
+    if (!usesMux) return;
+    const media = muxRef.current;
+    if (media) {
+      media.play().catch((error) => {
         console.log('Auto-play was prevented:', error);
       });
     }
-  }, []);
+  }, [usesMux, muxPlaybackId]);
+
+  useEffect(() => {
+    if (requireMux && videoSrc && !muxPlaybackId) {
+      console.warn('Mux playback ID missing for hero v1 video:', videoSrc);
+    }
+  }, [requireMux, videoSrc, muxPlaybackId]);
 
   return (
     <div className="relative overflow-hidden bg-gray-900" style={{height}}>
       {/* Background Video or Image */}
-      {videoSrc ? (
-        <video 
-          ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover z-10"
-          
-          muted 
-          loop
-          playsInline
-          preload="metadata"
-          controls={false}
-          onLoadedData={() => console.log('Video loaded')}
-          onError={() => console.log('Video error')}
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      {muxPlaybackId ? (
+        <>
+          <MuxVideo
+            ref={muxRef}
+            className="absolute top-0 left-0 w-full h-full object-cover z-10"
+            style={muxBackgroundVideoStyle}
+            playbackId={muxPlaybackId}
+            poster={posterUrl}
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="metadata"
+            onLoadStart={() => setShowPoster(true)}
+            onLoadedData={() => setShowPoster(false)}
+            onError={() => {
+              console.log('HeroSectionv1 video failed to load:', muxPlaybackId);
+              if (muxRef.current) {
+                muxRef.current.style.display = 'none';
+              }
+            }}
+          />
+          {posterUrl ? (
+            <img
+              src={posterUrl}
+              alt=""
+              aria-hidden="true"
+              className="absolute top-0 left-0 w-full h-full object-cover z-10 transition-opacity duration-500"
+              style={{ opacity: showPoster ? 1 : 0, pointerEvents: 'none' }}
+            />
+          ) : null}
+        </>
       ) : backgroundImage ? (
         <img 
           src={backgroundImage}

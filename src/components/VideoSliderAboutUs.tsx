@@ -1,13 +1,21 @@
+import MuxVideo from '@mux/mux-video-react';
+import { useEffect, useRef, useState } from 'react';
 import './Button.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import {
+  getMuxPlaybackId,
+  getMuxPosterUrl,
+  muxBackgroundVideoStyle
+} from '../utils/muxPlayback';
 
 interface VideoSlideAboutUs {
   id: number;
   src: string;
+  playbackId?: string;
   title: string;
   titleColor?: string;
   subtitle?: string;
@@ -21,11 +29,71 @@ interface VideoSlideAboutUs {
 interface VideoSliderAboutUsProps {
   videos: VideoSlideAboutUs[];
   height?: string;
+  requireMux?: boolean;
 }
+
+const AboutUsSlideVideo = ({
+  video,
+  requireMux
+}: {
+  video: VideoSlideAboutUs;
+  requireMux: boolean;
+}) => {
+  const muxRef = useRef<HTMLVideoElement | null>(null);
+  const muxPlaybackId = video.playbackId ?? getMuxPlaybackId(video.src);
+  const posterUrl = getMuxPosterUrl(muxPlaybackId);
+  const [showPoster, setShowPoster] = useState(true);
+
+  useEffect(() => {
+    if (requireMux && video.src && !muxPlaybackId) {
+      console.warn('Mux playback ID missing for about us video:', video.src);
+    }
+  }, [requireMux, video.src, muxPlaybackId]);
+
+  if (!muxPlaybackId) return null;
+
+  return (
+    <>
+      <MuxVideo
+        ref={muxRef}
+        className="w-full h-full object-cover"
+        style={muxBackgroundVideoStyle}
+        playbackId={muxPlaybackId}
+        poster={posterUrl}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        onLoadStart={() => setShowPoster(true)}
+        onLoadedData={() => setShowPoster(false)}
+        onCanPlay={() => {
+          muxRef.current?.play().catch(() => {});
+        }}
+        onError={() => {
+          console.log('VideoSliderAboutUs video failed to load:', muxPlaybackId);
+          if (muxRef.current) {
+            muxRef.current.style.display = 'none';
+          }
+        }}
+      />
+      {posterUrl ? (
+        <img
+          src={posterUrl}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+          style={{ opacity: showPoster ? 1 : 0, pointerEvents: 'none' }}
+        />
+      ) : null}
+    </>
+  );
+};
 
 const VideoSliderAboutUs = ({ 
   videos,
-  height = "800px"
+  height = "800px",
+  requireMux = true
 }: VideoSliderAboutUsProps) => {
 
   if (!videos || videos.length === 0) {
@@ -54,20 +122,7 @@ const VideoSliderAboutUs = ({
               <SwiperSlide key={video.id} className="relative h-full">
                 <div className="relative w-full h-full">
                   {/* Video Background */}
-                  <video
-                    className="w-full h-full object-cover"
-                    src={video.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    webkit-playsinline="true"
-                    preload="metadata"
-                    onError={(e) => {
-                      console.log('VideoSliderAboutUs video failed to load:', video.src);
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
+                  <AboutUsSlideVideo video={video} requireMux={requireMux} />
                   
                   {/* Action Buttons - Positioned at top center */}
                   <div className="absolute top-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 hidden md:flex">
